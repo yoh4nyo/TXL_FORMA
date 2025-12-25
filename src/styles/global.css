@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Couleurs principales */
+  --primary: #0D9488;
+  --primary-dark: #0F766E;
+  --primary-light: #5EEAD4;
+  --primary-ultra-light: #CCFBF1;
+  
+  /* Couleurs secondaires */
+  --accent-purple: #7C3AED;
+  --accent-pink: #EC4899;
+  --accent-orange: #F97316;
+  --accent-red: #DD2726;
+  
+  /* Neutres */
+  --white: #FFFFFF;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  
+  /* Footer */
+  --footer-bg: #1E293B;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  /* Border radius */
+  --radius-sm: 0.375rem;
+  --radius: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--gray-900);
+  background-color: var(--white);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Styles personnalisés des boutons */
+.btn-primary-custom {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: var(--white) !important;
+  font-weight: 500;
+  padding: 0.625rem 1.5rem;
+  border-radius: var(--radius-full) !important;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-outline-custom {
+  background-color: transparent !important;
+  border: 2px solid var(--primary) !important;
+  color: var(--primary) !important;
+  font-weight: 500;
+  padding: 0.625rem 1.5rem;
+  border-radius: var(--radius-full) !important;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+  background-color: var(--primary) !important;
+  color: var(--white) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Espacement des sections */
+.section {
+  padding: 5rem 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--gray-900);
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--gray-500);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Effet survol des cartes */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Styles des badges */
+.badge-primary {
+  background-color: var(--primary) !important;
+  color: var(--white);
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.badge-purple {
+  background-color: var(--accent-purple) !important;
+  color: var(--white);
+}
+
+.badge-pink {
+  background-color: var(--accent-pink) !important;
+  color: var(--white);
+}
+
+.badge-orange {
+  background-color: var(--accent-orange) !important;
+  color: var(--white);
+}

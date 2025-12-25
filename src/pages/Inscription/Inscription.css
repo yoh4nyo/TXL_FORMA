@@ -1,0 +1,133 @@
+/* Mise en page */
+.inscription-page {
+    background-color: #ECF9F9;
+    min-height: calc(100vh - 80px);
+    /* Hauteur min pour éviter que le footer colle */
+    display: flex;
+    flex-direction: column;
+}
+
+.inscription-page>.container-fluid {
+    flex: 1;
+}
+
+/* Arrière-plans */
+.bg-dark-teal {
+    background-color: #0E5555;
+    position: relative;
+}
+
+.bg-light-blue {
+    background-color: #ECF9F9;
+}
+
+/* Boîte d'inscription (Carte blanche) */
+.inscription-box {
+    max-width: 550px;
+    /* Plus large pour deux colonnes */
+    width: 100%;
+    /* Ombre premium */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+    /* Ombre plus marquée pour contraste sur fond sombre */
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.inscription-title {
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: #0E5555;
+}
+
+/* Champs de formulaire et groupes */
+.form-control-lg {
+    font-size: 0.9rem;
+    /* Légèrement plus petit pour caser plus de champs */
+    padding: 0.7rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    background-color: #f8fafc !important;
+}
+
+/* État Focus des champs (Premium) */
+.form-control-lg:focus {
+    box-shadow: 0 0 0 4px rgba(14, 85, 85, 0.1);
+    border-color: #0E5555;
+    background-color: #fff !important;
+}
+
+/* Placeholders plus clairs */
+.form-control::placeholder {
+    color: #cbd5e1;
+    opacity: 1;
+}
+
+/* Conteneur mot de passe */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper .form-control-lg {
+    padding-right: 2.5rem;
+}
+
+.password-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #94a3b8;
+    transition: color 0.2s ease;
+}
+
+.password-icon:hover {
+    color: #0E5555;
+}
+
+.form-control-lg:focus~.password-icon {
+    color: #0E5555;
+}
+
+/* Boutons */
+.btn-inscription-submit {
+    background-color: #0E5555;
+    border: none;
+    padding: 0.8rem;
+    font-weight: 600;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(14, 85, 85, 0.2);
+    color: white;
+}
+
+.btn-inscription-submit:hover {
+    background-color: #0b4444;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(14, 85, 85, 0.25);
+    color: white;
+}
+
+.btn-inscription-submit:active {
+    transform: translateY(0);
+}
+
+.legal-text {
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+/* Ajustements Mobile */
+@media (max-width: 991.98px) {
+    .bg-dark-teal {
+        background-color: #0E5555;
+        /* Garder le fond sombre sur mobile (ou passer en clair si demandé) */
+        padding: 2rem 1rem;
+    }
+
+    .inscription-box {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    }
+}
