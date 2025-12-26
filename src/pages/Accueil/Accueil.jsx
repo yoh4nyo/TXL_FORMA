@@ -71,7 +71,6 @@ function Accueil() {
 
     return (
         <div className="accueil">
-            {/* Section Bannière */}
             <section className="hero-section">
                 <Container>
                     <Row className="align-items-center">
@@ -116,7 +115,6 @@ function Accueil() {
                     <h2 className="section-title">Comment ça fonctionne ?</h2>
 
                     <div className="features-wrapper">
-                        {/* Décorations gauche */}
                         <div className="features-deco-left">
                             <div className="deco-square deco-square-1"></div>
                             <div className="deco-square deco-square-2"></div>
@@ -124,7 +122,6 @@ function Accueil() {
                             <div className="deco-square deco-square-7"></div>
                         </div>
 
-                        {/* Cartes en grille */}
                         <div className="features-content">
                             <div className="features-grid">
                                 <Card className="feature-card">
@@ -166,7 +163,6 @@ function Accueil() {
                             </div>
                         </div>
 
-                        {/* Décorations droite */}
                         <div className="features-deco-right">
                             <div className="deco-square deco-square-3"></div>
                             <div className="deco-square deco-square-4"></div>
@@ -177,7 +173,6 @@ function Accueil() {
                 </Container>
             </section>
 
-            {/* Section Formations */}
             <section className="section formations-section">
                 <Container>
                     <p className="section-subtitle section-subtitle-dark text-center mb-2">Explorer nos formations</p>
@@ -227,7 +222,6 @@ function Accueil() {
                 </Container>
             </section>
 
-            {/* Section Salle Virtuelle */}
             <section className="section virtual-section">
                 <Container>
                     <h2 className="section-title mb-5">Visitez nos salles de formation</h2>

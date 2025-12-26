@@ -1,8 +1,6 @@
-/* Mise en page */
 .inscription-page {
     background-color: #ECF9F9;
     min-height: calc(100vh - 80px);
-    /* Hauteur min pour éviter que le footer colle */
     display: flex;
     flex-direction: column;
 }
@@ -11,7 +9,6 @@
     flex: 1;
 }
 
-/* Arrière-plans */
 .bg-dark-teal {
     background-color: #0E5555;
     position: relative;
@@ -21,10 +18,8 @@
     background-color: #ECF9F9;
 }
 
-/* Boîte d'inscription (Carte blanche) */
 .inscription-box {
     max-width: 550px;
-    /* Plus large pour deux colonnes */
     width: 100%;
     /* Ombre premium */
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
@@ -39,10 +34,8 @@
     color: #0E5555;
 }
 
-/* Champs de formulaire et groupes */
 .form-control-lg {
     font-size: 0.9rem;
-    /* Légèrement plus petit pour caser plus de champs */
     padding: 0.7rem 1rem;
     border: 1px solid #e2e8f0;
     border-radius: 10px;
@@ -57,13 +50,11 @@
     background-color: #fff !important;
 }
 
-/* Placeholders plus clairs */
 .form-control::placeholder {
     color: #cbd5e1;
     opacity: 1;
 }
 
-/* Conteneur mot de passe */
 .password-wrapper {
     position: relative;
 }
@@ -90,7 +81,6 @@
     color: #0E5555;
 }
 
-/* Boutons */
 .btn-inscription-submit {
     background-color: #0E5555;
     border: none;
@@ -119,7 +109,6 @@
     line-height: 1.4;
 }
 
-/* Ajustements Mobile */
 @media (max-width: 991.98px) {
     .bg-dark-teal {
         background-color: #0E5555;

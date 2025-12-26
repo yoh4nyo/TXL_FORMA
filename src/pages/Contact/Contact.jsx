@@ -8,7 +8,6 @@ import './Contact.css';
 function Contact() {
     return (
         <div className="contact-page">
-            {/* Section Bannière */}
             <section className="contact-hero">
                 <Container className="text-center text-white h-100 d-flex flex-column justify-content-center align-items-center">
                     <h1 className="contact-hero-title mb-3">
@@ -18,13 +17,11 @@ function Contact() {
                         Une question ? Un projet de formation ? Notre équipe est là pour vous accompagner.
                     </p>
                 </Container>
-                {/* Decorative shape or image overlay could be added via CSS */}
             </section>
 
             <section className="contact-content-section section">
                 <Container>
                     <Row className="g-5">
-                        {/* Colonne Gauche : Formulaire de contact */}
                         <Col lg={7}>
                             <div className="contact-card p-4 p-md-5 bg-white rounded-4 shadow-sm">
                                 <div className="d-flex align-items-center mb-4">

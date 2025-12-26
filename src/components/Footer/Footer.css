@@ -1,6 +1,6 @@
 .footer {
     background-color: #0E5555;
-    color: var(--white);
+    color: #FFFFFF;
     padding: 4rem 0 2rem;
 }
 
@@ -17,7 +17,7 @@
     font-size: 0.875rem;
     font-weight: 600;
     margin-bottom: 1.25rem;
-    color: var(--white);
+    color: #FFFFFF;
 }
 
 .footer-links {
@@ -31,13 +31,13 @@
 }
 
 .footer-links a {
-    color: var(--gray-400);
+    color: #9CA3AF;
     font-size: 0.875rem;
     transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
-    color: var(--white);
+    color: #FFFFFF;
 }
 
 .social-icons {
@@ -54,14 +54,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white);
+    color: #FFFFFF;
     transition: all 0.2s ease;
     text-decoration: none;
 }
 
 .social-icon:hover {
-    background-color: var(--primary);
-    color: var(--white);
+    background-color: #0D9488;
+    color: #FFFFFF;
     transform: translateY(-2px);
 }
 
@@ -97,7 +97,7 @@
 }
 
 .brand-date {
-    color: var(--gray-400);
+    color: #9CA3AF;
     font-size: 0.75rem;
 }
 
@@ -121,12 +121,12 @@
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    color: var(--gray-400);
+    color: #9CA3AF;
     font-size: 0.75rem;
 }
 
 .footer-credit {
-    color: var(--gray-500);
+    color: #6B7280;
 }
 
 @media (max-width: 767.98px) {

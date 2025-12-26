@@ -66,7 +66,6 @@ function Profil() {
 
     return (
         <div className="profil-page">
-            {/* Section En-tête */}
             <div className="profil-header text-white">
                 <Container>
                     <Link to="/" className="text-white text-decoration-none mb-4 d-inline-block small fw-bold">
@@ -92,7 +91,6 @@ function Profil() {
                 </Container>
             </div>
 
-            {/* Onglets de navigation */}
             <div className="profil-nav-tabs bg-white shadow-sm mb-5">
                 <Container className="d-flex justify-content-center gap-2 gap-md-5 py-3">
                     <Button

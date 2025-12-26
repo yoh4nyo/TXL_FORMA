@@ -8,8 +8,6 @@ import Contact from './pages/Contact/Contact';
 import DevenirFormateur from './pages/DevenirFormateur/DevenirFormateur';
 import NosFormations from './pages/NosFormations/NosFormations';
 import Profil from './pages/Profil/Profil';
-import './styles/global.css';
-
 function App() {
   return (
     <Router>

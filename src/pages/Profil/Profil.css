@@ -1,14 +1,20 @@
-/* Mise en page */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
 .profil-page {
     background-color: #ECF9F9;
     min-height: 100vh;
 }
 
-/* Section En-tête */
 .profil-header {
     background-color: #0E5555;
     padding: 2rem 0 4rem;
-    /* Le padding bas permet un chevauchement si nécessaire, sinon empilement simple */
 }
 
 .profil-avatar {
@@ -30,10 +36,8 @@
     opacity: 0.9;
 }
 
-/* Onglets de navigation */
 .profil-nav-tabs {
-    /* Onglets collants (optionnel) ; position standard par défaut */
-}
+    background-color: white;
 
 .nav-tab-btn {
     font-size: 0.95rem;

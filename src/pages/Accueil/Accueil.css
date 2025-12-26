@@ -1,3 +1,46 @@
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+    color: #111827;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+    color: #6B7280;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.badge-primary {
+    background-color: #0D9488 !important;
+    color: #FFFFFF;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.badge-purple {
+    background-color: #7C3AED !important;
+    color: #FFFFFF;
+}
+
+.badge-pink {
+    background-color: #EC4899 !important;
+    color: #FFFFFF;
+}
+
+.badge-orange {
+    background-color: #F97316 !important;
+    color: #FFFFFF;
+}
+
 /* Section Bannière */
 .hero-section {
     padding: 4rem 0 6rem;
@@ -15,16 +58,16 @@
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    color: var(--gray-900);
+    color: #111827;
 }
 
 .hero-title .text-primary {
-    color: var(--primary) !important;
+    color: #0D9488 !important;
 }
 
 .hero-description {
     font-size: 1rem;
-    color: var(--gray-600);
+    color: #4B5563;
     margin-bottom: 2rem;
     line-height: 1.7;
 }
@@ -41,17 +84,17 @@
     min-width: 220px;
     max-width: 280px;
     padding: 0.625rem 1rem;
-    border: 1px solid var(--gray-300);
-    border-radius: var(--radius-full);
+    border: 1px solid #D1D5DB;
+    border-radius: 9999px;
     font-size: 0.9rem;
-    color: var(--gray-600);
-    background-color: var(--white);
+    color: #4B5563;
+    background-color: #FFFFFF;
     cursor: pointer;
 }
 
 .hero-dropdown:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 2px var(--primary-ultra-light);
+    border-color: #0D9488;
+    box-shadow: 0 0 0 2px #CCFBF1;
     outline: none;
 }
 
@@ -66,8 +109,8 @@
 }
 
 .hero-image {
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl);
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     max-width: 100%;
     height: auto;
 }
@@ -77,7 +120,7 @@
 /* Section Fonctionnalités */
 .features-section {
     position: relative;
-    background: var(--white);
+    background: #FFFFFF;
     overflow: hidden;
 }
 
@@ -97,8 +140,8 @@
 }
 
 .deco-square {
-    border: 2px solid var(--primary-light);
-    border-radius: var(--radius);
+    border: 2px solid #5EEAD4;
+    border-radius: 8px;
     position: absolute;
 }
 
@@ -123,7 +166,6 @@
     left: 10px;
 }
 
-/* Décorations droite */
 .features-deco-right {
     position: relative;
     width: 120px;
@@ -179,24 +221,24 @@
 }
 
 .feature-card {
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-xl);
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
     padding: 1.25rem 1.5rem;
-    background: var(--white);
+    background: #FFFFFF;
     transition: border-color 0.2s ease;
     width: 420px;
     flex-shrink: 0;
 }
 
 .feature-card:hover {
-    border-color: var(--primary);
+    border-color: #0D9488;
 }
 
 .feature-title {
     font-size: 0.95rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
-    color: var(--gray-900);
+    color: #111827;
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -205,9 +247,9 @@
 .number-badge {
     width: 26px;
     height: 26px;
-    background: var(--primary);
-    color: var(--white);
-    border-radius: var(--radius-sm);
+    background: #0D9488;
+    color: #FFFFFF;
+    border-radius: 4px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -218,7 +260,7 @@
 
 .feature-desc {
     font-size: 0.8rem;
-    color: var(--gray-500);
+    color: #6B7280;
     line-height: 1.6;
     margin: 0;
 }
@@ -258,7 +300,7 @@
 }
 
 .section-subtitle-dark {
-    color: var(--gray-900) !important;
+    color: #111827 !important;
 }
 
 .formations-carousel {
@@ -271,8 +313,8 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    border: 1px solid var(--gray-300);
-    background: var(--white);
+    border: 1px solid #D1D5DB;
+    background: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -282,9 +324,9 @@
 }
 
 .carousel-arrow:hover {
-    background: var(--primary);
-    border-color: var(--primary);
-    color: var(--white);
+    background: #0D9488;
+    border-color: #0D9488;
+    color: #FFFFFF;
 }
 
 .carousel-arrow i {
@@ -305,10 +347,10 @@
 
 .formation-card {
     border: none;
-    border-radius: var(--radius-lg);
+    border-radius: 16px;
     overflow: hidden;
-    background: var(--white);
-    box-shadow: var(--shadow);
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     min-width: 300px;
     flex-shrink: 0;
 }
@@ -331,14 +373,14 @@
     font-size: 0.75rem;
     font-weight: 500;
     padding: 0.35rem 0.75rem;
-    border-radius: var(--radius-full);
+    border-radius: 9999px;
 }
 
 .formation-title {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
-    color: var(--gray-900);
+    color: #111827;
 }
 
 .formation-meta {
@@ -348,7 +390,7 @@
 .formation-price {
     font-size: 1.125rem;
     font-weight: 700;
-    color: var(--primary);
+    color: #0D9488;
 }
 
 .carousel-indicators-custom {
@@ -361,38 +403,38 @@
 .indicator {
     width: 30px;
     height: 4px;
-    background: var(--gray-300);
-    border-radius: var(--radius-full);
+    background: #D1D5DB;
+    border-radius: 9999px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .indicator.active {
     width: 50px;
-    background: var(--primary);
+    background: #0D9488;
 }
 
 /* Section Virtuelle */
 .virtual-section {
-    background: var(--white);
+    background: #FFFFFF;
 }
 
 .virtual-room-wrapper {
-    background: var(--footer-bg);
-    border-radius: var(--radius-xl);
+    background: #1E293B;
+    border-radius: 16px;
     overflow: hidden;
     padding: 3rem;
 }
 
 .virtual-room-title {
-    color: var(--white);
+    color: #FFFFFF;
     text-align: center;
     margin-bottom: 2rem;
     font-size: 1.5rem;
 }
 
 .virtual-room-placeholder {
-    border-radius: var(--radius-lg);
+    border-radius: 16px;
     overflow: hidden;
 }
 

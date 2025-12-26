@@ -3,7 +3,6 @@
     min-height: 100vh;
 }
 
-/* Section Bannière */
 .contact-hero {
     background-color: #0E5555;
     background-image: url('../../assets/nous_contacter.png');
@@ -14,7 +13,6 @@
     padding: 6rem 0 4rem;
     position: relative;
     clip-path: ellipse(150% 100% at 50% 0%);
-    /* Effet bas incurvé (optionnel), sinon bordure simple */
     margin-bottom: 2rem;
 }
 
@@ -34,21 +32,17 @@
     opacity: 0.9;
 }
 
-/* Styles communs des cartes */
 .contact-card,
 .sidebar-card {
     border: none;
     background-color: #ffffff;
-    /* Ombre douce premium */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
 }
 
 .sidebar-card {
     height: auto;
-    /* Empilement des cartes de la barre latérale */
 }
 
-/* Icône pour l'en-tête du formulaire */
 .icon-box {
     width: 40px;
     height: 40px;
@@ -59,7 +53,7 @@
     justify-content: center;
 }
 
-/* Styles de formulaire */
+
 .form-control-contact,
 .form-select-contact {
     border: 1px solid #E2E8F0;
@@ -139,7 +133,6 @@
     padding: 0 0 1rem 0;
 }
 
-/* Social Buttons */
 .btn-social {
     border-color: #E2E8F0;
     background-color: white;

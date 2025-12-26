@@ -1,6 +1,9 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import logo from '../../assets/txlformatblanc.png';
 import gustaveEiffel from '../../assets/1200px-Logo_Universite_Gustave_Eiffel_2020.svg.png';
+import visaLogo from '../../assets/Visa_Inc._logo.svg.png';
+import masterCardLogo from '../../assets/mastercard_logo.png';
+import stripeLogo from '../../assets/stripe_logo.png';
 import './Footer.css';
 
 function Footer() {
@@ -67,9 +70,9 @@ function Footer() {
                     </div>
 
                     <div className="footer-payments">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Stripe" />
+                        <img src={visaLogo} alt="Visa" />
+                        <img src={masterCardLogo} alt="Mastercard" />
+                        <img src={stripeLogo} alt="Stripe" />
                     </div>
 
                     <div className="footer-legal">

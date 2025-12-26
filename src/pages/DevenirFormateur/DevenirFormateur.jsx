@@ -74,16 +74,15 @@ function DevenirFormateur() {
     ];
 
     const experts = [
-        { name: "Yohan SOM", role: "Réseaux et cybersécurité", since: "5 ans chez TXL FORMA", students: "5 200 élèves", img: "https://placehold.co/150x150/0E5555/ffffff?text=YS" },
-        { name: "Yohan SOM", role: "Réseaux et cybersécurité", since: "5 ans chez TXL FORMA", students: "5 200 élèves", img: "https://placehold.co/150x150/0E5555/ffffff?text=YS" },
-        { name: "Yohan SOM", role: "Réseaux et cybersécurité", since: "5 ans chez TXL FORMA", students: "5 200 élèves", img: "https://placehold.co/150x150/0E5555/ffffff?text=YS" },
-        { name: "Yohan SOM", role: "Réseaux et cybersécurité", since: "5 ans chez TXL FORMA", students: "5 200 élèves", img: "https://placehold.co/150x150/0E5555/ffffff?text=YS" },
-        { name: "Yohan SOM", role: "Réseaux et cybersécurité", since: "5 ans chez TXL FORMA", students: "5 200 élèves", img: "https://placehold.co/150x150/0E5555/ffffff?text=YS" },
+        { name: "Alexandre BRASSEUR", role: "Développement Frontend", since: "6 ans chez TXL FORMA", students: "8 500 élèves", img: "https://placehold.co/150x150/0E5555/ffffff?text=AB" },
+        { name: "Mathias RAKOTOMAVO", role: "Développement Backend", since: "5 ans chez TXL FORMA", students: "7 200 élèves", img: "https://placehold.co/150x150/0E5555/ffffff?text=MR" },
+        { name: "Yannis CAMELIN", role: "Administration Réseaux", since: "7 ans chez TXL FORMA", students: "6 800 élèves", img: "https://placehold.co/150x150/0E5555/ffffff?text=YC" },
+        { name: "Marie DUPONT", role: "Design UI/UX", since: "4 ans chez TXL FORMA", students: "5 400 élèves", img: "https://placehold.co/150x150/0E5555/ffffff?text=MD" },
+        { name: "Thomas BERNARD", role: "Infrastructure DevOps", since: "5 ans chez TXL FORMA", students: "6 100 élèves", img: "https://placehold.co/150x150/0E5555/ffffff?text=TB" },
     ];
 
     return (
         <div className="devenir-formateur-page">
-            {/* Section Bannière */}
             <section className="df-hero">
                 <Container className="text-center text-white df-hero-content">
                     <h1 className="df-hero-title mb-3">
@@ -96,7 +95,6 @@ function DevenirFormateur() {
                 </Container>
             </section>
 
-            {/* Section Avantages */}
             <section className="df-section bg-white text-center">
                 <Container>
                     <h2 className="section-title mb-5">Pourquoi nous rejoindre ?</h2>
@@ -121,7 +119,6 @@ function DevenirFormateur() {
                 </Container>
             </section>
 
-            {/* Section Prérequis */}
             <section className="df-section bg-light-blue text-center">
                 <Container>
                     <h2 className="section-title mb-5">Qui recherchons nous ?</h2>
@@ -143,14 +140,12 @@ function DevenirFormateur() {
                 </Container>
             </section>
 
-            {/* Section Processus */}
             <section className="df-section bg-white text-center">
                 <Container>
                     <h2 className="section-title mb-2">Le processus de candidature</h2>
                     <p className="text-muted mb-5 section-subtitle">Un parcours simple et transparent en 4 étapes.</p>
 
                     <div className="process-timeline position-relative">
-                        {/* Vertical Line */}
                         <div className="timeline-line"></div>
 
                         {processSteps.map((step, idx) => (
@@ -171,7 +166,6 @@ function DevenirFormateur() {
                 </Container>
             </section>
 
-            {/* Section Experts */}
             <section className="df-section bg-white text-center pt-0">
                 <Container>
                     <h2 className="section-title mb-2">Rejoignez plus de 500 formateurs experts</h2>

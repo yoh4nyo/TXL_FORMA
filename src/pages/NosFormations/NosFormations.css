@@ -1,18 +1,16 @@
-/* Mise en page */
 .nos-formations-page {
     background-color: #ECF9F9;
     min-height: 100vh;
 }
 
-/* Section Bannière */
 .nf-hero {
     background-color: #0E5555;
-    background-image: url('https://img.freepik.com/free-vector/digital-online-education-concept-blank-space-laptop_255625-422.jpg?t=st=1735032000~exp=1735035600~hmac=abcdef');
+    background-image: url('../../assets/formations.jpg');
     background-blend-mode: multiply;
-    background-size: cover;
-    background-position: center;
-    padding: 6rem 0 8rem;
-    /* Padding bas supplémentaire pour le chevauchement */
+    background-size: 80% auto;
+    background-position: center 24%;
+    background-repeat: no-repeat;
+    padding: 6rem 0 4rem;
     position: relative;
     clip-path: ellipse(150% 100% at 50% 0%);
 }
@@ -33,10 +31,8 @@
     opacity: 0.9;
 }
 
-/* Barre de statistiques */
 .nf-stats-bar-wrapper {
     margin-top: -4rem;
-    /* Marge négative pour chevaucher la bannière */
     position: relative;
     z-index: 10;
     margin-bottom: 3rem;
@@ -50,7 +46,6 @@
     color: #0E5555 !important;
 }
 
-/* Filtres latéraux */
 .nf-search-input {
     padding: 0.75rem 1rem 0.75rem 2.5rem;
     border-radius: 8px;
@@ -103,7 +98,6 @@
     background-color: #0b4444;
 }
 
-/* Cartes de cours */
 .nf-course-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -144,7 +138,6 @@
     font-size: 0.75rem;
 }
 
-/* Appel à l'action Expert */
 .nf-expert-cta {
     background-color: #0E5555;
 }

@@ -80,19 +80,17 @@ function NosFormations() {
 
     return (
         <div className="nos-formations-page">
-            {/* Section Bannière */}
             <section className="nf-hero">
                 <Container className="text-center text-white nf-hero-content">
                     <h1 className="nf-hero-title mb-3">
                         Trouvez la formation <span className="text-teal-light">faite pour vous</span>
                     </h1>
                     <p className="nf-hero-subtitle mb-5">
-                        Votre avenir ne commence pas ici, parlez au plus vite !!! ne rejoignez aucune formation!!! C'EST DU SCAM
+                        Explorez nos 150+ formations et trouvez celle qui correspond à vos objectifs. Que vous soyez débutant ou confirmé, nous avons un programme pour vous.
                     </p>
                 </Container>
             </section>
 
-            {/* Barre de statistiques */}
             <div className="nf-stats-bar-wrapper">
                 <Container>
                     <div className="nf-stats-bar bg-white rounded-4 shadow-sm p-4 d-flex justify-content-between align-items-center flex-wrap">
@@ -109,7 +107,6 @@ function NosFormations() {
             <section className="nf-content-section section">
                 <Container>
                     <Row>
-                        {/* Filtres latéraux */}
                         <Col lg={3} className="mb-4">
                             <div className="nf-search-box mb-4">
                                 <div className="position-relative">
@@ -156,7 +153,6 @@ function NosFormations() {
                             </div>
                         </Col>
 
-                        {/* Liste des cours */}
                         <Col lg={9}>
                             <div className="d-flex justify-content-between align-items-center mb-4">
                                 <h4 className="fw-bold mb-0">Nos formations</h4>

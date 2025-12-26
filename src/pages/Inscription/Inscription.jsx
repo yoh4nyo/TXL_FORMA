@@ -24,14 +24,12 @@ function Inscription() {
         <div className="inscription-page">
             <Container fluid className="h-100 p-0">
                 <Row className="h-100 g-0">
-                    {/* Colonne Gauche - Illustration */}
                     <Col lg={6} className="d-none d-lg-block p-0">
                         <div className="h-100 w-100">
                             <img src={illustration} alt="Inscription Illustration" className="img-fluid h-100 w-100 object-fit-cover" />
                         </div>
                     </Col>
 
-                    {/* Colonne Droite - Formulaire d'inscription */}
                     <Col lg={6} className="d-flex align-items-center justify-content-center bg-light-blue position-relative overflow-auto">
                         <Link to="/" className="position-absolute top-0 start-0 m-4 text-dark-teal text-decoration-none fw-bold">
                             <FontAwesomeIcon icon={faArrowLeft} className="me-2" />
