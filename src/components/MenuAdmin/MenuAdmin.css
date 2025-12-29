@@ -1,4 +1,4 @@
-/* Structure de la mise en page Admin */
+/* Menu Admin structure */
 .admin-layout {
     display: flex;
     min-height: 100vh;
@@ -78,7 +78,6 @@
 .admin-main {
     flex: 1;
     margin-left: 260px;
-    /* Largeur de la barre latérale */
     display: flex;
     flex-direction: column;
 }
@@ -144,6 +143,4 @@
     .admin-main {
         margin-left: 0;
     }
-
-    /* Nous aurions besoin d'un menu hamburger ici, mais pour l'instant, masquons la barre latérale */
 }

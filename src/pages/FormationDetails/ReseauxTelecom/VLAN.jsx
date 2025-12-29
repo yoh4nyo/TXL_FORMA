@@ -5,7 +5,7 @@ import yohanImg from '../../../assets/yohan.jpg';
 
 const VLAN = () => {
     const data = {
-        title: "VLAN Masterclass",
+        title: "VLAN",
         category: "Réseaux et télécoms",
         rating: 4.8,
         students: 500,

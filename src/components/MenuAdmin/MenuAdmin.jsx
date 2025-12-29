@@ -4,14 +4,13 @@ import { Container, Form, InputGroup, Button, Dropdown } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faBook, faUsers, faChalkboardTeacher, faSearch, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/txlformatblanc.png';
-import './LayoutAdmin.css';
+import './MenuAdmin.css';
 
-const LayoutAdmin = () => {
+const MenuAdmin = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
     const handleLogout = () => {
-        // Implémenter la logique de déconnexion ici
         navigate('/');
     };
 
@@ -54,9 +53,7 @@ const LayoutAdmin = () => {
                 </div>
             </aside>
 
-            {/* Enveloppe du contenu principal */}
             <div className="admin-main">
-                {/* Contenu de la page */}
                 <main className="admin-content">
                     <div key={location.pathname} className="page-transition">
                         <Outlet />
@@ -67,4 +64,4 @@ const LayoutAdmin = () => {
     );
 };
 
-export default LayoutAdmin;
+export default MenuAdmin;

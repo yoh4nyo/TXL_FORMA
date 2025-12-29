@@ -28,7 +28,7 @@ import MSProject from './pages/FormationDetails/ConduiteProjet/MSProject';
 import Profil from './pages/Profil/Profil';
 
 
-import LayoutAdmin from './components/LayoutAdmin/LayoutAdmin';
+import MenuAdmin from './components/MenuAdmin/MenuAdmin';
 import AdminDashboard from './pages/Admin/Dashboard/AdminDashboard';
 import AdminFormations from './pages/Admin/Formations/AdminFormations';
 import AdminFormationSessions from './pages/Admin/Formations/AdminFormationSessions';
@@ -37,7 +37,7 @@ import AdminSeanceParticipants from './pages/Admin/Formations/AdminSeancePartici
 import AdminUsers from './pages/Admin/Users/AdminUsers';
 import AdminFormateurs from './pages/Admin/Formateurs/AdminFormateurs';
 
-import LayoutFormateur from './components/LayoutFormateur/LayoutFormateur';
+import MenuFormateur from './components/MenuFormateur/MenuFormateur';
 import FormateurProfil from './pages/Formateur/FormateurProfil';
 import FormateurFormations from './pages/Formateur/FormateurFormations';
 import FormateurFormationSessions from './pages/Formateur/FormateurFormationSessions';
@@ -91,7 +91,7 @@ const App = () => {
         <Route path="/profil" element={<><Header /><Profil /><Footer /></>} />
 
         {/* Zone Administration */}
-        <Route path="/admin" element={<LayoutAdmin />}>
+        <Route path="/admin" element={<MenuAdmin />}>
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<AdminDashboard />} />
           {/* Routes futures (Utilisateurs, Formateurs...) */}
@@ -104,7 +104,7 @@ const App = () => {
         </Route>
 
         {/* Espace Formateur */}
-        <Route path="/formateur" element={<LayoutFormateur />}>
+        <Route path="/formateur" element={<MenuFormateur />}>
           <Route index element={<Navigate to="profil" replace />} />
           <Route path="profil" element={<FormateurProfil />} />
           <Route path="formations" element={<FormateurFormations />} />

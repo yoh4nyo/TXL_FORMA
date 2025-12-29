@@ -6,7 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import './FormationDetailTemplate.css';
-import BookingModal from './BookingModal';
+import ModalReservation from './ModalReservation';
 
 const FormationDetailTemplate = ({ formation }) => {
     const navigate = useNavigate();
@@ -23,16 +23,16 @@ const FormationDetailTemplate = ({ formation }) => {
     if (!formation) return <div>Chargement...</div>;
 
     return (
-        <div className="formation-details-page">
+        <div className="page-detail-formation">
             {/* Section Héro */}
-            <div className="formation-hero">
+            <div className="hero-formation">
                 <Container>
-                    <div className="breadcrumb-custom mb-3">
+                    <div className="fil-ariane mb-3">
                         <a href="/">Accueil</a> <span>&gt;</span>
                         <a href="/nos-formations">Nos formations</a> <span>&gt;</span>
                         <span className="text-white">{formation.title}</span>
                     </div>
-                    <div className="hero-badge mb-3">
+                    <div className="badge-hero mb-3">
                         <FontAwesomeIcon icon={faDesktop} className="me-2" />
                         {formation.category}
                     </div>
@@ -45,7 +45,7 @@ const FormationDetailTemplate = ({ formation }) => {
                             <span className="fw-bold me-2">{formation.students} étudiants</span>
                         </div>
                         <div className="d-flex align-items-center">
-                            <span className="rating-stars me-2">
+                            <span className="etoiles-note me-2">
                                 <FontAwesomeIcon icon={faStar} /> {formation.rating}
                             </span>
                         </div>
@@ -58,7 +58,7 @@ const FormationDetailTemplate = ({ formation }) => {
                     {/* Colonne Contenu Principal */}
                     <Col lg={8}>
                         {/* Ce que vous allez apprendre */}
-                        <div className="learning-box shadow-sm">
+                        <div className="boite-apprentissage shadow-sm">
                             <h3 className="fw-bold text-dark-teal mb-4">
                                 <FontAwesomeIcon icon={faCheck} className="me-2" />
                                 Ce que vous allez apprendre
@@ -66,8 +66,8 @@ const FormationDetailTemplate = ({ formation }) => {
                             <Row>
                                 {formation.objectives.map((obj, index) => (
                                     <Col md={6} key={index}>
-                                        <div className="check-list-item">
-                                            <FontAwesomeIcon icon={faCheck} className="check-icon" />
+                                        <div className="element-liste-coche">
+                                            <FontAwesomeIcon icon={faCheck} className="icone-coche" />
                                             <div>{obj}</div>
                                         </div>
                                     </Col>
@@ -81,7 +81,7 @@ const FormationDetailTemplate = ({ formation }) => {
                                 <FontAwesomeIcon icon={faFileAlt} className="me-2" />
                                 Contenu de la formation
                             </h3>
-                            <Accordion defaultActiveKey="0" className="custom-accordion">
+                            <Accordion defaultActiveKey="0" className="accordeon-personnalise">
                                 {formation.modules.map((module, index) => (
                                     <Accordion.Item eventKey={index.toString()} key={module.id || index}>
                                         <Accordion.Header>
@@ -90,7 +90,7 @@ const FormationDetailTemplate = ({ formation }) => {
                                                     <span className="badge bg-dark-teal me-3">{index + 1}</span>
                                                     {module.title}
                                                 </span>
-                                                <span className="lesson-count">{module.duration} • {module.lessons} leçons</span>
+                                                <span className="compteur-lecon">{module.duration} • {module.lessons} leçons</span>
                                             </div>
                                         </Accordion.Header>
                                         <Accordion.Body>
@@ -113,16 +113,16 @@ const FormationDetailTemplate = ({ formation }) => {
                                 Avis des étudiants
                             </h3>
                             {formation.reviews.map((review) => (
-                                <div className="review-item" key={review.id}>
+                                <div className="element-avis" key={review.id}>
                                     <div className="d-flex mb-2">
-                                        <div className="avatar-placeholder me-3">
+                                        <div className="placeholder-avatar me-3">
                                             {review.user.charAt(0)}
                                         </div>
                                         <div>
                                             <div className="fw-bold text-dark">{review.user}</div>
                                             <div className="text-muted small">{review.date}</div>
                                         </div>
-                                        <div className="ms-auto rating-stars">
+                                        <div className="ms-auto etoiles-note">
                                             {[...Array(review.rating)].map((_, i) => (
                                                 <FontAwesomeIcon key={i} icon={faStar} />
                                             ))}
@@ -136,14 +136,14 @@ const FormationDetailTemplate = ({ formation }) => {
 
                     {/* Colonne Latérale */}
                     <Col lg={4}>
-                        <div className="sidebar-sticky">
+                        <div className="sidebar-fixe">
                             {/* Carte d'inscription */}
-                            <Card className="price-card mb-4">
+                            <Card className="carte-prix mb-4">
                                 <Card.Img variant="top" src={formation.image} style={{ height: '200px', objectFit: 'cover' }} />
                                 <Card.Body className="p-4">
                                     <div className="mb-3">
-                                        <span className="price-value">{formation.price}</span>
-                                        <span className="price-original">{formation.originalPrice || '99.99€'}</span>
+                                        <span className="valeur-prix">{formation.price}</span>
+                                        <span className="prix-original">{formation.originalPrice || '99.99€'}</span>
                                     </div>
                                     <div className="text-danger small fw-bold mb-4">Offre limitée !</div>
 
@@ -155,20 +155,20 @@ const FormationDetailTemplate = ({ formation }) => {
 
                                     <div className="mb-4">
                                         <h6 className="fw-bold mb-3 small">Cette formation inclut :</h6>
-                                        <div className="feature-list-item">
-                                            <FontAwesomeIcon icon={faClock} className="feature-icon" />
+                                        <div className="element-liste-fonctionnalite">
+                                            <FontAwesomeIcon icon={faClock} className="icone-fonctionnalite" />
                                             {formation.totalHours} de cours
                                         </div>
-                                        <div className="feature-list-item">
-                                            <FontAwesomeIcon icon={faDesktop} className="feature-icon" />
+                                        <div className="element-liste-fonctionnalite">
+                                            <FontAwesomeIcon icon={faDesktop} className="icone-fonctionnalite" />
                                             Matériels à disposition
                                         </div>
-                                        <div className="feature-list-item">
-                                            <FontAwesomeIcon icon={faHeadset} className="feature-icon" />
+                                        <div className="element-liste-fonctionnalite">
+                                            <FontAwesomeIcon icon={faHeadset} className="icone-fonctionnalite" />
                                             Support du formateur
                                         </div>
-                                        <div className="feature-list-item">
-                                            <FontAwesomeIcon icon={faCertificate} className="feature-icon" />
+                                        <div className="element-liste-fonctionnalite">
+                                            <FontAwesomeIcon icon={faCertificate} className="icone-fonctionnalite" />
                                             Certificat de fin de formation
                                         </div>
                                     </div>
@@ -181,13 +181,13 @@ const FormationDetailTemplate = ({ formation }) => {
                             </Card>
 
                             {/* Carte Formateur */}
-                            <Card className="instructor-card p-4">
+                            <Card className="carte-formateur p-4">
                                 <h5 className="fw-bold text-dark-teal mb-4">
                                     <FontAwesomeIcon icon={faUsers} className="me-2" />
                                     Votre formateur
                                 </h5>
                                 <div className="d-flex">
-                                    <img src={formation.instructorImg} alt="Formateur" className="instructor-avatar me-3" />
+                                    <img src={formation.instructorImg} alt="Formateur" className="avatar-formateur me-3" />
                                     <div>
                                         <div className="fw-bold text-dark">{formation.instructorName}</div>
                                         <div className="text-muted small mb-2">{formation.instructorRole}</div>
@@ -207,7 +207,7 @@ const FormationDetailTemplate = ({ formation }) => {
             </Container>
 
 
-            <BookingModal
+            <ModalReservation
                 show={showModal}
                 handleClose={handleClose}
                 formationTitle={formation.title}

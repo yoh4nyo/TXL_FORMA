@@ -1,30 +1,30 @@
-.formation-details-page {
+.page-detail-formation {
     background-color: #f8f9fa;
     min-height: 100vh;
 }
 
-.formation-hero {
+.hero-formation {
     background-color: #0E5555;
     color: white;
     padding: 80px 0;
 }
 
-.breadcrumb-custom {
+.fil-ariane {
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.7);
 }
 
-.breadcrumb-custom a {
+.fil-ariane a {
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     margin-right: 5px;
 }
 
-.breadcrumb-custom span {
+.fil-ariane span {
     margin-right: 5px;
 }
 
-.hero-badge {
+.badge-hero {
     background-color: rgba(255, 255, 255, 0.2);
     display: inline-flex;
     align-items: center;
@@ -42,7 +42,7 @@
     background-color: #0E5555;
 }
 
-.learning-box {
+.boite-apprentissage {
     background-color: white;
     border: 1px solid #e9ecef;
     border-radius: 12px;
@@ -50,7 +50,7 @@
     margin-bottom: 40px;
 }
 
-.check-list-item {
+.element-liste-coche {
     display: flex;
     align-items: flex-start;
     margin-bottom: 15px;
@@ -58,37 +58,37 @@
     color: #555;
 }
 
-.check-icon {
+.icone-coche {
     color: #0E5555;
     margin-right: 10px;
     margin-top: 4px;
 }
 
-.custom-accordion .accordion-item {
+.accordeon-personnalise .accordion-item {
     border: 1px solid #e9ecef;
     margin-bottom: 10px;
     border-radius: 8px !important;
     overflow: hidden;
 }
 
-.custom-accordion .accordion-button:not(.collapsed) {
+.accordeon-personnalise .accordion-button:not(.collapsed) {
     color: #0E5555;
     background-color: #f8f9fa;
     box-shadow: none;
 }
 
-.custom-accordion .accordion-button:focus {
+.accordeon-personnalise .accordion-button:focus {
     box-shadow: none;
     border-color: rgba(0, 0, 0, .125);
 }
 
-.lesson-count {
+.compteur-lecon {
     font-size: 0.85rem;
     color: #888;
     font-weight: normal;
 }
 
-.review-item {
+.element-avis {
     background-color: white;
     padding: 20px;
     border-radius: 12px;
@@ -96,7 +96,7 @@
     margin-bottom: 20px;
 }
 
-.avatar-placeholder {
+.placeholder-avatar {
     width: 45px;
     height: 45px;
     background-color: #0E5555;
@@ -109,23 +109,23 @@
     font-size: 1.2rem;
 }
 
-.rating-stars {
+.etoiles-note {
     color: #ffc107;
 }
 
-.sidebar-sticky {
+.sidebar-fixe {
     position: sticky;
     top: 20px;
 }
 
-.price-card {
+.carte-prix {
     border: none;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-.price-value {
+.valeur-prix {
     font-size: 2.5rem;
     font-weight: bold;
     color: #0E5555;
@@ -138,7 +138,7 @@
     color: #aaa;
 }
 
-.feature-list-item {
+.element-liste-fonctionnalite {
     display: flex;
     align-items: center;
     margin-bottom: 12px;
@@ -146,20 +146,20 @@
     color: #555;
 }
 
-.feature-icon {
+.icone-fonctionnalite {
     width: 20px;
     color: #0E5555;
     margin-right: 10px;
     text-align: center;
 }
 
-.instructor-card {
+.carte-formateur {
     border: none;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-.instructor-avatar {
+.avatar-formateur {
     width: 60px;
     height: 60px;
     border-radius: 50%;

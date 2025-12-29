@@ -1,12 +1,11 @@
-
 import React, { useState } from 'react';
 import { Modal, Button, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faMapMarkerAlt, faUsers, faClock, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { bookingSessions } from '../../data/mockData';
-import './BookingModal.css';
+import './ModalReservation.css';
 
-const BookingModal = ({ show, handleClose, formationTitle, formationPrice }) => {
+const ModalReservation = ({ show, handleClose, formationTitle, formationPrice }) => {
     const [selectedSession, setSelectedSession] = useState(null);
 
     const handleSessionSelect = (sessionId) => {
@@ -14,7 +13,7 @@ const BookingModal = ({ show, handleClose, formationTitle, formationPrice }) => 
     };
 
     return (
-        <Modal show={show} onHide={handleClose} centered size="lg" className="booking-modal">
+        <Modal show={show} onHide={handleClose} centered size="lg" className="modal-reservation">
             <Modal.Header className="modal-header-custom border-0">
                 <div className="w-100">
                     <div className="d-flex justify-content-between align-items-center mb-1">
@@ -100,4 +99,4 @@ const BookingModal = ({ show, handleClose, formationTitle, formationPrice }) => 
     );
 };
 
-export default BookingModal;
+export default ModalReservation;

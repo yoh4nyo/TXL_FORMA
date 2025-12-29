@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faEye, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { formateurFormations } from '../../data/mockData';
-import '../../components/LayoutAdmin/LayoutAdmin.css'; // Réutilisation des styles génériques d'admin si nécessaire
+import '../../components/MenuAdmin/MenuAdmin.css'; // Réutilisation des styles génériques d'admin si nécessaire
 
 // Réutilisation du style de AdminFormations
 import '../Admin/Formations/AdminFormations.css';

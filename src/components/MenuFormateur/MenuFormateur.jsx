@@ -3,14 +3,13 @@ import { Outlet, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/txlformatblanc.png';
-import '../LayoutAdmin/LayoutAdmin.css';
+import '../MenuAdmin/MenuAdmin.css';
 
-const LayoutFormateur = () => {
+const MenuFormateur = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
     const handleLogout = () => {
-        // Implémenter la logique de déconnexion ici
         navigate('/');
     };
 
@@ -45,9 +44,7 @@ const LayoutFormateur = () => {
                 </div>
             </aside>
 
-            {/* Enveloppe du contenu principal */}
             <div className="admin-main">
-                {/* Contenu de la page */}
                 <main className="admin-content">
                     <div key={location.pathname} className="page-transition">
                         <Outlet />
@@ -58,4 +55,4 @@ const LayoutFormateur = () => {
     );
 };
 
-export default LayoutFormateur;
+export default MenuFormateur;

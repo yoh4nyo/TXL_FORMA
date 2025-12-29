@@ -63,7 +63,7 @@ function Accueil() {
                 </Container>
             </section>
 
-            {/* Section Fonctionnalités */}
+            {/* Section fonctionnalités */}
             <section className="section features-section">
                 <Container fluid>
                     <p className="section-subtitle section-subtitle-dark mb-2">Le processus</p>

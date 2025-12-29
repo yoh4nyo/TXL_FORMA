@@ -1,4 +1,4 @@
-.booking-modal .modal-content {
+.modal-reservation .modal-content {
     border-radius: 16px;
     overflow: hidden;
     border: none;
@@ -11,14 +11,13 @@
 
 .bg-light-green {
     background-color: #98ff98;
-    /* Light green color to match design */
 }
 
 .text-dark-green {
     color: #0E5555;
 }
 
-.formation-price {
+.modal-reservation .formation-price {
     font-size: 2.5rem;
     line-height: 1;
 }

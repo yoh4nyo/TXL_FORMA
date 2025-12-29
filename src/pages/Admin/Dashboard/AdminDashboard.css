@@ -28,14 +28,11 @@
     height: 40px;
     background-color: #0E5555;
     border-radius: 8px;
-    /* Slightly rounded square */
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Slight tilt for style if desired, or just straight */
 }
 
 .dashboard-icon-wrapper i {
     font-size: 1.2rem;
-    /* Counter rotate icon */
 }
