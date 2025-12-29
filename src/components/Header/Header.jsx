@@ -1,5 +1,7 @@
 import { Container, Nav, Button, Form, InputGroup } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faUser, faBook } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/txlformatvert.png';
 import './Header.css';
 
@@ -18,7 +20,7 @@ function Header() {
             <div className="header-search">
               <InputGroup>
                 <InputGroup.Text className="search-icon">
-                  <i className="bi bi-search"></i>
+                  <FontAwesomeIcon icon={faSearch} />
                 </InputGroup.Text>
                 <Form.Control
                   placeholder="Rechercher une formation"
@@ -30,11 +32,11 @@ function Header() {
 
           <div className="header-buttons">
             <Button variant="outline" className="btn-connexion" onClick={() => navigate('/inscription')}>
-              <i className="bi bi-person"></i>
+              <FontAwesomeIcon icon={faUser} className="me-2" />
               S'inscrire
             </Button>
             <Button className="btn-formations" onClick={() => navigate('/nos-formations')}>
-              <i className="bi bi-book me-2"></i>
+              <FontAwesomeIcon icon={faBook} className="me-2" />
               Nos formations
             </Button>
           </div>
@@ -45,9 +47,15 @@ function Header() {
       <div className="header-nav-row">
         <Container>
           <Nav className="header-nav">
-            <Nav.Link as={Link} to="/" className="nav-link-custom active">Accueil</Nav.Link>
-            <Nav.Link as={Link} to="/devenir-formateur" className="nav-link-custom">Devenir formateur</Nav.Link>
-            <Nav.Link as={Link} to="/contact" className="nav-link-custom">Nous contacter</Nav.Link>
+            <NavLink to="/" className={({ isActive }) => `nav-link-custom ${isActive ? 'active' : ''}`} end>
+              Accueil
+            </NavLink>
+            <NavLink to="/devenir-formateur" className={({ isActive }) => `nav-link-custom ${isActive ? 'active' : ''}`}>
+              Devenir formateur
+            </NavLink>
+            <NavLink to="/contact" className={({ isActive }) => `nav-link-custom ${isActive ? 'active' : ''}`}>
+              Nous contacter
+            </NavLink>
           </Nav>
         </Container>
       </div>

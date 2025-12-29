@@ -1,11 +1,74 @@
+import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Card, Accordion, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faFilter, faClock, faUserGraduate, faStar, faUndo } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import './NosFormations.css';
+import { allCourses } from '../../data/mockData';
 
 function NosFormations() {
     const navigate = useNavigate();
+
+    const [selectedDomains, setSelectedDomains] = useState(['all']);
+    const [selectedDurations, setSelectedDurations] = useState(['all']);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 8;
+    const courses = allCourses;
+
+    const handleDomainChange = (domain) => {
+        setCurrentPage(1);
+        if (domain === 'all') {
+            setSelectedDomains(['all']);
+        } else {
+            let newDomains = selectedDomains.filter(d => d !== 'all');
+            if (newDomains.includes(domain)) {
+                newDomains = newDomains.filter(d => d !== domain);
+            } else {
+                newDomains.push(domain);
+            }
+
+            if (newDomains.length === 0) {
+                setSelectedDomains(['all']);
+            } else {
+                setSelectedDomains(newDomains);
+            }
+        }
+    };
+
+    const handleDurationChange = (duration) => {
+        setCurrentPage(1);
+        if (duration === 'all') {
+            setSelectedDurations(['all']);
+        } else {
+            let newDurations = selectedDurations.filter(d => d !== 'all');
+            if (newDurations.includes(duration)) {
+                newDurations = newDurations.filter(d => d !== duration);
+            } else {
+                newDurations.push(duration);
+            }
+
+            if (newDurations.length === 0) {
+                setSelectedDurations(['all']);
+            } else {
+                setSelectedDurations(newDurations);
+            }
+        }
+    };
+
+    const handleReset = () => {
+        setSelectedDomains(['all']);
+        setSelectedDurations(['all']);
+    };
+
+    const domainsList = [
+        "Réseaux et télécoms",
+        "Administration système",
+        "Développement Front",
+        "Développement Back",
+        "Bureautique",
+        "Cybersécurité",
+        "Conduite de projets"
+    ];
 
     const stats = [
         { number: "150+", label: "Formations disponibles" },
@@ -14,69 +77,20 @@ function NosFormations() {
         { number: "50+", label: "Formateurs experts" }
     ];
 
-    const courses = [
-        {
-            id: 1,
-            title: "VLAN",
-            category: "Réseaux et cybersécurité",
-            description: "Gérer itérativement le cycle de vie d'une solution VLAN",
-            students: "100 étudiants",
-            rating: "4.8 (256 avis)",
-            duration: "130 Heures",
-            schedule: "3 Mois",
-            price: "29,99€",
-            instructor: "Yohan SOM",
-            role: "Formateur CEO DE TXL FORMA",
-            image: "https://img.freepik.com/free-photo/network-technician-working-server-room_1098-18182.jpg?t=st=1735032000~exp=1735035600~hmac=abcdef",
-            instructorImg: "https://placehold.co/50x50/0E5555/ffffff?text=YS"
-        },
-        {
-            id: 2,
-            title: "Symfony",
-            category: "Développement Back",
-            description: "Maîtrisez Symfony pour créer des projets web performants",
-            students: "24 étudiants",
-            rating: "5.0 (3 avis)",
-            duration: "60 Heures",
-            schedule: "2 Mois",
-            price: "29,99€",
-            instructor: "Mathias RAKOTOMAVO",
-            role: "Formateur CTO DE TXL FORMA",
-            badgeColor: "success",
-            image: "https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010125.jpg?t=st=1735032000~exp=1735035600~hmac=abcdef",
-            instructorImg: "https://placehold.co/50x50/198754/ffffff?text=MR"
-        },
-        {
-            id: 3,
-            title: "Angular",
-            category: "Développement Front",
-            description: "Apprenez à créer des applications web modernes avec Angular",
-            students: "87 étudiants",
-            rating: "4.7 (37 avis)",
-            duration: "170 Heures",
-            schedule: "2 Mois",
-            price: "29,99€",
-            instructor: "Alexandre LOPIRE",
-            role: "Formateur CACAO DE TXL FORMA",
-            image: "https://img.freepik.com/free-photo/ui-ux-representations-with-laptop_23-2150201871.jpg?t=st=1735032000~exp=1735035600~hmac=abcdef",
-            instructorImg: "https://placehold.co/50x50/dc3545/ffffff?text=AL"
-        },
-        {
-            id: 4,
-            title: "Windows server",
-            category: "Administration système",
-            description: "Apprenez à administrer Windows Server efficacement",
-            students: "87 étudiants",
-            rating: "4.7 (37 avis)",
-            duration: "130 Heures",
-            schedule: "3 Mois",
-            price: "29,99€",
-            instructor: "Yannis CAMUIN",
-            role: "Formateur CFA DE TXL FORMA",
-            image: "https://img.freepik.com/free-photo/server-room-datacenter_1203-9118.jpg?t=st=1735032000~exp=1735035600~hmac=abcdef",
-            instructorImg: "https://placehold.co/50x50/0d6efd/ffffff?text=YC"
-        }
-    ];
+    const filteredCourses = courses.filter(course => {
+        const domainMatch = selectedDomains.includes('all') || selectedDomains.includes(course.category);
+        return domainMatch;
+    });
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentCourses = filteredCourses.slice(indexOfFirstItem, indexOfLastItem);
+    const totalPages = Math.ceil(filteredCourses.length / itemsPerPage);
+
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+        window.scrollTo(0, 0);
+    };
 
     return (
         <div className="nos-formations-page">
@@ -125,29 +139,54 @@ function NosFormations() {
                                     <Accordion.Item eventKey="0">
                                         <Accordion.Header>Domaines</Accordion.Header>
                                         <Accordion.Body>
-                                            <Form.Check type="checkbox" label="Toutes nos formations" className="mb-2 small" defaultChecked />
-                                            <Form.Check type="checkbox" label="Réseaux" className="mb-2 small" />
-                                            <Form.Check type="checkbox" label="Développement" className="mb-2 small" />
-                                            <Form.Check type="checkbox" label="Système" className="mb-2 small" />
+                                            <Form.Check
+                                                type="checkbox"
+                                                label="Toutes nos formations"
+                                                className="mb-2 small"
+                                                checked={selectedDomains.includes('all')}
+                                                onChange={() => handleDomainChange('all')}
+                                            />
+                                            {domainsList.map((domain, index) => (
+                                                <Form.Check
+                                                    key={index}
+                                                    type="checkbox"
+                                                    label={domain}
+                                                    className="mb-2 small"
+                                                    checked={selectedDomains.includes(domain)}
+                                                    onChange={() => handleDomainChange(domain)}
+                                                />
+                                            ))}
                                         </Accordion.Body>
                                     </Accordion.Item>
                                     <Accordion.Item eventKey="1">
                                         <Accordion.Header>Durée</Accordion.Header>
                                         <Accordion.Body>
-                                            <Form.Check type="checkbox" label="Toutes durées" className="mb-2 small" defaultChecked />
-                                            <Form.Check type="checkbox" label="Courte (< 1 mois)" className="mb-2 small" />
-                                            <Form.Check type="checkbox" label="Longue (> 3 mois)" className="mb-2 small" />
-                                        </Accordion.Body>
-                                    </Accordion.Item>
-                                    <Accordion.Item eventKey="2">
-                                        <Accordion.Header>Heures</Accordion.Header>
-                                        <Accordion.Body>
-                                            <Form.Check type="checkbox" label="Toutes heures" className="mb-2 small" defaultChecked />
+                                            <Form.Check
+                                                type="checkbox"
+                                                label="Toutes durées"
+                                                className="mb-2 small"
+                                                checked={selectedDurations.includes('all')}
+                                                onChange={() => handleDurationChange('all')}
+                                            />
+                                            <Form.Check
+                                                type="checkbox"
+                                                label="Courte (< 1 mois)"
+                                                className="mb-2 small"
+                                                checked={selectedDurations.includes('Courte (< 1 mois)')}
+                                                onChange={() => handleDurationChange('Courte (< 1 mois)')}
+                                            />
+                                            <Form.Check
+                                                type="checkbox"
+                                                label="Longue (> 3 mois)"
+                                                className="mb-2 small"
+                                                checked={selectedDurations.includes('Longue (> 3 mois)')}
+                                                onChange={() => handleDurationChange('Longue (> 3 mois)')}
+                                            />
                                         </Accordion.Body>
                                     </Accordion.Item>
                                 </Accordion>
 
-                                <Button variant="teal" className="w-100 mt-3 btn-reset-filters">
+                                <Button className="w-100 mt-3 rounded-4 fw-bold btn-outline-teal" onClick={handleReset}>
                                     <FontAwesomeIcon icon={faUndo} className="me-2" /> Réinitialiser
                                 </Button>
                             </div>
@@ -155,12 +194,12 @@ function NosFormations() {
 
                         <Col lg={9}>
                             <div className="d-flex justify-content-between align-items-center mb-4">
-                                <h4 className="fw-bold mb-0">Nos formations</h4>
-                                <p className="text-muted small mb-0">4 formations disponibles</p>
+                                <h4 className="fw-bold text-teal mb-0">Nos formations</h4>
+                                <p className="text-muted small mb-0">{courses.length} formations disponibles</p>
                             </div>
 
                             <div className="nf-courses-list d-flex flex-column gap-4">
-                                {courses.map((course) => (
+                                {currentCourses.map((course) => (
                                     <Card className="nf-course-card border-0 shadow-sm rounded-4 overflow-hidden" key={course.id}>
                                         <Row className="g-0 h-100">
                                             <Col md={4} className="position-relative">
@@ -201,7 +240,7 @@ function NosFormations() {
                                                         <div className="text-end">
                                                             <h4 className="fw-bold text-teal mb-0">{course.price}</h4>
                                                             <p className="text-muted extra-small mb-1">par formation</p>
-                                                            <Button variant="dark-teal" className="btn-discover rounded-3">Découvrir</Button>
+                                                            <Button variant="dark-teal" className="btn-discover rounded-3" onClick={() => navigate(course.path)}>Découvrir</Button>
                                                         </div>
                                                     </div>
                                                 </Card.Body>
@@ -210,6 +249,41 @@ function NosFormations() {
                                     </Card>
                                 ))}
                             </div>
+
+                            {/* Pagination */}
+                            {totalPages > 1 && (
+                                <div className="d-flex justify-content-center mt-5">
+                                    <Button
+                                        variant="outline-secondary"
+                                        className="me-2 rounded-circle"
+                                        onClick={() => paginate(currentPage - 1)}
+                                        disabled={currentPage === 1}
+                                        style={{ width: '40px', height: '40px' }}
+                                    >
+                                        &lt;
+                                    </Button>
+                                    {[...Array(totalPages)].map((_, i) => (
+                                        <Button
+                                            key={i}
+                                            variant={currentPage === i + 1 ? "dark-teal" : "outline-secondary"}
+                                            className="mx-1 rounded-circle"
+                                            onClick={() => paginate(i + 1)}
+                                            style={{ width: '40px', height: '40px' }}
+                                        >
+                                            {i + 1}
+                                        </Button>
+                                    ))}
+                                    <Button
+                                        variant="outline-secondary"
+                                        className="ms-2 rounded-circle"
+                                        onClick={() => paginate(currentPage + 1)}
+                                        disabled={currentPage === totalPages}
+                                        style={{ width: '40px', height: '40px' }}
+                                    >
+                                        &gt;
+                                    </Button>
+                                </div>
+                            )}
                         </Col>
                     </Row>
                 </Container>

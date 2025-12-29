@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate, Link } from 'react-router-dom';
 import './Connexion.css';
-import illustration from '../../assets/connexion_inscription.jpg';
+import illustration from '../../assets/login.svg';
 
 function Connexion() {
     const [showPassword, setShowPassword] = useState(false);
@@ -23,21 +23,9 @@ function Connexion() {
     return (
         <div className="connexion-page">
             <Container fluid className="h-100 p-0">
-                <Row className="h-100 g-0">
-                    {/* Colonne Gauche - Illustration */}
-                    <Col lg={6} className="d-none d-lg-block p-0">
-                        <div className="h-100 w-100">
-                            <img src={illustration} alt="Connexion Illustration" className="img-fluid h-100 w-100 object-fit-cover" />
-                        </div>
-                    </Col>
-
-                    {/* Colonne Droite - Formulaire de connexion */}
-                    <Col lg={6} className="d-flex align-items-center justify-content-center bg-light-blue position-relative overflow-auto">
-                        <Link to="/" className="position-absolute top-0 start-0 m-4 text-dark-teal text-decoration-none fw-bold">
-                            <FontAwesomeIcon icon={faArrowLeft} className="me-2" />
-                            Retour
-                        </Link>
-
+                <Row className="h-100 g-0 justify-content-center align-items-center">
+                    {/* Formulaire de connexion Centré */}
+                    <Col xs={12} md={8} lg={6} xl={4} className="d-flex align-items-center justify-content-center bg-light-blue p-4">
                         <Card className="connexion-card border-0 p-4 p-md-5 bg-white shadow-lg w-100" style={{ maxWidth: '500px' }}>
                             <Card.Body>
                                 <div className="mb-5">
@@ -73,7 +61,7 @@ function Connexion() {
                                         <a href="#" className="text-muted small text-decoration-none">Mot de passe oublié ?</a>
                                     </div>
 
-                                    <Button size="lg" type="submit" className="w-100 mb-4 rounded-3 fw-bold btn-connexion-submit">
+                                    <Button variant="dark-teal" size="lg" type="submit" className="w-100 mb-4 rounded-3 fw-bold btn-connexion-submit">
                                         Connexion
                                     </Button>
 

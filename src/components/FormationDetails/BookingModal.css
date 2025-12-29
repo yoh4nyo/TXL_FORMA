@@ -1,0 +1,34 @@
+.booking-modal .modal-content {
+    border-radius: 16px;
+    overflow: hidden;
+    border: none;
+}
+
+.modal-header-custom {
+    background-color: #0E5555;
+    padding: 1.5rem 2rem;
+}
+
+.bg-light-green {
+    background-color: #98ff98;
+    /* Light green color to match design */
+}
+
+.text-dark-green {
+    color: #0E5555;
+}
+
+.formation-price {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .border-end-md {
+        border-right: 1px solid #dee2e6;
+    }
+}

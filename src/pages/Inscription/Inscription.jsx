@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate, Link } from 'react-router-dom';
 import './Inscription.css';
-import illustration from '../../assets/connexion_inscription.jpg';
+import illustration from '../../assets/login.svg';
 
 function Inscription() {
     const [showPassword, setShowPassword] = useState(false);
@@ -23,19 +23,8 @@ function Inscription() {
     return (
         <div className="inscription-page">
             <Container fluid className="h-100 p-0">
-                <Row className="h-100 g-0">
-                    <Col lg={6} className="d-none d-lg-block p-0">
-                        <div className="h-100 w-100">
-                            <img src={illustration} alt="Inscription Illustration" className="img-fluid h-100 w-100 object-fit-cover" />
-                        </div>
-                    </Col>
-
-                    <Col lg={6} className="d-flex align-items-center justify-content-center bg-light-blue position-relative overflow-auto">
-                        <Link to="/" className="position-absolute top-0 start-0 m-4 text-dark-teal text-decoration-none fw-bold">
-                            <FontAwesomeIcon icon={faArrowLeft} className="me-2" />
-                            Retour
-                        </Link>
-
+                <Row className="h-100 g-0 justify-content-center align-items-center">
+                    <Col xs={12} md={8} lg={6} xl={5} className="d-flex align-items-center justify-content-center bg-light-blue p-4">
                         <Card className="inscription-card border-0 p-4 p-md-5 bg-white shadow-lg w-100" style={{ maxWidth: '600px' }}>
                             <Card.Body>
                                 <div className="mb-4">

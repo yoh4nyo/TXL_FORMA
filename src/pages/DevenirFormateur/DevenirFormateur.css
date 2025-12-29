@@ -38,7 +38,7 @@
 }
 
 .df-section {
-    padding: 5rem 0;
+    padding: 2rem 0 5rem 0;
 }
 
 .bg-light-blue {
@@ -166,12 +166,12 @@
 
     .timeline-number-box {
         margin: 0 0 1rem 0;
-        /* Align left */
+        /* Aligner à gauche */
     }
 
     .timeline-item {
         padding-left: 50px;
-        /* Make space for line/numbers */
+        /* Créer de l'espace pour la ligne/les numéros */
         text-align: left;
     }
 
