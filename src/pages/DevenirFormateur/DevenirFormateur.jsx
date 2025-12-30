@@ -2,6 +2,10 @@
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faChalkboardTeacher, faHandHoldingUsd, faLifeRing, faUserGraduate, faLaptopCode, faUsers, faFileAlt, faComments, faVideo, faIdCard } from '@fortawesome/free-solid-svg-icons';
+import yohanImg from '../../assets/yohan.jpg';
+import mathiasImg from '../../assets/mathias.jpg';
+import alexandreImg from '../../assets/alexandre.jpg';
+import yannisImg from '../../assets/yannis.jpg';
 import './DevenirFormateur.css';
 
 function DevenirFormateur() {
@@ -74,11 +78,10 @@ function DevenirFormateur() {
     ];
 
     const experts = [
-        { name: "Alexandre BRASSEUR", role: "Développement Frontend", since: "6 ans chez TXL FORMA", students: "8 500 élèves", img: "https://placehold.co/150x150/0E5555/ffffff?text=AB" },
-        { name: "Mathias RAKOTOMAVO", role: "Développement Backend", since: "5 ans chez TXL FORMA", students: "7 200 élèves", img: "https://placehold.co/150x150/0E5555/ffffff?text=MR" },
-        { name: "Yannis CAMELIN", role: "Administration Réseaux", since: "7 ans chez TXL FORMA", students: "6 800 élèves", img: "https://placehold.co/150x150/0E5555/ffffff?text=YC" },
-        { name: "Marie DUPONT", role: "Design UI/UX", since: "4 ans chez TXL FORMA", students: "5 400 élèves", img: "https://placehold.co/150x150/0E5555/ffffff?text=MD" },
-        { name: "Thomas BERNARD", role: "Infrastructure DevOps", since: "5 ans chez TXL FORMA", students: "6 100 élèves", img: "https://placehold.co/150x150/0E5555/ffffff?text=TB" },
+        { name: "Yohan SOM", role: "Développement Web & CEO", since: "Fondateur de TXL FORMA", students: "10 000+ élèves", img: yohanImg },
+        { name: "Mathias RAKOTOMAVO", role: "Développement Backend", since: "Co-fondateur", students: "7 200 élèves", img: mathiasImg },
+        { name: "Alexandre LOPERE", role: "Développement Frontend", since: "Co-fondateur", students: "8 500 élèves", img: alexandreImg },
+        { name: "Yannis CAMELIN", role: "Administration Réseaux", since: "Co-fondateur", students: "6 800 élèves", img: yannisImg },
     ];
 
     return (
