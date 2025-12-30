@@ -22,12 +22,10 @@
     font-size: 0.85rem;
 }
 
-/* Custom Table Row Hover */
 .table-hover>tbody>tr:hover {
     background-color: #F8FAFC !important;
 }
 
-/* Button variants if not globally defined */
 .btn-dark-teal {
     background-color: #0E5555;
     color: white;
@@ -47,7 +45,6 @@
     background-color: #0E5555 !important;
 }
 
-/* Modal Styling */
 .modal-content {
     border: none;
     border-radius: 20px;

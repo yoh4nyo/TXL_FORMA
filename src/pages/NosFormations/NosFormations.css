@@ -178,13 +178,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     height: 48px;
-    /* Force une hauteur de 2 lignes */
     margin-bottom: 1rem !important;
 }
 
 .nf-course-card .card-body h3 {
     min-height: 1.2em;
-    /* Assure que le titre prend de l'espace même s'il est court */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

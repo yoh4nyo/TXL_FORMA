@@ -45,7 +45,7 @@ const FormateurFormationSessions = () => {
                 </div>
             </div>
 
-            {/* Cartes Statistiques */}
+            {/* Cartes statistiques */}
             <Row className="g-4 mb-5">
                 <Col md={4}>
                     <Card className="border-0 shadow-sm rounded-4 p-3">
@@ -88,7 +88,7 @@ const FormateurFormationSessions = () => {
                 </Col>
             </Row>
 
-            {/* Carte Tableau */}
+            {/* Carte tableau */}
             <Card className="border-0 shadow-sm rounded-4 overflow-hidden">
                 <Card.Header className="bg-white p-4 border-0 d-flex justify-content-between align-items-center flex-wrap gap-3">
                     <h4 className="fw-bold text-dark-teal mb-0">
@@ -156,7 +156,7 @@ const FormateurFormationSessions = () => {
                 </Card.Body>
             </Card>
 
-            {/* Modal Ajouter Session */}
+            {/* Modal ajouter session */}
             <Modal show={showAddModal} onHide={handleCloseAdd} centered size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title>Ajouter une session</Modal.Title>
@@ -192,7 +192,7 @@ const FormateurFormationSessions = () => {
                 </Modal.Body>
             </Modal>
 
-            {/* Modal Modifier Session */}
+            {/* Modal modifier session */}
             <Modal show={showEditModal} onHide={handleCloseEdit} centered size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title>Modifier la session</Modal.Title>

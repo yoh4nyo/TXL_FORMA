@@ -26,7 +26,6 @@ const AdminFormationSessions = () => {
 
     return (
         <Container fluid className="admin-formations p-0">
-            {/* Header */}
             <div className="mb-4">
                 <div className="mb-3">
                     <Button variant="link" className="p-0 text-dark text-decoration-none d-inline-flex align-items-center" onClick={() => navigate('/admin/formations')}>
@@ -45,7 +44,6 @@ const AdminFormationSessions = () => {
                 </div>
             </div>
 
-            {/* Stats Cards */}
             <Row className="g-4 mb-5">
                 <Col md={4}>
                     <Card className="border-0 shadow-sm rounded-4 p-3">
@@ -88,7 +86,6 @@ const AdminFormationSessions = () => {
                 </Col>
             </Row>
 
-            {/* Table Card */}
             <Card className="border-0 shadow-sm rounded-4 overflow-hidden">
                 <Card.Header className="bg-white p-4 border-0 d-flex justify-content-between align-items-center flex-wrap gap-3">
                     <h4 className="fw-bold text-dark-teal mb-0">
@@ -156,7 +153,7 @@ const AdminFormationSessions = () => {
                 </Card.Body>
             </Card>
 
-            {/* Modal Ajouter Session */}
+            {/* Modal ajouter session */}
             <Modal show={showAddModal} onHide={handleCloseAdd} centered size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title>Ajouter une session</Modal.Title>
@@ -192,7 +189,7 @@ const AdminFormationSessions = () => {
                 </Modal.Body>
             </Modal>
 
-            {/* Modal Modifier Session */}
+            {/* Modal modifier session */}
             <Modal show={showEditModal} onHide={handleCloseEdit} centered size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title>Modifier la session</Modal.Title>

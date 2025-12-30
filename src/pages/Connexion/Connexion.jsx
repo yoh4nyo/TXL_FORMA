@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate, Link } from 'react-router-dom';
 import './Connexion.css';
-import illustration from '../../assets/login.svg';
 
 function Connexion() {
     const [showPassword, setShowPassword] = useState(false);
@@ -24,7 +23,7 @@ function Connexion() {
         <div className="connexion-page">
             <Container fluid className="h-100 p-0">
                 <Row className="h-100 g-0 justify-content-center align-items-center">
-                    {/* Formulaire de connexion Centré */}
+                    {/* Formulaire de connexion centré */}
                     <Col xs={12} md={8} lg={6} xl={4} className="d-flex align-items-center justify-content-center bg-light-blue p-4">
                         <Card className="connexion-card border-0 p-4 p-md-5 bg-white shadow-lg w-100" style={{ maxWidth: '500px' }}>
                             <Card.Body>

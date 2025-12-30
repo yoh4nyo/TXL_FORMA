@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Table, Badge, Modal, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faEye, faPen, faTrash, faUser, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faPen, faTrash, faUser, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { adminSeanceParticipants } from '../../../data/mockData';
 import './AdminFormations.css'; // Réutilisation des styles
@@ -24,7 +24,7 @@ const AdminSeanceParticipants = () => {
         setSelectedParticipant(null);
     };
 
-    // Contenu fictif pour la signature - dans une vraie application, ce serait une URL d'image
+    // Contenu fictif pour la signature
     const SignaturePlaceholder = () => (
         <div className="bg-light border rounded-1 px-3 py-1 d-inline-block text-muted fst-italic" style={{ minWidth: '100px', textAlign: 'center' }}>
             Yohan
@@ -33,7 +33,6 @@ const AdminSeanceParticipants = () => {
 
     return (
         <Container fluid className="admin-formations p-0">
-            {/* Header */}
             <div className="mb-4">
                 <div className="mb-3">
                     <Button variant="link" className="p-0 text-dark text-decoration-none d-inline-flex align-items-center" onClick={() => navigate(-1)}>
@@ -52,7 +51,6 @@ const AdminSeanceParticipants = () => {
                 </div>
             </div>
 
-            {/* Stats Cards */}
             <Row className="g-4 mb-5">
                 <Col md={4}>
                     <Card className="border-0 shadow-sm rounded-4 p-3">
@@ -69,7 +67,6 @@ const AdminSeanceParticipants = () => {
                 </Col>
             </Row>
 
-            {/* Table Card */}
             <Card className="border-0 shadow-sm rounded-4 overflow-hidden">
                 <Card.Header className="bg-white p-4 border-0 d-flex justify-content-between align-items-center flex-wrap gap-3">
                     <h4 className="fw-bold text-dark-teal mb-0">
@@ -124,7 +121,7 @@ const AdminSeanceParticipants = () => {
                 </Card.Body>
             </Card>
 
-            {/* Modal Ajouter Participant */}
+            {/* Modal ajouter participant */}
             <Modal show={showAddModal} onHide={handleCloseAdd} centered size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title className="fw-bold text-dark" style={{ fontSize: '2rem' }}>Ajouter un participant</Modal.Title>
@@ -164,7 +161,7 @@ const AdminSeanceParticipants = () => {
                 </Modal.Body>
             </Modal>
 
-            {/* Modal Modifier Participant */}
+            {/* Modal modifier participant */}
             <Modal show={showEditModal} onHide={handleCloseEdit} centered size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title className="fw-bold text-dark" style={{ fontSize: '2rem' }}>Modifier un participant</Modal.Title>

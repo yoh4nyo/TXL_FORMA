@@ -45,7 +45,6 @@ const AdminFormationSeances = () => {
                 </div>
             </div>
 
-            {/* Stats Cards */}
             <Row className="g-4 mb-5">
                 <Col md={6}>
                     <Card className="border-0 shadow-sm rounded-4 p-3">
@@ -75,7 +74,6 @@ const AdminFormationSeances = () => {
                 </Col>
             </Row>
 
-            {/* Table Card */}
             <Card className="border-0 shadow-sm rounded-4 overflow-hidden">
                 <Card.Header className="bg-white p-4 border-0 d-flex justify-content-between align-items-center flex-wrap gap-3">
                     <h4 className="fw-bold text-dark-teal mb-0">
@@ -143,7 +141,7 @@ const AdminFormationSeances = () => {
                 </Card.Body>
             </Card>
 
-            {/* Modal Ajouter Séance */}
+            {/* Modal ajouter séance */}
             <Modal show={showAddModal} onHide={handleCloseAdd} centered size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title>Ajouter une séance</Modal.Title>
@@ -184,7 +182,7 @@ const AdminFormationSeances = () => {
                 </Modal.Body>
             </Modal>
 
-            {/* Modal Modifier Séance */}
+            {/* Modal modifier séance */}
             <Modal show={showEditModal} onHide={handleCloseEdit} centered size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title>Modifier une séance</Modal.Title>

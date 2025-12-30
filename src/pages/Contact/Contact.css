@@ -90,7 +90,6 @@
     box-shadow: 0 4px 12px rgba(14, 85, 85, 0.2);
 }
 
-/* Sidebar Styles */
 .sidebar-title {
     font-weight: 700;
     color: #0E5555;
@@ -104,7 +103,6 @@
     color: #1e293b;
 }
 
-/* FAQ Accordion Customization */
 .contact-accordion .accordion-item {
     border: none;
     background-color: transparent;

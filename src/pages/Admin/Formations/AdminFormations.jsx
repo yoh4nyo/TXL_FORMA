@@ -36,7 +36,6 @@ const AdminFormations = () => {
                 <p className="text-muted ms-5 ps-2">Gérer les formations</p>
             </div>
 
-            {/* Stats Cards */}
             <Row className="g-4 mb-5">
                 <Col md={6}>
                     <Card className="border-0 shadow-sm rounded-4 p-3">
@@ -66,7 +65,6 @@ const AdminFormations = () => {
                 </Col>
             </Row>
 
-            {/* Table Card */}
             <Card className="border-0 shadow-sm rounded-4 overflow-hidden">
                 <Card.Header className="bg-white p-4 border-0 d-flex justify-content-between align-items-center flex-wrap gap-3">
                     <h4 className="fw-bold text-dark-teal mb-0">
@@ -132,7 +130,7 @@ const AdminFormations = () => {
                         </tbody>
                     </Table>
                 </Card.Body>
-                {/* Empty footer for bottom spacing if needed, or remove if infinite scroll/pagination */}
+                { /* Pagination */ }
             </Card>
 
             {/* Modal Ajouter */}

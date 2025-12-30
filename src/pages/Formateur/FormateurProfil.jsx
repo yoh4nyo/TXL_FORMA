@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Card, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faBook, faTrash } from '@fortawesome/free-solid-svg-icons';
-import '../Admin/Dashboard/AdminDashboard.css'; // Réutilisation du CSS du Dashboard Admin
+import '../Admin/Dashboard/AdminDashboard.css'; 
 
 const FormateurProfil = () => {
     // Données utilisateur fictives pour le formateur spécifique
@@ -39,7 +39,7 @@ const FormateurProfil = () => {
                 <p className="text-muted ms-5 ps-3">Gérez vos informations personnelles</p>
             </div>
 
-            {/* Rangée Statistiques */}
+            {/* Statistiques */}
             <Row className="g-4 mb-5">
                 {stats.map((stat) => (
                     <Col lg={4} md={6} key={stat.id}>
@@ -58,7 +58,7 @@ const FormateurProfil = () => {
                 ))}
             </Row>
 
-            {/* Carte Détails Profil */}
+            {/* Carte détails profil */}
             <Card className="border-0 shadow-sm rounded-4">
                 <Card.Header className="bg-white p-4 border-0 d-flex justify-content-between align-items-center">
                     <h4 className="fw-bold text-dark-teal mb-0">Mes Informations</h4>

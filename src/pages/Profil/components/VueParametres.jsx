@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Row, Col, Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faLock, faBell, faShieldAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faLock, faBell, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function VueParametres() {
   return (

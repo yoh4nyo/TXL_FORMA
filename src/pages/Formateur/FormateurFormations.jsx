@@ -4,8 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faEye, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { formateurFormations } from '../../data/mockData';
-import '../../components/MenuAdmin/MenuAdmin.css'; // Réutilisation des styles génériques d'admin si nécessaire
-
+import '../../components/MenuAdmin/MenuAdmin.css'; // Réutilisation des styles génériques d'admin 
 // Réutilisation du style de AdminFormations
 import '../Admin/Formations/AdminFormations.css';
 
@@ -40,7 +39,7 @@ const FormateurFormations = () => {
                 <p className="text-muted ms-5 ps-4 mt-2">Gérer les formations</p>
             </div>
 
-            {/* Cartes Statistiques */}
+            {/* Cartes statistiques */}
             <Row className="g-4 mb-5">
                 <Col md={6}>
                     <Card className="border-0 shadow-sm rounded-4 p-3 ps-4">
@@ -70,7 +69,7 @@ const FormateurFormations = () => {
                 </Col>
             </Row>
 
-            {/* Carte Tableau */}
+            {/* Carte tableau */}
             <Card className="border-0 shadow-sm rounded-4 overflow-hidden">
                 <Card.Header className="bg-white p-4 border-0 d-flex justify-content-between align-items-center flex-wrap gap-3">
                     <h4 className="fw-bold text-dark-teal mb-0">
@@ -138,7 +137,7 @@ const FormateurFormations = () => {
                 </Card.Body>
             </Card>
 
-            {/* Modal Ajouter Formation - Same as Admin */}
+            {/* Modal ajouter formation */}
             <Modal show={showAddModal} onHide={handleCloseAdd} centered size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title className="fw-bold text-dark" style={{ fontSize: '2rem' }}>Ajouter une formation</Modal.Title>
@@ -189,7 +188,7 @@ const FormateurFormations = () => {
                 </Modal.Body>
             </Modal>
 
-            {/* Modal Modifier Formation */}
+            {/* Modal modifier formation */}
             <Modal show={showEditModal} onHide={handleCloseEdit} centered size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title className="fw-bold text-dark" style={{ fontSize: '2rem' }}>Modifier une formation</Modal.Title>

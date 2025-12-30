@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { Container, Form, InputGroup, Button, Dropdown } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faBook, faUsers, faChalkboardTeacher, faSearch, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faBook, faUsers, faChalkboardTeacher, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/txlformatblanc.png';
 import './MenuAdmin.css';
 

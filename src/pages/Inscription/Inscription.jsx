@@ -1,11 +1,10 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate, Link } from 'react-router-dom';
 import './Inscription.css';
-import illustration from '../../assets/login.svg';
 
 function Inscription() {
     const [showPassword, setShowPassword] = useState(false);

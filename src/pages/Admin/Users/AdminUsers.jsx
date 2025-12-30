@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Table, Badge, Modal, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers, faCertificate, faPen, faTrash, faUser, faFileContract } from '@fortawesome/free-solid-svg-icons';
+import { faUsers, faPen, faTrash, faUser, faFileContract } from '@fortawesome/free-solid-svg-icons';
 import { adminUsers } from '../../../data/mockData';
 import '../Formations/AdminFormations.css';
 
@@ -24,7 +24,6 @@ const AdminUsers = () => {
 
     return (
         <Container fluid className="admin-formations p-0">
-            {/* Header */}
             <div className="mb-4">
                 <h2 className="fw-bold text-dark-teal mb-0">
                     <div className="d-inline-flex align-items-center justify-content-center bg-dark-teal text-white rounded-2 me-3" style={{ width: 40, height: 40 }}>
@@ -35,7 +34,6 @@ const AdminUsers = () => {
                 <p className="text-muted ms-5 ps-4 mt-2">Liste de tout les utilisateurs du sites</p>
             </div>
 
-            {/* Stats Cards */}
             <Row className="g-4 mb-5">
                 <Col md={6}>
                     <Card className="border-0 shadow-sm rounded-4 p-3 ps-4">
@@ -65,7 +63,6 @@ const AdminUsers = () => {
                 </Col>
             </Row>
 
-            {/* Table Card */}
             <Card className="border-0 shadow-sm rounded-4 overflow-hidden">
                 <Card.Header className="bg-white p-4 border-0 d-flex justify-content-between align-items-center flex-wrap gap-3">
                     <h4 className="fw-bold text-dark-teal mb-0">
@@ -135,7 +132,7 @@ const AdminUsers = () => {
                 </Card.Body>
             </Card>
 
-            {/* Modal Ajouter Utilisateur */}
+            {/* Modal ajouter utilisateur */}
             <Modal show={showAddModal} onHide={handleCloseAdd} centered size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title className="fw-bold text-dark" style={{ fontSize: '2rem' }}>Ajouter un utilisateur</Modal.Title>
@@ -166,7 +163,7 @@ const AdminUsers = () => {
                 </Modal.Body>
             </Modal>
 
-            {/* Modal Modifier Utilisateur */}
+            {/* Modal modifier utilisateur */}
             <Modal show={showEditModal} onHide={handleCloseEdit} centered size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title className="fw-bold text-dark" style={{ fontSize: '2rem' }}>Modifier un utilisateur</Modal.Title>

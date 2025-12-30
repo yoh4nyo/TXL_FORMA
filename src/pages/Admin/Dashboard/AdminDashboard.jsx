@@ -1,55 +1,9 @@
-import React from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faAward, faCoins, faUsers, faShoppingCart, faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons';
+import { adminStats } from '../../../data/mockData';
 import './AdminDashboard.css';
 
 const AdminDashboard = () => {
-    const stats = [
-        {
-            id: 1,
-            label: "Nombre de formations",
-            value: "1.189",
-            icon: faBook,
-            color: "#0E5555"
-        },
-        {
-            id: 2,
-            label: "Certificats délivrés",
-            value: "500",
-            icon: faAward,
-            color: "#0E5555"
-        },
-        {
-            id: 3,
-            label: "Argent généré",
-            value: "1 000 000€",
-            icon: faCoins,
-            color: "#0E5555"
-        },
-        {
-            id: 4,
-            label: "Total utilisateur",
-            value: "1.189",
-            icon: faUsers,
-            color: "#0E5555"
-        },
-        {
-            id: 5,
-            label: "Nombre de formations vendues",
-            value: "500",
-            icon: faShoppingCart, // Utilisation du panier pour les ventes
-            color: "#0E5555"
-        },
-        {
-            id: 6,
-            label: "Nombre de formateurs",
-            value: "500",
-            icon: faChalkboardTeacher,
-            color: "#0E5555"
-        }
-    ];
-
     return (
         <div className="admin-dashboard">
             <div className="dashboard-header mb-5">
@@ -63,7 +17,7 @@ const AdminDashboard = () => {
             </div>
 
             <Row className="g-4">
-                {stats.map((stat) => (
+                {adminStats.map((stat) => (
                     <Col lg={4} md={6} key={stat.id}>
                         <Card className="stat-card border-0 shadow-sm h-100">
                             <Card.Body className="d-flex justify-content-between align-items-center p-4">

@@ -1,32 +1,18 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faUser, faBook, faAward, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faBook, faAward, faCog, faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import VueProfil from './components/VueProfil';
 import VueFormations from './components/VueFormations';
 import VueCertificats from './components/VueCertificats';
 import VueParametres from './components/VueParametres';
+import { userProfile } from '../../data/mockData';
 import './Profil.css';
 
 function Profil() {
   const [ongletActif, setOngletActif] = useState('profil');
-
-  const utilisateur = {
-    firstName: 'Yohan',
-    lastName: 'SOM',
-    email: 'yohan.som@gmail.com',
-    displayEmail: 'yohan.som77@gmail.com',
-    phone: '+33 7 85 56 23 45',
-    address: '17 rue des coliberts, 77185 Lognes',
-    memberSince: '2 décembre 2021',
-    stats: {
-      formations: 3,
-      certificates: 1,
-      hours: '500h',
-    },
-    image: 'https://placehold.co/150x150/e0e0e0/333333?text=YS',
-  };
+  const utilisateur = userProfile;
 
   const formationsActives = [
     {

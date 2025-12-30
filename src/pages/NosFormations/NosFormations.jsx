@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Container, Row, Col, Form, Button, Card, Accordion, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faFilter, faClock, faUserGraduate, faStar, faUndo } from '@fortawesome/free-solid-svg-icons';
@@ -77,10 +77,12 @@ function NosFormations() {
         { number: "50+", label: "Formateurs experts" }
     ];
 
-    const filteredCourses = courses.filter(course => {
-        const domainMatch = selectedDomains.includes('all') || selectedDomains.includes(course.category);
-        return domainMatch;
-    });
+    const filteredCourses = useMemo(() => {
+        return courses.filter(course => {
+            const domainMatch = selectedDomains.includes('all') || selectedDomains.includes(course.category);
+            return domainMatch;
+        });
+    }, [selectedDomains]);
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;

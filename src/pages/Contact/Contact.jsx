@@ -1,6 +1,6 @@
 import { Container, Row, Col, Form, Button, Accordion } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane, faEnvelope, faPhone, faMapMarkerAlt, faQuestionCircle, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane, faEnvelope, faQuestionCircle, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { faFacebook, faLinkedin, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import './Contact.css';
@@ -81,9 +81,9 @@ function Contact() {
                             </div>
                         </Col>
 
-                        {/* Colonne Droite : Barre latérale */}
+                        {/* Colonne droite */}
                         <Col lg={4} className="offset-lg-1">
-                            {/* Coordonnées Card */}
+                            {/* Coordonnées card */}
                             <div className="sidebar-card bg-white rounded-4 shadow-sm p-4 mb-4">
                                 <div className="d-flex align-items-center mb-4">
                                     <FontAwesomeIcon icon={faEnvelope} className="sidebar-icon-title me-2 text-teal" />
@@ -134,7 +134,7 @@ function Contact() {
                                 </Accordion>
                             </div>
 
-                            {/* Réseaux Sociaux Card */}
+                            {/* Réseaux sociaux card */}
                             <div className="sidebar-card bg-white rounded-4 shadow-sm p-4">
                                 <div className="d-flex align-items-center mb-4">
                                     <FontAwesomeIcon icon={faMobileAlt} className="sidebar-icon-title me-2 text-teal" />
@@ -143,7 +143,6 @@ function Contact() {
 
                                 <div className="d-flex flex-wrap gap-2">
 
-                                    {/* Custom styled buttons/links mimicking design */}
                                     <Button variant="outline-dark" className="btn-social d-flex align-items-center gap-2">
                                         <FontAwesomeIcon icon={faFacebook} className="text-primary" />
                                         <span className="small">Facebook</span>
