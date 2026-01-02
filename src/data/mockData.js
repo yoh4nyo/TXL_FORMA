@@ -799,8 +799,8 @@ export const allCourses = [
         price: "39,99€",
         instructor: "Yohan SOM",
         role: "Formateur CEO DE TXL FORMA",
-        image: cyberImg,
-        instructorImg: yohanImg,
+        image: "/assets/cyber.jpg",
+        instructorImg: "/assets/yohan.jpg",
         path: "/formations/cybersecurite/attaques-defense"
     },
     {
@@ -815,8 +815,8 @@ export const allCourses = [
         price: "24,99€",
         instructor: "Yannis CAMELIN",
         role: "Formateur CFA DE TXL FORMA",
-        image: conduiteImg,
-        instructorImg: yannisImg,
+        image: "/assets/conduite_projet.jpg",
+        instructorImg: "/assets/yannis.jpg",
         path: "/formations/conduite-projets/gestion-agile"
     },
     {
@@ -831,8 +831,8 @@ export const allCourses = [
         price: "29,99€",
         instructor: "Alexandre LOPERE",
         role: "Formateur CACAO DE TXL FORMA",
-        image: frontEndImg,
-        instructorImg: alexandreImg,
+        image: "/assets/front_end.png",
+        instructorImg: "/assets/alexandre.jpg",
         path: "/formations/developpement-front/vue"
     },
     {
@@ -847,8 +847,8 @@ export const allCourses = [
         price: "29,99€",
         instructor: "Mathias RAKOTOMAVO",
         role: "Formateur CTO DE TXL FORMA",
-        image: backEndImg,
-        instructorImg: mathiasImg,
+        image: "/assets/back_end.png",
+        instructorImg: "/assets/mathias.jpg",
         path: "/formations/developpement-back/laravel"
     },
     {
@@ -863,8 +863,8 @@ export const allCourses = [
         price: "34,99€",
         instructor: "Yohan SOM",
         role: "Formateur CEO DE TXL FORMA",
-        image: cyberImg,
-        instructorImg: yohanImg,
+        image: "/assets/cyber.jpg",
+        instructorImg: "/assets/yohan.jpg",
         path: "/formations/cybersecurite/securite-web"
     },
     {
@@ -879,8 +879,8 @@ export const allCourses = [
         price: "24,99€",
         instructor: "Yannis CAMELIN",
         role: "Formateur CFA DE TXL FORMA",
-        image: conduiteImg,
-        instructorImg: yannisImg,
+        image: "/assets/conduite_projet.jpg",
+        instructorImg: "/assets/yannis.jpg",
         path: "/formations/conduite-projets/ms-project"
     },
     {
@@ -895,8 +895,8 @@ export const allCourses = [
         price: "19,99€",
         instructor: "Yannis CAMELIN",
         role: "Formateur CFA DE TXL FORMA",
-        image: bureautiqueImg,
-        instructorImg: yannisImg,
+        image: "/assets/bureautique.jpg",
+        instructorImg: "/assets/yannis.jpg",
         path: "/formations/bureautique/access"
     }
 ];
