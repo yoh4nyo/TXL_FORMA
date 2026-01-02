@@ -1,37 +1,36 @@
 # Projet TXL FORMA
 
-## Partie théorique → 02/01/2026 à 23h00
-
-### 1. Documents et Informations Supplémentaires
+### 1. Documents et informations supplémentaires
 > *Cette section contient tout document de nature à apporter des informations supplémentaires sur les différentes parties du projet (Partie mobile, 3D, …).*
 
 *   **(À compléter : Ajouter ici les descriptions ou liens vers les documents 3D, Mobile, etc.)**
 
 ---
 
-### 2. Schémas Conceptuels
-> *Diagrammes UML, Architecture fonctionnelles, maquettes, …*
+### 2. Schémas conceptuels
 
-#### Diagrammes UML
-*(Insérer ici les photos des diagrammes UML)*
-<!-- Exemple : ![Diagramme de Classes](./path/to/diagram.png) -->
+#### Diagramme UML
+![Diagramme UML](diagrammes/diagramme_final.png)
 
-#### Architecture Fonctionnelle
-*(Insérer ici les photos de l'architecture fonctionnelle)*
+#### Architecture fonctionnelle
+![Architecture fonctionnelle](diagrammes/architecture.png)
 
-#### Maquettes
-*(Insérer ici les photos ou liens vers les maquettes)*
+#### Maquette
+![Maquette](diagrammes/maquette.png)
+*   [**Accéder à la maquette figma**](https://www.figma.com/design/brMxnpRyxYbKdUEg7ScYlm/SAE_501?node-id=0-1&t=wwLwyr7fAHJVvndl-1)
+
+
 
 ---
 
-### 3. Lien Github
+### 3. Lien github
 > *Lien vers la première version du code.*
 
 *   [**Lien vers le dépôt Github**](https://github.com/yoh4nyo/TXL_FORMA) *(Vérifiez que ce lien est correct)*
 
 ---
 
-## Installation et Lancement du Projet
+## Installation et lancement du projet
 
 Ce projet utilise React + Vite.
 
