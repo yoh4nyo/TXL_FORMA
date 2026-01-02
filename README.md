@@ -24,9 +24,8 @@
 ---
 
 ### 3. Lien vers le site hébergé
-> *Version en ligne.*
 
-*   [**Accéder au site**](txl-forma.vercel.app) *(Il s'agit uniquement du frontend pour ce premier rendu)*
+*   [**Accéder au site**](txl-forma.vercel.app) *(Il s'agit uniquement du frontend pour le premier rendu)*
 
 #### Accès rapides
 Pour accéder aux interfaces spécifiques (qui ne sont pas encore liées dans le menu principal) :
