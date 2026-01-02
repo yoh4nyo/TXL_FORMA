@@ -2,10 +2,7 @@
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faChalkboardTeacher, faHandHoldingUsd, faLifeRing, faUserGraduate, faLaptopCode, faUsers, faFileAlt, faComments, faVideo, faIdCard } from '@fortawesome/free-solid-svg-icons';
-import yohanImg from '../../assets/yohan.jpg';
-import mathiasImg from '../../assets/mathias.jpg';
-import alexandreImg from '../../assets/alexandre.jpg';
-import yannisImg from '../../assets/yannis.jpg';
+
 import './DevenirFormateur.css';
 
 function DevenirFormateur() {
@@ -78,10 +75,10 @@ function DevenirFormateur() {
     ];
 
     const experts = [
-        { name: "Yohan SOM", role: "Développement Web & CEO", since: "Fondateur de TXL FORMA", students: "10 000+ élèves", img: yohanImg },
-        { name: "Mathias RAKOTOMAVO", role: "Développement Backend", since: "Co-fondateur", students: "7 200 élèves", img: mathiasImg },
-        { name: "Alexandre LOPERE", role: "Développement Frontend", since: "Co-fondateur", students: "8 500 élèves", img: alexandreImg },
-        { name: "Yannis CAMELIN", role: "Administration Réseaux", since: "Co-fondateur", students: "6 800 élèves", img: yannisImg },
+        { name: "Yohan SOM", role: "Développement Web & CEO", since: "Fondateur de TXL FORMA", students: "10 000+ élèves", img: "/assets/yohan.jpg" },
+        { name: "Mathias RAKOTOMAVO", role: "Développement Backend", since: "Co-fondateur", students: "7 200 élèves", img: "/assets/mathias.jpg" },
+        { name: "Alexandre LOPERE", role: "Développement Frontend", since: "Co-fondateur", students: "8 500 élèves", img: "/assets/alexandre.jpg" },
+        { name: "Yannis CAMELIN", role: "Administration Réseaux", since: "Co-fondateur", students: "6 800 élèves", img: "/assets/yannis.jpg" },
     ];
 
     return (

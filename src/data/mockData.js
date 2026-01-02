@@ -1,15 +1,5 @@
 import { faBook, faAward, faCoins, faUsers, faShoppingCart, faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons';
-import reseauImg from '../assets/reseau_telecom.jpg';
-import adminSysImg from '../assets/administration_sys.jpg';
-import frontEndImg from '../assets/front_end.png';
-import backEndImg from '../assets/back_end.png';
-import yohanImg from '../assets/yohan.jpg';
-import mathiasImg from '../assets/mathias.jpg';
-import alexandreImg from '../assets/alexandre.jpg';
-import yannisImg from '../assets/yannis.jpg';
-import bureautiqueImg from '../assets/bureautique.jpg';
-import cyberImg from '../assets/cyber.jpg';
-import conduiteImg from '../assets/conduite_projet.jpg';
+
 
 export const userProfile = {
     firstName: 'Yohan',
@@ -98,7 +88,7 @@ export const homeFeatures = [
 export const homeFormations = [
     {
         id: 1,
-        image: reseauImg,
+        image: "/assets/reseau_telecom.jpg",
         title: "Réseau et télécoms : VLAN",
         badge: "Best-seller",
         badgeColor: "primary",
@@ -107,7 +97,7 @@ export const homeFormations = [
     },
     {
         id: 2,
-        image: adminSysImg,
+        image: "/assets/administration_sys.jpg",
         title: "Administration système : Linux",
         badge: "Très demandé",
         badgeColor: "purple",
@@ -116,7 +106,7 @@ export const homeFormations = [
     },
     {
         id: 3,
-        image: frontEndImg,
+        image: "/assets/front_end.png",
         title: "Développement Front : Angular",
         badge: "Best-seller",
         badgeColor: "primary",
@@ -665,8 +655,8 @@ export const allCourses = [
         price: "29,99€",
         instructor: "Yohan SOM",
         role: "Formateur CEO DE TXL FORMA",
-        image: reseauImg,
-        instructorImg: yohanImg,
+        image: "/assets/reseau_telecom.jpg",
+        instructorImg: "/assets/yohan.jpg",
         path: "/formations/reseaux-telecoms/vlan"
     },
     {
@@ -681,8 +671,8 @@ export const allCourses = [
         price: "29,99€",
         instructor: "Mathias RAKOTOMAVO",
         role: "Formateur CTO DE TXL FORMA",
-        image: backEndImg,
-        instructorImg: mathiasImg,
+        image: "/assets/back_end.png",
+        instructorImg: "/assets/mathias.jpg",
         path: "/formations/developpement-back/symfony"
     },
     {
@@ -697,8 +687,8 @@ export const allCourses = [
         price: "29,99€",
         instructor: "Alexandre LOPERE",
         role: "Formateur CACAO DE TXL FORMA",
-        image: frontEndImg,
-        instructorImg: alexandreImg,
+        image: "/assets/front_end.png",
+        instructorImg: "/assets/alexandre.jpg",
         path: "/formations/developpement-front/angular"
     },
     {
@@ -713,8 +703,8 @@ export const allCourses = [
         price: "29,99€",
         instructor: "Yannis CAMELIN",
         role: "Formateur CFA DE TXL FORMA",
-        image: adminSysImg,
-        instructorImg: yannisImg,
+        image: "/assets/administration_sys.jpg",
+        instructorImg: "/assets/yannis.jpg",
         path: "/formations/administration-systeme/windows-server"
     },
     {
@@ -729,8 +719,8 @@ export const allCourses = [
         price: "29,99€",
         instructor: "Yohan SOM",
         role: "Formateur CEO DE TXL FORMA",
-        image: reseauImg,
-        instructorImg: yohanImg,
+        image: "/assets/reseau_telecom.jpg",
+        instructorImg: "/assets/yohan.jpg",
         path: "/formations/reseaux-telecoms/routage-vpn"
     },
     {
@@ -745,8 +735,8 @@ export const allCourses = [
         price: "29,99€",
         instructor: "Mathias RAKOTOMAVO",
         role: "Formateur CTO DE TXL FORMA",
-        image: adminSysImg,
-        instructorImg: mathiasImg,
+        image: "/assets/administration_sys.jpg",
+        instructorImg: "/assets/mathias.jpg",
         path: "/formations/administration-systeme/linux"
     },
     {
@@ -761,8 +751,8 @@ export const allCourses = [
         price: "29,99€",
         instructor: "Alexandre LOPERE",
         role: "Formateur CACAO DE TXL FORMA",
-        image: frontEndImg,
-        instructorImg: alexandreImg,
+        image: "/assets/front_end.png",
+        instructorImg: "/assets/alexandre.jpg",
         path: "/formations/developpement-front/react"
     },
     {
@@ -777,8 +767,8 @@ export const allCourses = [
         price: "29,99€",
         instructor: "Mathias RAKOTOMAVO",
         role: "Formateur CTO DE TXL FORMA",
-        image: backEndImg,
-        instructorImg: mathiasImg,
+        image: "/assets/back_end.png",
+        instructorImg: "/assets/mathias.jpg",
         path: "/formations/developpement-back/spring-boot"
     },
     {
@@ -793,8 +783,8 @@ export const allCourses = [
         price: "19,99€",
         instructor: "Yannis CAMELIN",
         role: "Formateur CFA DE TXL FORMA",
-        image: bureautiqueImg,
-        instructorImg: yannisImg,
+        image: "/assets/bureautique.jpg",
+        instructorImg: "/assets/yannis.jpg",
         path: "/formations/bureautique/pack-office"
     },
     {
