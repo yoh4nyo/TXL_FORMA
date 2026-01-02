@@ -16,7 +16,7 @@
 ![Architecture fonctionnelle](diagrammes/architecture.png)
 
 #### Maquette
-![Maquette](diagrammes/maquette.png)
+![Maquette](diagrammes/figma.png)
 *   [**Accéder à la maquette figma**](https://www.figma.com/design/brMxnpRyxYbKdUEg7ScYlm/SAE_501?node-id=0-1&t=wwLwyr7fAHJVvndl-1)
 
 
