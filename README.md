@@ -1,16 +1,49 @@
-# React + Vite
+# Projet TXL FORMA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Partie théorique → 02/01/2026 à 23h00
 
-Currently, two official plugins are available:
+### 1. Documents et Informations Supplémentaires
+> *Cette section contient tout document de nature à apporter des informations supplémentaires sur les différentes parties du projet (Partie mobile, 3D, …).*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **(À compléter : Ajouter ici les descriptions ou liens vers les documents 3D, Mobile, etc.)**
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 2. Schémas Conceptuels
+> *Diagrammes UML, Architecture fonctionnelles, maquettes, …*
 
-## Expanding the ESLint configuration
+#### Diagrammes UML
+*(Insérer ici les photos des diagrammes UML)*
+<!-- Exemple : ![Diagramme de Classes](./path/to/diagram.png) -->
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+#### Architecture Fonctionnelle
+*(Insérer ici les photos de l'architecture fonctionnelle)*
+
+#### Maquettes
+*(Insérer ici les photos ou liens vers les maquettes)*
+
+---
+
+### 3. Lien Github
+> *Lien vers la première version du code.*
+
+*   [**Lien vers le dépôt Github**](https://github.com/yoh4nyo/TXL_FORMA) *(Vérifiez que ce lien est correct)*
+
+---
+
+## Installation et Lancement du Projet
+
+Ce projet utilise React + Vite.
+
+### Prérequis
+- Node.js installé
+
+### Installation
+```bash
+npm install
+```
+
+### Lancement
+```bash
+npm run dev
+```
