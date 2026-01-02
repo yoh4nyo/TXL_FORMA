@@ -1,32 +1,36 @@
 # Projet TXL FORMA
 
-### 1. Documents et informations supplémentaires
-> *Cette section contient tout document de nature à apporter des informations supplémentaires sur les différentes parties du projet (Partie mobile, 3D, …).*
+### 1. Documents supplémentaires
 
-*   **(À compléter : Ajouter ici les descriptions ou liens vers les documents 3D, Mobile, etc.)**
+*   [**Cahier des Charges (CDC)**](autres_rendus/CDC_SAE501_CAMELIN_SOM_RAKOTOMAVO_LOPERE.pdf)
+*   [**Dossier de Cadrage**](autres_rendus/SAE501_Cadrage_CAMELIN_SOM_LOPERE_RAKOTOMAVO.pdf)
+*   **Gestion de projet** : [Accéder au Trello](https://trello.com/b/oyRALwbv)
 
 ---
 
 ### 2. Schémas conceptuels
 
 #### Diagramme UML
-![Diagramme UML](diagrammes/diagramme_final.png)
+![Diagramme UML](autres_rendus/diagramme_final.png)
 
-#### Architecture fonctionnelle
-![Architecture fonctionnelle](diagrammes/architecture.png)
+#### Architecture du site
+![Architecture du site](autres_rendus/architecture.png)
 
 #### Maquette
-![Maquette](diagrammes/figma.png)
+![Maquette](autres_rendus/figma.png)
 *   [**Accéder à la maquette figma**](https://www.figma.com/design/brMxnpRyxYbKdUEg7ScYlm/SAE_501?node-id=0-1&t=wwLwyr7fAHJVvndl-1)
-
-
 
 ---
 
-### 3. Lien github
-> *Lien vers la première version du code.*
+### 3. Lien vers le site hébergé
+> *Version en ligne.*
 
-*   [**Lien vers le dépôt Github**](https://github.com/yoh4nyo/TXL_FORMA) *(Vérifiez que ce lien est correct)*
+*   [**Accéder au site**](txl-forma.vercel.app) *(Il s'agit uniquement du frontend pour ce premier rendu)*
+
+#### Accès rapides
+Pour accéder aux interfaces spécifiques (qui ne sont pas encore liées dans le menu principal) :
+*   **Espace formateur** : `/formateur` (ex: `https://txl-forma.vercel.app/formateur`)
+*   **Espace admin** : `/admin` (ex: `https://txl-forma.vercel.app/admin`)
 
 ---
 
