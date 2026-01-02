@@ -2,9 +2,10 @@
 
 ### 1. Documents supplémentaires
 
-*   [**Cahier des Charges (CDC)**](autres_rendus/CDC_SAE501_CAMELIN_SOM_RAKOTOMAVO_LOPERE.pdf)
-*   [**Dossier de Cadrage**](autres_rendus/SAE501_Cadrage_CAMELIN_SOM_LOPERE_RAKOTOMAVO.pdf)
-*   **Gestion de projet** : [Accéder au Trello](https://trello.com/b/oyRALwbv)
+*   [**Cahier des charges (CDC)**](autres_rendus/CDC_SAE501_CAMELIN_SOM_RAKOTOMAVO_LOPERE.pdf)
+*   [**Dossier de cadrage**](autres_rendus/SAE501_Cadrage_CAMELIN_SOM_LOPERE_RAKOTOMAVO.pdf)
+*   [**Fichier 3D (Blender)**](autres_rendus/SCENECLASSE.blend)
+*   **Gestion de projet** : <a href="https://trello.com/b/oyRALwbv" target="_blank">Accéder au Trello</a>
 
 ---
 
