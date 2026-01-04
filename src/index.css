@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: 'Poppins', sans-serif;
+  color: #111827;
+  background-color: #FFFFFF;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #0D9488;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn-primary-custom {
+  background-color: #0D9488 !important;
+  border-color: #0D9488 !important;
+  color: #FFFFFF !important;
+  font-weight: 500;
+  padding: 0.625rem 1.5rem;
+  border-radius: 9999px !important;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+  background-color: #0F766E !important;
+  border-color: #0F766E !important;
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.btn-outline-custom {
+  background-color: transparent !important;
+  border: 2px solid #0D9488 !important;
+  color: #0D9488 !important;
+  font-weight: 500;
+  padding: 0.625rem 1.5rem;
+  border-radius: 9999px !important;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+  background-color: #0D9488 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #6B7280;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.badge-primary {
+  background-color: #0D9488 !important;
+  color: #FFFFFF;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.badge-purple {
+  background-color: #7C3AED !important;
+  color: #FFFFFF;
+}
+
+.badge-pink {
+  background-color: #EC4899 !important;
+  color: #FFFFFF;
+}
+
+.badge-orange {
+  background-color: #F97316 !important;
+  color: #FFFFFF;
+}

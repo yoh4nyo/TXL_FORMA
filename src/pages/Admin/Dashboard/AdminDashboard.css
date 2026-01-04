@@ -1,0 +1,38 @@
+.stat-card {
+    border-radius: 16px !important;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.stat-value {
+    color: #0E5555;
+    font-size: 1.75rem;
+}
+
+.stat-icon-box {
+    width: 60px;
+    height: 60px;
+    background-color: #0E5555;
+}
+
+.dashboard-title {
+    color: #0E5555;
+    font-size: 1.8rem;
+}
+
+.dashboard-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    background-color: #0E5555;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-icon-wrapper i {
+    font-size: 1.2rem;
+}

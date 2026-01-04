@@ -1,0 +1,56 @@
+.modal-reservation .modal-content {
+    border-radius: 16px;
+    overflow: hidden;
+    border: none;
+}
+
+.modal-header-custom {
+    background-color: #0E5555;
+    padding: 1.5rem 2rem;
+}
+
+.bg-light-green {
+    background-color: #98ff98;
+}
+
+.text-dark-green {
+    color: #0E5555;
+}
+
+.modal-reservation .formation-price {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .border-end-md {
+        border-right: 1px solid #dee2e6;
+    }
+}
+
+.card-element-wrapper {
+    background-color: white;
+    border-color: #dee2e6 !important;
+}
+
+.card-element-wrapper:focus-within {
+    border-color: #0E5555 !important;
+    box-shadow: 0 0 0 0.25rem rgba(14, 85, 85, 0.15);
+}
+
+.modal-reservation .session-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.modal-reservation .session-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+.modal-reservation .selected-session {
+    background-color: #f0f9f9 !important;
+}

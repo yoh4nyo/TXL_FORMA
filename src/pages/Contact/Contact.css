@@ -1,0 +1,146 @@
+.contact-page {
+    background-color: #ECF9F9;
+    min-height: 100vh;
+}
+
+.contact-hero {
+    background-color: #0E5555;
+    background-image: url('../../assets/nous_contacter.png');
+    background-blend-mode: multiply;
+    background-size: 80% auto;
+    background-position: center 28%;
+    background-repeat: no-repeat;
+    padding: 6rem 0 4rem;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.contact-hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.text-teal-light {
+    color: #4FD1C5;
+}
+
+.contact-hero-subtitle {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+.contact-card,
+.sidebar-card {
+    border: none;
+    background-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+.sidebar-card {
+    height: auto;
+}
+
+.icon-box {
+    width: 40px;
+    height: 40px;
+    background-color: #0E5555;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.form-control-contact,
+.form-select-contact {
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    background-color: #F8FAFC;
+    transition: all 0.2s ease;
+}
+
+.form-control-contact:focus,
+.form-select-contact:focus {
+    background-color: #ffffff;
+    border-color: #0E5555;
+    box-shadow: 0 0 0 3px rgba(14, 85, 85, 0.1);
+}
+
+.form-select-contact {
+    cursor: pointer;
+}
+
+.btn-contact-submit {
+    background-color: #0E5555;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-contact-submit:hover {
+    background-color: #0b4444;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(14, 85, 85, 0.2);
+}
+
+.sidebar-title {
+    font-weight: 700;
+    color: #0E5555;
+}
+
+.text-teal {
+    color: #0E5555;
+}
+
+.contact-info-item h6 {
+    color: #1e293b;
+}
+
+.contact-accordion .accordion-item {
+    border: none;
+    background-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.contact-accordion .accordion-button {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #1e293b;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0.75rem 0;
+}
+
+.contact-accordion .accordion-button:not(.collapsed) {
+    color: #0E5555;
+    background-color: transparent;
+}
+
+.contact-accordion .accordion-button::after {
+    background-size: 0.8rem;
+}
+
+.contact-accordion .accordion-body {
+    padding: 0 0 1rem 0;
+}
+
+.btn-social {
+    border-color: #E2E8F0;
+    background-color: white;
+    color: #475569;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+.btn-social:hover {
+    background-color: #F8FAFC;
+    border-color: #CBD5E1;
+    color: #0E5555;
+}

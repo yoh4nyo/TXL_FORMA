@@ -1,0 +1,19 @@
+.inscription-page {
+    background-color: #ECF9F9;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+}
+
+.inscription-page>.container-fluid {
+    flex: 1;
+}
+
+.bg-dark-teal {
+    background-color: #0E5555;
+    position: relative;
+}
+
+.bg-light-blue {
+    background-color: #ECF9F9;
+}

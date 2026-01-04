@@ -1,0 +1,112 @@
+@import '../../../components/MenuAdmin/MenuAdmin.css';
+
+.stat-icon-square {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+}
+
+.table th {
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table td {
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+.badge {
+    font-size: 0.85rem;
+}
+
+.table-hover>tbody>tr:hover {
+    background-color: #F8FAFC !important;
+}
+
+.btn-dark-teal {
+    background-color: #0E5555;
+    color: white;
+    border: none;
+}
+
+.btn-dark-teal:hover {
+    background-color: #0A3D3D;
+    color: white;
+}
+
+.text-dark-teal {
+    color: #0E5555 !important;
+}
+
+.bg-dark-teal {
+    background-color: #0E5555 !important;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 20px;
+    background-color: #F8FAFC;
+}
+
+.modal-header {
+    border-bottom: none;
+    padding: 2rem 2rem 1rem 2rem;
+}
+
+.modal-title {
+    font-weight: 800;
+    font-size: 2rem;
+    color: black;
+}
+
+.modal-body {
+    padding: 1rem 2rem 2rem 2rem;
+}
+
+.form-label-custom {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #1a1a1a;
+}
+
+.text-red {
+    color: #ef4444;
+}
+
+.form-control-custom {
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    border: 1px solid #000000;
+    background-color: white;
+    font-size: 0.95rem;
+}
+
+.form-control-custom:focus {
+    box-shadow: none;
+    border-color: #0E5555;
+    outline: 2px solid rgba(14, 85, 85, 0.2);
+}
+
+.input-group-text {
+    border-radius: 8px;
+}
+
+.btn-modal-action {
+    background-color: #0E5555;
+    color: white;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    border: none;
+    width: 200px;
+}
+
+.btn-modal-action:hover {
+    background-color: #0A3D3D;
+    color: white;
+}
