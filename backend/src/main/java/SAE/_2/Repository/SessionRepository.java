@@ -1,4 +1,5 @@
 package SAE._2.Repository;
+
 import SAE._2.model.Session;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -23,4 +24,6 @@ public interface SessionRepository extends CrudRepository<Session, Long> {
 
     @Query("SELECT DISTINCT s FROM Session s LEFT JOIN FETCH s.seances WHERE s.formation.id = ?1")
     List<Session> findSessionsByFormationId(Long formationId);
+
+    List<Session> findSessionsByDateEndBefore(String date);
 }

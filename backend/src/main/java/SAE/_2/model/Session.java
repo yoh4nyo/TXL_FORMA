@@ -1,6 +1,7 @@
 package SAE._2.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.persistence.Id;
 
@@ -64,6 +65,16 @@ public class Session {
         this.nbPlaceRestant = nbPlaceRestant;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "intervenant_id")
+    @JsonIgnoreProperties("sessions")
+    private Intervenant intervenant;
+
+    @ManyToOne
+    @JoinColumn(name = "formation_id")
+    @JsonIgnoreProperties("sessions")
+    private Formation formation;
+
     public Intervenant getIntervenant() {
         return intervenant;
     }
@@ -98,13 +109,5 @@ public class Session {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "session", cascade = CascadeType.REMOVE)
     @JsonIgnore
     private Set<Paiement> Paiements = new HashSet();
-
-    @ManyToOne
-    @JoinColumn(name = "intervenant_id")
-    private Intervenant intervenant;
-
-    @ManyToOne
-    @JoinColumn(name = "formation_id")
-    private Formation formation;
 
 }

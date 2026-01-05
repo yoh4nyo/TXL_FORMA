@@ -14,9 +14,22 @@ async function request(endpoint, options = {}) {
     });
 
     if (!response.ok) {
-        const errorText = await response.text();
-        const error = new Error(errorText || 'Erreur API');
+        let errorData;
+        const contentType = response.headers.get('content-type');
+        try {
+            if (contentType && contentType.includes('application/json')) {
+                errorData = await response.json();
+            } else {
+                errorData = await response.text();
+            }
+        } catch (e) {
+            errorData = await response.text();
+        }
+
+        const error = new Error('Erreur API');
         error.status = response.status;
+        // Mimic axios structure so err.response.data works
+        error.response = { data: errorData };
         throw error;
     }
 
