@@ -1,52 +1,105 @@
-# Projet TXL FORMA
+# Description du dépôt
 
-### 1. Documents supplémentaires
+*   **Le lien du site** : [txl-forma.vercel.app](https://txl-forma.vercel.app)
+*   **Le lien Figma** : [Maquettes, Design System & Prototypage](https://www.figma.com/design/brMxnpRyxYbKdUEg7ScYlm/SAE_501?node-id=0-1&t=wwLwyr7fAHJVvndl-1)
+*   **L'API** : [Voir le dossier Backend](backend/)
+*   **La BDD SQL** : MySQL (Configurée dans le backend Spring Boot)
+*   **Le code complet** : [Racine du dépôt](./)
+*   **Le compte rendu de la SAE** : [Dossier de cadrage](autres%20rendus/SAE501_Cadrage_CAMELIN_SOM_LOPERE_RAKOTOMAVO.pdf)
+*   **Les diagrammes** : [Voir les schémas techniques](#schémas-techniques) (MCD, UML, Architecture)
 
-*   [**Cahier des charges (CDC)**](autres_rendus/CDC_SAE501_CAMELIN_SOM_RAKOTOMAVO_LOPERE.pdf)
-*   [**Dossier de cadrage**](autres_rendus/SAE501_Cadrage_CAMELIN_SOM_LOPERE_RAKOTOMAVO.pdf)
-*   [**Fichier 3D (Blender)**](autres_rendus/SCENECLASSE.blend)
-*   **Gestion de projet** : <a href="https://trello.com/b/oyRALwbv" target="_blank">Accéder au Trello</a>
+### 🔑 Identifiants pour tests
+
+> Pour tester les différents rôles sur le site :
+
+| Rôle | Identifiant | Mot de passe |
+| :--- | :--- | :--- |
+| **Admin** | `admin` | `1234` |
+| **Formateur** | `la.patrick` | `1234` |
+| **Étudiant** | `yohan` | `azerty` |
+
+## ✨ Fonctionnalités Clés
+
+### 🏠 Expérience Utilisateur (Front-Office)
+*   **Accueil Immersif 3D** : Intégration d'une scène 3D interactive (Three.js / React Three Fiber) représentant une salle de classe virtuelle.
+*   **Catalogue de Formations** : Filtrage dynamique par domaines et durée.
+*   **Espace Étudiant** :
+    *   Tableau de bord personnel.
+    *   Suivi des formations en cours.
+    *   Téléchargement de certificats (génération PDF).
+    *   Gestion du profil et sécurité.
+
+### 🛠 Espace Administration (Back-Office)
+*   **Dashboard Admin** : Vues statistiques et gestion globale (CRUD Formations, Utilisateurs, Formateurs).
+*   **Espace Formateur** :
+    *   Gestion des sessions assignées.
+    *   Suivi des participants et émargement.
 
 ---
 
-### 2. Schémas conceptuels
+## 💻 Stack Technique
 
-#### Diagramme UML
-![Diagramme UML](autres_rendus/diagramme_final.png)
+### Frontend
+*   **Framework** : [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
+*   **UI/UX** : [Bootstrap 5](https://getbootstrap.com/), [React-Bootstrap](https://react-bootstrap.github.io/), CSS3 custom properties.
+*   **3D & Interactif** : [Three.js](https://threejs.org/), [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber), [@react-three/drei](https://github.com/pmndrs/drei).
+*   **Utilitaires** :
+    *   `react-router-dom` pour le routing.
+    *   `jspdf` pour la génération de diplômes.
+    *   `font-awesome` pour les icônes.
 
-#### Architecture du site
-![Architecture du site](autres_rendus/architecture.png)
-
-#### Maquette
-![Maquette](autres_rendus/figma.png)
-*   [**Accéder à la maquette figma**](https://www.figma.com/design/brMxnpRyxYbKdUEg7ScYlm/SAE_501?node-id=0-1&t=wwLwyr7fAHJVvndl-1)
-
----
-
-### 3. Lien vers le site hébergé
-
-*   [**Accéder au site**](txl-forma.vercel.app) *(Il s'agit uniquement du frontend pour le premier rendu)*
-
-#### Accès rapides
-Pour accéder aux interfaces spécifiques (qui ne sont pas encore liées dans le menu principal) :
-*   **Espace formateur** : `/formateur` (ex: `https://txl-forma.vercel.app/formateur`)
-*   **Espace admin** : `/admin` (ex: `https://txl-forma.vercel.app/admin`)
+### Backend
+*   **Langage** : Java 21
+*   **Framework** : Spring Boot
+*   **Base de données** : MySQL
+*   **Architecture** : REST API, JPA/Hibernate.
 
 ---
 
-## Installation et lancement du projet
+## 📂 Documentation & Rendus
 
-Ce projet utilise React + Vite.
+### Documents de conception
+*   📄 [**Cahier des charges (CDC)**](autres_rendus/CDC_SAE501_CAMELIN_SOM_RAKOTOMAVO_LOPERE.pdf)
+*   📑 [**Dossier de cadrage**](autres_rendus/SAE501_Cadrage_CAMELIN_SOM_LOPERE_RAKOTOMAVO.pdf)
+*   🧊 [**Fichier source 3D (.blend)**](autres_rendus/SCENECLASSE.blend)
 
-### Prérequis
-- Node.js installé
+### Schémas Techniques
+| Architecture | UML | Maquette |
+|:---:|:---:|:---:|
+| ![Architecture](autres_rendus/architecture.png) | ![UML](autres_rendus/diagramme_final.png) | ![Figma](autres_rendus/figma.png) |
 
-### Installation
+---
+
+## 🛠 Installation Locale
+
+Si vous souhaitez lancer le projet sur votre machine :
+
+### 1. Cloner le dépôt
+```bash
+git clone https://github.com/yoh4nyo/TXL_FORMA.git
+cd TXL_FORMA
+```
+
+### 2. Installation des dépendances (Frontend)
 ```bash
 npm install
 ```
 
-### Lancement
+### 3. Lancer le serveur de développement
 ```bash
 npm run dev
 ```
+> Le site sera accessible sur `http://localhost:5173`.
+
+---
+
+## 👥 Auteurs
+
+Projet réalisé par l'équipe **TXL** :
+*   **CAMELIN**
+*   **SOM**
+*   **RAKOTOMAVO**
+*   **LOPERE**
+
+---
+*© 2025 TXL FORMA - Tous droits réservés.*
