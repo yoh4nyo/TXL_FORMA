@@ -85,16 +85,18 @@ function NosFormations() {
                 let totalEleves = 0;
                 let totalHeures = 0;
 
-                for (const session of (Array.isArray(sessions) ? sessions : [])) {
-                    try {
-                        const sessionEleves = await apiClient.get(`/session_eleve/session/${session.id}`);
-                        totalEleves += Array.isArray(sessionEleves) ? sessionEleves.length : 0;
+                if (Array.isArray(sessions)) {
+                    sessions.forEach(session => {
+                        // Count students from nested session_eleves
+                        const eleves = session.session_eleves || [];
+                        totalEleves += Array.isArray(eleves) ? eleves.length : 0;
 
-                        const seances = await apiClient.get(`/seance/session/${session.id}`);
-                        totalHeures += (Array.isArray(seances) ? seances : []).reduce((sum, seance) => sum + (seance.duree || 0), 0);
-                    } catch (err) {
-                        console.error(`Erreur stats session ${session.id}:`, err);
-                    }
+                        // Sum hours from nested seances
+                        const seances = session.seances || [];
+                        totalHeures += Array.isArray(seances)
+                            ? seances.reduce((sum, seance) => sum + (seance.duree || 0), 0)
+                            : 0;
+                    });
                 }
 
                 stats[formation.id] = {
@@ -350,7 +352,7 @@ function NosFormations() {
 
                                                             <div className="d-flex align-items-center gap-4 mb-4 text-muted small">
                                                                 <div className="d-flex align-items-center gap-2">
-                                                                    <FontAwesomeIcon icon={faUserGraduate} /> {stats.students} étudiants
+                                                                    <FontAwesomeIcon icon={faUserGraduate} /> {stats.students} participants inscrits
                                                                 </div>
                                                                 <div className="d-flex align-items-center gap-2">
                                                                     <FontAwesomeIcon icon={faClock} /> {stats.hours}h

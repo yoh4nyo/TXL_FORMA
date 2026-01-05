@@ -22,7 +22,7 @@ public interface SessionRepository extends CrudRepository<Session, Long> {
     @Query("SELECT DISTINCT s FROM Session s LEFT JOIN FETCH s.seances JOIN s.session_eleves se WHERE se.eleve.id = ?1")
     List<Session> findSessionsByEleveIdWithSeances(Long eleveId);
 
-    @Query("SELECT DISTINCT s FROM Session s LEFT JOIN FETCH s.seances WHERE s.formation.id = ?1")
+    @Query("SELECT DISTINCT s FROM Session s LEFT JOIN FETCH s.seances LEFT JOIN FETCH s.session_eleves WHERE s.formation.id = ?1")
     List<Session> findSessionsByFormationId(Long formationId);
 
     @Query("SELECT s FROM Session s WHERE s.date_end < ?1")

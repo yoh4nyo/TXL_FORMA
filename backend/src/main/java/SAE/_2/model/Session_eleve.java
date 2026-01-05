@@ -19,21 +19,36 @@ public class Session_eleve {
         this.diplome = diplome;
     }
 
-    public Session_eleve() {}
+    public Session_eleve() {
+    }
 
-    public Long getId() {return id;}
+    public Long getId() {
+        return id;
+    }
 
-    public String getStatut() {return statut;}
+    public String getStatut() {
+        return statut;
+    }
 
-    public void setStatut(String statut) {this.statut = statut;}
+    public void setStatut(String statut) {
+        this.statut = statut;
+    }
 
-    public int getNote() {return note;}
+    public int getNote() {
+        return note;
+    }
 
-    public void setNote(int note) {this.note = note;}
+    public void setNote(int note) {
+        this.note = note;
+    }
 
-    public int getDiplome() {return diplome;}
+    public int getDiplome() {
+        return diplome;
+    }
 
-    public void setDiplome(int diplome) {this.diplome = diplome;}
+    public void setDiplome(int diplome) {
+        this.diplome = diplome;
+    }
 
     public Eleve getEleve() {
         return eleve;
@@ -53,10 +68,12 @@ public class Session_eleve {
 
     @ManyToOne
     @JoinColumn(name = "session_id")
+    @com.fasterxml.jackson.annotation.JsonIgnoreProperties("session_eleves")
     private Session session;
 
     @ManyToOne
     @JoinColumn(name = "eleve_id")
+    @com.fasterxml.jackson.annotation.JsonIgnoreProperties("session_eleves")
     private Eleve eleve;
 
 }

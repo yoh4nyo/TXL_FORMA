@@ -205,20 +205,25 @@ const AdminFormationSeances = () => {
                 </Col>
             </Row>
 
-            {/* Error Modal */}
+            {/* Error Modal - Softened */}
             <Modal show={!!error} onHide={() => setError(null)} centered>
-                <Modal.Header closeButton className="bg-danger text-white">
-                    <Modal.Title>
+                <Modal.Header closeButton className="border-0 pb-0">
+                    <Modal.Title className="fw-bold text-danger">
                         <FontAwesomeIcon icon={faArrowLeft} className="me-2" style={{ transform: 'rotate(180deg)' }} />
-                        Erreur
+                        Attention
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body className="text-center p-4">
-                    <h5 className="text-danger fw-bold mb-3">Une erreur est survenue</h5>
-                    <p className="mb-0 fs-5">{error}</p>
+                <Modal.Body className="text-center pt-0 pb-4 px-4">
+                    <div className="mb-3">
+                        <div className="d-inline-flex align-items-center justify-content-center bg-danger bg-opacity-10 text-danger rounded-circle" style={{ width: 60, height: 60 }}>
+                            <FontAwesomeIcon icon={faArrowLeft} size="lg" style={{ transform: 'rotate(180deg)' }} />
+                        </div>
+                    </div>
+                    <h5 className="fw-bold mb-3">Une erreur est survenue</h5>
+                    <p className="mb-0 text-muted">{error}</p>
                 </Modal.Body>
-                <Modal.Footer className="justify-content-center border-0 pb-4">
-                    <Button variant="danger" onClick={() => setError(null)} className="px-4">
+                <Modal.Footer className="justify-content-center border-0 pt-0 pb-4">
+                    <Button variant="outline-danger" onClick={() => setError(null)} className="px-4 rounded-pill">
                         Compris
                     </Button>
                 </Modal.Footer>

@@ -182,7 +182,12 @@ function Accueil() {
                                                         {formation.categorie}
                                                     </Badge>
                                                 </div>
-                                                <div className="formation-price fw-bold" style={{ fontSize: '1.5rem', color: '#0E5555' }}>{formation.prix}€</div>
+                                                <div className="d-flex justify-content-between align-items-center mt-3">
+                                                    <div className="formation-price fw-bold" style={{ fontSize: '1.5rem', color: '#0E5555' }}>{formation.prix}€</div>
+                                                    <Button variant="outline-primary" className="rounded-pill px-4" onClick={(e) => { e.stopPropagation(); navigate(`/formation/${formation.id}`); }}>
+                                                        Voir
+                                                    </Button>
+                                                </div>
                                             </Card.Body>
                                         </Card>
                                     </Col>
