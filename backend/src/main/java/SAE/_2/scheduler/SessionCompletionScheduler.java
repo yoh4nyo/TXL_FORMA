@@ -40,7 +40,7 @@ public class SessionCompletionScheduler {
                     // Only update if not already processed
                     if (!"Admis".equals(sessionEleve.getStatut()) && !"Refusé".equals(sessionEleve.getStatut())) {
                         System.out.println("Clôture auto Session #" + session.getId() + " - Elève #"
-                                + sessionEleve.getEleve().getId() + " -> Admis");
+                                + sessionEleve.getEleve().getId() + " -> admis");
                         sessionEleve.setStatut("Admis");
                         sessionEleve.setDiplome(1); // 1 = Has Diploma ? Assuming boolean int specific
                         sessionEleveRepository.save(sessionEleve);
