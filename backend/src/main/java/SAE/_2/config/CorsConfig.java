@@ -15,9 +15,12 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
         
         config.setAllowCredentials(true);
+        
         config.addAllowedOrigin("http://localhost:5173");
         config.addAllowedOrigin("http://localhost:5174");
-        config.addAllowedOrigin("http://localhost:5175");
+        
+        config.addAllowedOrigin("https://txl-forma.vercel.app/");
+        
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         
