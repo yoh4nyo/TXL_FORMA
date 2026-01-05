@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Container, Button, Spinner, Row, Col, Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faBook, faAward, faCog, faArrowLeft} from '@fortawesome/free-solid-svg-icons';
-import { Link, useParams } from 'react-router-dom';
+import { faUser, faBook, faAward, faCog, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 import VueProfil from './components/VueProfil';
 import VueFormations from './components/VueFormations';
 import VueCertificats from './components/VueCertificats';
@@ -27,6 +28,19 @@ function Profil() {
     newPassword: '',
     confirmPassword: ''
   });
+
+  const { isAuthenticated, user, isEleve, isAdmin, isFormateur } = useAuth(); // Assuming useAuth provides these
+  const navigate = useNavigate(); // Make sure to import useNavigate if not already used (it uses useParams currently)
+
+  useEffect(() => {
+    if (user) {
+      if (isAdmin) {
+        navigate('/admin/dashboard');
+      } else if (isFormateur) {
+        navigate(`/formateur/${user.id}`);
+      }
+    }
+  }, [user, isAdmin, isFormateur, navigate]);
 
   useEffect(() => {
     if (eleveId) {
@@ -64,20 +78,20 @@ function Profil() {
     try {
       const sessionEleves = await apiClient.get(`/session_eleve/eleve/${eleveId}`);
       const sessionElevesArray = Array.isArray(sessionEleves) ? sessionEleves : [];
-      
+
       let totalHeures = 0;
-      
-      const seancePromises = sessionElevesArray.map(se => 
+
+      const seancePromises = sessionElevesArray.map(se =>
         apiClient.get(`/seance/session/${se.session.id}`).catch(() => [])
       );
-      
+
       const allSeances = await Promise.all(seancePromises);
-      
+
       for (const seances of allSeances) {
         const seancesArray = Array.isArray(seances) ? seances : [];
         totalHeures += seancesArray.reduce((sum, seance) => sum + (seance.duree || 0), 0);
       }
-      
+
       const transformerSessionEleve = (se) => {
         const session = se.session;
         return {
@@ -88,18 +102,18 @@ function Profil() {
           status: se.statut
         };
       };
-      
+
       const enCours = sessionElevesArray
         .filter(se => se.statut === 'en cours')
         .map(transformerSessionEleve);
-      
+
       const terminees = sessionElevesArray
         .filter(se => se.statut === 'admis')
         .map(transformerSessionEleve);
-      
+
       setFormationsActives(enCours);
       setFormationsTerminees(terminees);
-      
+
       const certificatsData = sessionElevesArray
         .filter(se => {
           const isAdmis = se.statut === 'admis';
@@ -110,7 +124,7 @@ function Profil() {
           const session = se.session;
           const note = se.note || 0;
           const typeCertificat = note >= 10 ? 'Certificat de Réussite' : 'Certificat de Présence';
-          
+
           return {
             id: se.id,
             formation: session.formation?.nom || 'Formation',
@@ -120,9 +134,9 @@ function Profil() {
             formateur: session.intervenant?.nom + ' ' + session.intervenant?.prenom || 'Formateur'
           };
         });
-      
+
       setCertificats(certificatsData);
-      
+
       setUtilisateur(prev => ({
         ...prev,
         stats: {
@@ -173,12 +187,12 @@ function Profil() {
     const confirmation = window.confirm(
       '⚠️ ATTENTION : Cette action est irréversible !\n\nÊtes-vous sûr de vouloir supprimer votre compte ?\nToutes vos données (inscriptions, formations, paiements) seront définitivement supprimées.'
     );
-    
+
     if (confirmation) {
       const doubleConfirmation = window.confirm(
         'Dernière confirmation : Voulez-vous vraiment supprimer votre compte ?'
       );
-      
+
       if (doubleConfirmation) {
         try {
           await apiClient.delete(`/eleve/${eleveId}`);
@@ -284,8 +298,8 @@ function Profil() {
                 <h4 className="fw-bold text-dark-teal mb-0">Mes Informations</h4>
               </Card.Header>
               <Card.Body className="p-4">
-                <VueProfil.Details 
-                  user={utilisateur} 
+                <VueProfil.Details
+                  user={utilisateur}
                   isEditing={isEditing}
                   setIsEditing={setIsEditing}
                   formData={formData}

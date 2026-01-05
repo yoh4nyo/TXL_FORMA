@@ -21,8 +21,10 @@ function Header() {
   };
 
   const handleLogout = () => {
-    logout();
-    navigate('/');
+    if (window.confirm("Voulez-vous vraiment vous déconnecter ?")) {
+      logout();
+      navigate('/');
+    }
   };
 
   return (

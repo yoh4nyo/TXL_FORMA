@@ -156,16 +156,19 @@ function NosFormations() {
     };
 
     const getFormationImage = (categorie) => {
-        const images = {
-            "Réseaux et télécoms": "/assets/reseau_telecom.jpg",
-            "Administration système": "/assets/administration_sys.jpg",
-            "Développement Front": "/assets/front_end.png",
-            "Développement Back": "/assets/back_end.png",
-            "Bureautique": "/assets/bureautique.jpg",
-            "Cybersécurité": "/assets/cyber.jpg",
-            "Conduite de projets": "/assets/conduite_projet.jpg"
-        };
-        return images[categorie] || "/assets/reseau_telecom.jpg";
+        if (!categorie) return "/assets/reseau_telecom.jpg";
+
+        const normalizedCat = categorie.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+
+        if (normalizedCat.includes("reseau") || normalizedCat.includes("telecom")) return "/assets/reseau_telecom.jpg";
+        if (normalizedCat.includes("system") || normalizedCat.includes("sys")) return "/assets/administration_sys.jpg";
+        if (normalizedCat.includes("front")) return "/assets/front_end.png";
+        if (normalizedCat.includes("back")) return "/assets/back_end.png";
+        if (normalizedCat.includes("bureau")) return "/assets/bureautique.jpg";
+        if (normalizedCat.includes("cyber") || normalizedCat.includes("securite")) return "/assets/cyber.jpg";
+        if (normalizedCat.includes("projet") || normalizedCat.includes("gestion")) return "/assets/conduite_projet.jpg";
+
+        return "/assets/reseau_telecom.jpg";
     };
 
     const domainsList = [
@@ -187,12 +190,15 @@ function NosFormations() {
 
     const filteredCourses = useMemo(() => {
         return formations.filter(formation => {
-            const normalizedCategorie = formation.categorie?.toLowerCase().trim() || '';
+            const normalize = (str) => str ? str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim() : '';
+
+            const normalizedCategorie = normalize(formation.categorie);
             const domainMatch = selectedDomains.includes('all') || selectedDomains.some(domain => {
-                const normalizedDomain = domain.toLowerCase().trim();
+                const normalizedDomain = normalize(domain);
+                // Check for partial match to be safe (e.g. "Reseaux" matches "Reseaux et telecoms")
                 return normalizedCategorie.includes(normalizedDomain) || normalizedDomain.includes(normalizedCategorie);
             });
-            const searchMatch = searchTerm === '' || formation.nom.toLowerCase().includes(searchTerm.toLowerCase());
+            const searchMatch = searchTerm === '' || normalize(formation.nom).includes(normalize(searchTerm));
             return domainMatch && searchMatch;
         });
     }, [selectedDomains, formations, searchTerm]);
@@ -239,9 +245,9 @@ function NosFormations() {
                         <Col lg={3} className="mb-4">
                             <div className="nf-search-box mb-4">
                                 <div className="position-relative">
-                                    <Form.Control 
-                                        type="text" 
-                                        placeholder="Rechercher une formation..." 
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Rechercher une formation..."
                                         className="nf-search-input"
                                         value={searchTerm}
                                         onChange={(e) => {
@@ -313,7 +319,7 @@ function NosFormations() {
                                             <Card className="nf-course-card border-0 shadow-sm rounded-4 overflow-hidden" key={formation.id}>
                                                 <Row className="g-0 h-100">
                                                     <Col md={4} className="position-relative">
-                                                        <div className="nf-card-img h-100" style={{ 
+                                                        <div className="nf-card-img h-100" style={{
                                                             backgroundImage: `url(${getFormationImage(formation.categorie)})`,
                                                             backgroundSize: 'cover',
                                                             backgroundPosition: 'center'

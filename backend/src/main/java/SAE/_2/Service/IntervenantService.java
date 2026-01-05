@@ -1,4 +1,5 @@
 package SAE._2.Service;
+
 import SAE._2.Repository.IntervenantRepository;
 import SAE._2.exception.ResourceNotFoundException;
 import SAE._2.model.Intervenant;
@@ -15,6 +16,12 @@ public class IntervenantService {
     private IntervenantRepository intervenantRepository;
 
     @Autowired
+    private SAE._2.Repository.EleveRepository eleveRepository;
+
+    @Autowired
+    private SAE._2.Repository.AdminRepository adminRepository;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     private void validateUniqueFields(Intervenant intervenant, Long excludeId) {
@@ -22,20 +29,27 @@ public class IntervenantService {
         String identifiant = intervenant.getIdentifiant();
 
         if (mail != null && !mail.isEmpty()) {
-            boolean exists = excludeId == null
+            boolean existsInIntervenant = excludeId == null
                     ? intervenantRepository.existsByMail(mail)
                     : intervenantRepository.existsByMailAndIdNot(mail, excludeId);
-            if (exists) {
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Cette adresse mail est déjà utilisée");
+            boolean existsInEleve = eleveRepository.existsByMail(mail);
+
+            if (existsInIntervenant || existsInEleve) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+                        "Cette adresse mail est déjà utilisée (peut-être par un autre rôle)");
             }
         }
 
         if (identifiant != null && !identifiant.isEmpty()) {
-            boolean exists = excludeId == null
+            boolean existsInIntervenant = excludeId == null
                     ? intervenantRepository.existsByIdentifiant(identifiant)
                     : intervenantRepository.existsByIdentifiantAndIdNot(identifiant, excludeId);
-            if (exists) {
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Cet identifiant est déjà utilisé");
+            boolean existsInEleve = eleveRepository.existsByIdentifiant(identifiant);
+            boolean existsInAdmin = adminRepository.existsByIdentifiant(identifiant);
+
+            if (existsInIntervenant || existsInEleve || existsInAdmin) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+                        "Cet identifiant est déjà utilisé (peut-être par un autre rôle)");
             }
         }
     }

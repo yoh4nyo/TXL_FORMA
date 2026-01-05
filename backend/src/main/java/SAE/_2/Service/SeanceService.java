@@ -24,19 +24,34 @@ public class SeanceService {
     private SessionRepository sessionRepository;
 
     public Seance saveSeance(Seance seance) {
-        Seance savedSeance = seanceRepository.save(seance);
+        if (seance.getSession() != null) {
+            Session session = sessionRepository.findById(seance.getSession().getId()).orElse(null);
 
-        if (savedSeance.getSession() != null) {
-            Session session = sessionRepository.findById(savedSeance.getSession().getId()).orElse(null);
-            if (session != null && session.getIntervenant() != null) {
-                Intervenant intervenant = session.getIntervenant();
-                intervenant.setNbSeance(intervenant.getNbSeance() + 1);
-                intervenant.setNbHeure(intervenant.getNbHeure() + savedSeance.getDuree());
-                intervenantRepository.save(intervenant);
+            if (session != null) {
+                // Check if session has started
+                try {
+                    java.time.LocalDate dateStart = java.time.LocalDate.parse(session.getDate_start());
+                    if (java.time.LocalDate.now().isAfter(dateStart) || java.time.LocalDate.now().equals(dateStart)) {
+                        throw new RuntimeException("Impossible d'ajouter une séance : La session a déjà commencé le "
+                                + session.getDate_start());
+                    }
+                } catch (java.time.format.DateTimeParseException e) {
+                    // Ignore date parse error, let it proceed or log warning
+                    System.err.println("Erreur format date session: " + e.getMessage());
+                }
+
+                if (session.getIntervenant() != null) {
+                    Intervenant intervenant = session.getIntervenant();
+                    intervenant.setNbSeance(intervenant.getNbSeance() + 1);
+                    intervenant.setNbHeure(intervenant.getNbHeure() + seance.getDuree());
+                    intervenantRepository.save(intervenant);
+                }
+                // Ensure the seance is linked to the full session object
+                seance.setSession(session);
             }
         }
-        
-        return savedSeance;
+
+        return seanceRepository.save(seance);
     }
 
     public Iterable<Seance> getAllSeance() {
@@ -61,7 +76,7 @@ public class SeanceService {
 
     public void deleteSeanceById(Long id) {
         Seance seance = seanceRepository.findById(id).orElse(null);
-        
+
         if (seance != null) {
             if (seance.getSession() != null) {
                 Session session = sessionRepository.findById(seance.getSession().getId()).orElse(null);
@@ -72,7 +87,7 @@ public class SeanceService {
                     intervenantRepository.save(intervenant);
                 }
             }
-            
+
             seanceRepository.deleteById(id);
         }
     }
