@@ -17,37 +17,22 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (identifiant, password) => {
         try {
-            const [admins, eleves, intervenants] = await Promise.all([
-                apiClient.get('/admin').catch(() => []),
-                apiClient.get('/eleve').catch(() => []),
-                apiClient.get('/intervenant').catch(() => [])
-            ]);
+            const response = await apiClient.post('/auth/login', {
+                identifiant,
+                password
+            });
 
-            let foundUser = null;
-            
-            foundUser = admins.find(u => u.identifiant === identifiant);
-            if (!foundUser) {
-                foundUser = eleves.find(u => u.identifiant === identifiant);
-            }
-            if (!foundUser) {
-                foundUser = intervenants.find(u => u.identifiant === identifiant);
-            }
-
-            if (!foundUser) {
-                throw new Error('Identifiant ou mot de passe incorrect');
-            }
-
-            if (foundUser.password !== password) {
-                throw new Error('Identifiant ou mot de passe incorrect');
+            if (!response.success) {
+                throw new Error(response.message || 'Identifiant ou mot de passe incorrect');
             }
 
             const userData = {
-                id: foundUser.id,
-                identifiant: foundUser.identifiant,
-                role: foundUser.role,
-                nom: foundUser.nom,
-                prenom: foundUser.prenom,
-                mail: foundUser.mail
+                id: response.id,
+                identifiant: response.identifiant,
+                role: response.role,
+                nom: response.nom,
+                prenom: response.prenom,
+                mail: response.mail
             };
 
             setUser(userData);
@@ -55,6 +40,10 @@ export const AuthProvider = ({ children }) => {
             
             return userData;
         } catch (error) {
+            // Gérer les erreurs 401 du backend
+            if (error.status === 401) {
+                throw new Error('Identifiant ou mot de passe incorrect');
+            }
             throw error;
         }
     };
