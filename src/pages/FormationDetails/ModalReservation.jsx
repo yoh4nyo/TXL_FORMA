@@ -10,7 +10,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
 import './ModalReservation.css';
 
-const stripePromise = loadStripe('pk_test_51SlsyyRqXMoO3uRx1mBKCChLLQtoiU2xurp6EofPKdcbOPbJPGX9ijHJAGCW5Eg1n4dGMQPvKIkwL7rLDSiiWJd400RtrWUOZU');
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 const ModalReservation = ({ show, handleClose, formationTitle, formationPrice, sessions, formationId }) => {
     const [selectedSession, setSelectedSession] = useState(null);
