@@ -38,7 +38,7 @@ const FormateurFormationSessions = () => {
     const fetchSessions = async () => {
         setIsLoading(true);
         try {
-            const data = await apiClient.get(`/session/formation/${formationId}`);
+            const data = await apiClient.get(`/session/formation/${formationId}/intervenant/${formateurId}`);
             setSessions(Array.isArray(data) ? data : []);
         } catch (err) {
             setError("Impossible de charger les sessions.");

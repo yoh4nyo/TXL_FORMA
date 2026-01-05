@@ -52,4 +52,8 @@ public class SessionService {
     public Iterable<Session> getSessionsByFormationId(Long formationId) {
         return sessionRepository.findSessionsByFormationId(formationId);
     }
+
+    public Iterable<Session> getSessionsByFormationAndIntervenant(Long formationId, Long intervenantId) {
+        return sessionRepository.findSessionsByFormationIdAndIntervenantId(formationId, intervenantId);
+    }
 }

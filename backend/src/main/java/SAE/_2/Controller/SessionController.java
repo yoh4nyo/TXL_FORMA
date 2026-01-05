@@ -34,6 +34,12 @@ public class SessionController {
         return sessionService.getSessionsByFormationId(formationId);
     }
 
+    @GetMapping("/formation/{formationId}/intervenant/{intervenantId}")
+    public Iterable<Session> getSessionsByFormationAndIntervenant(@PathVariable Long formationId,
+            @PathVariable Long intervenantId) {
+        return sessionService.getSessionsByFormationAndIntervenant(formationId, intervenantId);
+    }
+
     @GetMapping("/{id}")
     public Session getSessionById(@PathVariable Long id) {
         return sessionService.getSessionById(id);
