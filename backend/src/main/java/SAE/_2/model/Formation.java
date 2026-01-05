@@ -16,13 +16,14 @@ public class Formation {
     private String description;
     private int prix;
     private String categorie;
-    
+
     @ElementCollection
     @CollectionTable(name = "formation_apprentissages", joinColumns = @JoinColumn(name = "formation_id"))
     @Column(name = "apprentissage")
     private List<String> apprentissages;
 
-    public Formation() {}
+    public Formation() {
+    }
 
     public Formation(String nom, String description, int prix, String categorie, List<String> apprentissages) {
         this.nom = nom;
@@ -76,6 +77,6 @@ public class Formation {
         this.apprentissages = apprentissages;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "formation")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "formation", cascade = CascadeType.REMOVE)
     private Set<Session> sessions = new HashSet();
 }
