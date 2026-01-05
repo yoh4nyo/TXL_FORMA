@@ -25,7 +25,8 @@ public class Session {
         this.nbPlaceRestant = nbPlace;
     }
 
-    public Session() {}
+    public Session() {
+    }
 
     public Long getId() {
         return id;
@@ -87,14 +88,14 @@ public class Session {
         this.session_eleves = session_eleves;
     }
 
-    @OneToMany(fetch = FetchType.EAGER,mappedBy = "session")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "session", cascade = CascadeType.REMOVE)
     private Set<Seance> seances = new HashSet();
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "session")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "session", cascade = CascadeType.REMOVE)
     @JsonIgnore
     private Set<Session_eleve> session_eleves = new HashSet();
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "session")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "session", cascade = CascadeType.REMOVE)
     @JsonIgnore
     private Set<Paiement> Paiements = new HashSet();
 

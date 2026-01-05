@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Button, Card, Badge, Carousel, Form } from 'react-bootstrap';
 import heroImage from '../../assets/hero_photo_accueil.jpg';
@@ -6,6 +6,7 @@ import virtualRoomImage from '../../assets/photo_3d.png';
 import cyberImage from '../../assets/cyber.jpg';
 import devFrontImage from '../../assets/front_end.png';
 import projetImage from '../../assets/conduite_projet.jpg';
+import { apiClient } from '../../api/client';
 import './Accueil.css';
 
 const homeFeatures = [
@@ -13,12 +14,6 @@ const homeFeatures = [
     { num: 2, title: 'Inscrivez-vous en ligne', desc: 'Créez votre compte, choisissez votre session et validez votre inscription en quelques clics.' },
     { num: 3, title: 'Apprenez avec des experts', desc: 'Suivez des cours pratiques dispensés par des professionnels reconnus dans leur domaine.' },
     { num: 4, title: 'Obtenez votre certification', desc: 'Validez vos acquis et boostez votre carrière avec une certification reconnue.' },
-];
-
-const homeFormations = [
-    { id: 101, title: 'Expert Cybersécurité', network: 'Sécurité', price: '49€', badge: 'Populaire', badgeColor: 'danger', category: 'Informatique', image: cyberImage },
-    { id: 102, title: 'Développeur Front-End', network: 'Dév', price: '29€', badge: 'Nouveau', badgeColor: 'success', category: 'Développement', image: devFrontImage },
-    { id: 103, title: 'Chef de Projet Digital', network: 'Mgmt', price: '39€', badge: 'Meilleure Vente', badgeColor: 'warning', category: 'Gestion', image: projetImage },
 ];
 
 function Accueil() {
@@ -34,6 +29,42 @@ function Accueil() {
     };
 
 
+
+    const [recentFormations, setRecentFormations] = useState([]);
+
+    useEffect(() => {
+        const fetchRecentFormations = async () => {
+            try {
+                const data = await apiClient.get('/formation');
+                if (Array.isArray(data)) {
+                    // Prends les 3 dernières formations ou les 3 premières
+                    setRecentFormations(data.slice(0, 3));
+                }
+            } catch (err) {
+                console.error("Erreur lors du chargement des formations pour l'accueil:", err);
+            }
+        };
+
+        fetchRecentFormations();
+    }, []);
+
+    const getFormationImage = (category) => {
+        if (!category) return heroImage;
+        const normalized = category.toLowerCase();
+        if (normalized.includes('cyber') || normalized.includes('sécurité')) return cyberImage;
+        if (normalized.includes('front') || normalized.includes('web') || normalized.includes('développement')) return devFrontImage;
+        if (normalized.includes('projet') || normalized.includes('gestion')) return projetImage;
+        return heroImage; // Default fallback
+    };
+
+    const getBadgeInfo = (index) => {
+        const badges = [
+            { text: 'Populaire', color: 'danger' },
+            { text: 'Nouveau', color: 'success' },
+            { text: 'Meilleure Vente', color: 'warning' }
+        ];
+        return badges[index % badges.length];
+    };
 
     return (
         <div className="accueil">
@@ -131,28 +162,37 @@ function Accueil() {
                     </p>
 
                     <Row className="justify-content-center">
-                        {homeFormations.map((formation) => (
-                            <Col lg={4} md={6} sm={12} key={formation.id} className="mb-4 d-flex align-items-stretch">
-                                <Card className="formation-card w-100">
-                                    <div className="formation-image-wrapper">
-                                        <Card.Img variant="top" src={formation.image} alt={formation.title} style={{ height: '220px', objectFit: 'cover' }} />
-                                        <Badge className={`formation-badge badge-${formation.badgeColor}`}>
-                                            {formation.badge}
-                                        </Badge>
-                                    </div>
-                                    <Card.Body>
-                                        <h5 className="formation-title mt-2 mb-3" style={{ fontSize: '1.25rem' }}>{formation.title}</h5>
-                                        <div className="formation-meta mb-3">
-                                            <Badge bg="light" text="dark" className="me-2 p-2 border">
-                                                <i className="bi bi-tag me-1"></i>
-                                                {formation.category}
-                                            </Badge>
-                                        </div>
-                                        <div className="formation-price fw-bold" style={{ fontSize: '1.5rem', color: '#0E5555' }}>{formation.price}</div>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        ))}
+                        {recentFormations.length > 0 ? (
+                            recentFormations.map((formation, index) => {
+                                const badgeInfo = getBadgeInfo(index);
+                                return (
+                                    <Col lg={4} md={6} sm={12} key={formation.id} className="mb-4 d-flex align-items-stretch">
+                                        <Card className="formation-card w-100" onClick={() => navigate(`/formation/${formation.id}`)} style={{ cursor: 'pointer' }}>
+                                            <div className="formation-image-wrapper">
+                                                <Card.Img variant="top" src={getFormationImage(formation.categorie)} alt={formation.nom} style={{ height: '220px', objectFit: 'cover' }} />
+                                                <Badge className={`formation-badge badge-${badgeInfo.color}`}>
+                                                    {badgeInfo.text}
+                                                </Badge>
+                                            </div>
+                                            <Card.Body>
+                                                <h5 className="formation-title mt-2 mb-3" style={{ fontSize: '1.25rem' }}>{formation.nom}</h5>
+                                                <div className="formation-meta mb-3">
+                                                    <Badge bg="light" text="dark" className="me-2 p-2 border">
+                                                        <i className="bi bi-tag me-1"></i>
+                                                        {formation.categorie}
+                                                    </Badge>
+                                                </div>
+                                                <div className="formation-price fw-bold" style={{ fontSize: '1.5rem', color: '#0E5555' }}>{formation.prix}€</div>
+                                            </Card.Body>
+                                        </Card>
+                                    </Col>
+                                );
+                            })
+                        ) : (
+                            <div className="text-center">
+                                <p>Chargement des formations...</p>
+                            </div>
+                        )}
                     </Row>
 
                     <div className="text-center mt-4">

@@ -7,7 +7,7 @@ function MentionsLegales() {
             <section className="legal-hero">
                 <Container className="text-center">
                     <h1 className="legal-hero-title">
-                        Mentions <span className="text-teal-light">Légales</span>
+                        Mentions <span className="text-teal-light">légales</span>
                     </h1>
                 </Container>
             </section>
@@ -41,13 +41,13 @@ function MentionsLegales() {
 
                         <h2>Propriété intellectuelle</h2>
                         <p>
-                            L'ensemble du contenu de ce site (textes, images, logos, vidéos) est protégé par le droit d'auteur. 
+                            L'ensemble du contenu de ce site (textes, images, logos, vidéos) est protégé par le droit d'auteur.
                             Toute reproduction, même partielle, est interdite sans autorisation préalable.
                         </p>
 
                         <h2>Limitation de responsabilité</h2>
                         <p>
-                            Ce site est un projet étudiant à but pédagogique. Les informations fournies le sont à titre indicatif 
+                            Ce site est un projet étudiant à but pédagogique. Les informations fournies le sont à titre indicatif
                             et ne sauraient engager la responsabilité des auteurs. Les formations présentées sont fictives.
                         </p>
 

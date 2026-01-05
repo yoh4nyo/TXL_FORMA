@@ -66,7 +66,7 @@ function Footer() {
                 <div className="footer-bottom">
                     <div className="footer-brand">
                         <img src={logo} alt="TXL Formation" className="footer-logo-img" />
-                        <span className="brand-date">© 2025 TXLFORMA</span>
+                        <span className="brand-date">© 2026 TXLFORMA</span>
                     </div>
 
                     <div className="footer-payments">

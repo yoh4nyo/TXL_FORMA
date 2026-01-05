@@ -7,7 +7,7 @@ function PolitiqueDonnees() {
             <section className="legal-hero">
                 <Container className="text-center">
                     <h1 className="legal-hero-title">
-                        Protection des <span className="text-teal-light">Données</span>
+                        Protection des <span className="text-teal-light">données</span>
                     </h1>
                 </Container>
             </section>
@@ -17,7 +17,7 @@ function PolitiqueDonnees() {
                     <div className="legal-card">
                         <h2>Responsable du traitement</h2>
                         <p>
-                            TXL Formation, projet étudiant de l'Université Gustave Eiffel, est responsable du traitement 
+                            TXL Formation, projet étudiant de l'Université Gustave Eiffel, est responsable du traitement
                             des données personnelles collectées sur ce site.
                         </p>
 
@@ -42,7 +42,7 @@ function PolitiqueDonnees() {
 
                         <h2>Durée de conservation</h2>
                         <p>
-                            Vos données sont conservées pendant toute la durée de votre inscription, puis archivées 
+                            Vos données sont conservées pendant toute la durée de votre inscription, puis archivées
                             pendant 3 ans après votre dernière activité, conformément aux obligations légales.
                         </p>
 
@@ -61,7 +61,7 @@ function PolitiqueDonnees() {
 
                         <h2>Sécurité</h2>
                         <p>
-                            Nous mettons en œuvre des mesures techniques et organisationnelles pour protéger vos données : 
+                            Nous mettons en œuvre des mesures techniques et organisationnelles pour protéger vos données :
                             chiffrement des mots de passe, connexions sécurisées HTTPS, accès restreint aux données.
                         </p>
 
