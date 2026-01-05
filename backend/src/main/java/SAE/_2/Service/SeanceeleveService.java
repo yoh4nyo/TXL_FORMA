@@ -40,11 +40,21 @@ public class SeanceeleveService {
         String oldStatut = existingSeance_eleve.getStatut();
         String newStatut = seance_eleveDetails.getStatut();
         
-        existingSeance_eleve.setInscription(seance_eleveDetails.getInscription());
-        existingSeance_eleve.setEleve(seance_eleveDetails.getEleve());
-        existingSeance_eleve.setSeance(seance_eleveDetails.getSeance());
-        existingSeance_eleve.setSignature(seance_eleveDetails.getSignature());
-        existingSeance_eleve.setStatut(newStatut);
+        if (seance_eleveDetails.getInscription() != null) {
+            existingSeance_eleve.setInscription(seance_eleveDetails.getInscription());
+        }
+        if (seance_eleveDetails.getEleve() != null) {
+            existingSeance_eleve.setEleve(seance_eleveDetails.getEleve());
+        }
+        if (seance_eleveDetails.getSeance() != null) {
+            existingSeance_eleve.setSeance(seance_eleveDetails.getSeance());
+        }
+        if (seance_eleveDetails.getSignature() != null) {
+            existingSeance_eleve.setSignature(seance_eleveDetails.getSignature());
+        }
+        if (newStatut != null) {
+            existingSeance_eleve.setStatut(newStatut);
+        }
 
         if ("absent".equals(newStatut) && !"absent".equals(oldStatut)) {
             if (existingSeance_eleve.getEleve() != null) {
