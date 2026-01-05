@@ -212,12 +212,13 @@ function Accueil() {
                 <Container>
                     <h2 className="section-title mb-5">Visitez nos salles de formation</h2>
 
-                    <div className="virtual-room-wrapper">
-                        <img
-                            src={virtualRoomImage}
-                            alt="Salle virtuelle 3D"
-                            className="virtual-room-image"
-                        />
+                    import Modele3D from '../../components/Modele3D/Modele3D';
+                    // ... (keep imports)
+
+                    // ... inside render ... 
+                    // line 215 approx
+                    <div className="virtual-room-wrapper" style={{ height: '600px', position: 'relative' }}>
+                        <Modele3D />
                     </div>
                 </Container>
             </section>

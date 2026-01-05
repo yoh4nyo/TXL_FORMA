@@ -87,11 +87,9 @@ function NosFormations() {
 
                 if (Array.isArray(sessions)) {
                     sessions.forEach(session => {
-                        // Count students from nested session_eleves
                         const eleves = session.session_eleves || [];
                         totalEleves += Array.isArray(eleves) ? eleves.length : 0;
 
-                        // Sum hours from nested seances
                         const seances = session.seances || [];
                         totalHeures += Array.isArray(seances)
                             ? seances.reduce((sum, seance) => sum + (seance.duree || 0), 0)
