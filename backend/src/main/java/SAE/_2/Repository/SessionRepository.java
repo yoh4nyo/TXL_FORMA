@@ -25,5 +25,6 @@ public interface SessionRepository extends CrudRepository<Session, Long> {
     @Query("SELECT DISTINCT s FROM Session s LEFT JOIN FETCH s.seances WHERE s.formation.id = ?1")
     List<Session> findSessionsByFormationId(Long formationId);
 
+    @Query("SELECT s FROM Session s WHERE s.date_end < ?1")
     List<Session> findSessionsByDateEndBefore(String date);
 }

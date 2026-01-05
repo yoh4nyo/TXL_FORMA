@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/admin")
 public class AdminController {
@@ -30,7 +29,9 @@ public class AdminController {
     }
 
     @PutMapping("/{id}")
-    public Admin updateAdmin(@PathVariable Long id, @RequestBody Admin admin) {return adminService.updateAdmin(id, admin);}
+    public Admin updateAdmin(@PathVariable Long id, @RequestBody Admin admin) {
+        return adminService.updateAdmin(id, admin);
+    }
 
     @DeleteMapping("/{id}")
     public void deleteAdmin(@PathVariable Long id) {

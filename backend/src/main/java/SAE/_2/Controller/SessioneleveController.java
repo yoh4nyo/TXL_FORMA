@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/session_eleve")
-@CrossOrigin(origins = "http://localhost:5173")
+
 public class SessioneleveController {
 
     @Autowired
@@ -42,8 +42,9 @@ public class SessioneleveController {
     }
 
     @PutMapping("/{id}")
-    public Session_eleve updateSessioneleve(@PathVariable Long id, @RequestBody Session_eleve session_eleve) {return sessioneleveService.updateSessioneleve(id, session_eleve);}
-
+    public Session_eleve updateSessioneleve(@PathVariable Long id, @RequestBody Session_eleve session_eleve) {
+        return sessioneleveService.updateSessioneleve(id, session_eleve);
+    }
 
     @DeleteMapping("/{id}")
     public void deleteSessioneleve(@PathVariable Long id) {

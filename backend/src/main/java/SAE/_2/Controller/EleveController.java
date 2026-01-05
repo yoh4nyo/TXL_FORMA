@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/eleve")
-@CrossOrigin(origins = "http://localhost:5173")
+
 public class EleveController {
 
     @Autowired
@@ -30,7 +30,9 @@ public class EleveController {
     }
 
     @PutMapping("/{id}")
-    public Eleve updateEleve(@PathVariable Long id, @RequestBody Eleve eleve) {return eleveService.updateEleve(id, eleve);}
+    public Eleve updateEleve(@PathVariable Long id, @RequestBody Eleve eleve) {
+        return eleveService.updateEleve(id, eleve);
+    }
 
     @DeleteMapping("/{id}")
     public void deleteEleve(@PathVariable Long id) {

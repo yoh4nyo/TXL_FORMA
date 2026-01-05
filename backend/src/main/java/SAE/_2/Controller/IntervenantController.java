@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/intervenant")
 public class IntervenantController {
@@ -31,7 +30,9 @@ public class IntervenantController {
     }
 
     @PutMapping("/{id}")
-    public Intervenant updateIntervenant(@PathVariable Long id, @RequestBody Intervenant intervenant) {return intervenantService.updateIntervenant(id, intervenant);}
+    public Intervenant updateIntervenant(@PathVariable Long id, @RequestBody Intervenant intervenant) {
+        return intervenantService.updateIntervenant(id, intervenant);
+    }
 
     @DeleteMapping("/{id}")
     public void deleteIntervenant(@PathVariable Long id) {

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/formation")
 public class FormationController {
@@ -36,7 +35,9 @@ public class FormationController {
     }
 
     @PutMapping("/{id}")
-    public Formation updateFormation(@PathVariable Long id, @RequestBody Formation formation) {return formationService.updateFormation(id, formation);}
+    public Formation updateFormation(@PathVariable Long id, @RequestBody Formation formation) {
+        return formationService.updateFormation(id, formation);
+    }
 
     @DeleteMapping("/{id}")
     public void deleteFormation(@PathVariable Long id) {

@@ -30,10 +30,14 @@ public class SecurityConfig {
     @Bean
     public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
         org.springframework.web.cors.CorsConfiguration configuration = new org.springframework.web.cors.CorsConfiguration();
-        configuration.setAllowedOrigins(java.util.Arrays.asList(
+
+        // Use allowedOriginPatterns instead of allowedOrigins to support wildcards with
+        // credentials
+        configuration.setAllowedOriginPatterns(java.util.Arrays.asList(
                 "http://localhost:5173",
                 "https://txl-forma.vercel.app",
                 "https://txl-forma-*.vercel.app"));
+
         configuration.setAllowedMethods(java.util.Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(java.util.Arrays.asList("*"));
         configuration.setAllowCredentials(true);

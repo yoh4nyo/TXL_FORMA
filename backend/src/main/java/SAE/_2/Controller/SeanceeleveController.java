@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/seance_eleve")
-@CrossOrigin(origins = "http://localhost:5173")
+
 public class SeanceeleveController {
 
     @Autowired
@@ -35,7 +35,9 @@ public class SeanceeleveController {
     }
 
     @PutMapping("/{id}")
-    public Seance_eleve updateSeanceeleve(@PathVariable Long id, @RequestBody Seance_eleve seance_eleve) {return seanceeleveService.updateSeanceeleve(id, seance_eleve);}
+    public Seance_eleve updateSeanceeleve(@PathVariable Long id, @RequestBody Seance_eleve seance_eleve) {
+        return seanceeleveService.updateSeanceeleve(id, seance_eleve);
+    }
 
     @DeleteMapping("/{id}")
     public void deleteSeanceeleve(@PathVariable Long id) {
