@@ -8,6 +8,7 @@ import devFrontImage from '../../assets/front_end.png';
 import projetImage from '../../assets/conduite_projet.jpg';
 import { apiClient } from '../../api/client';
 import './Accueil.css';
+import Modele3D from '../../components/Modele3D/Modele3D';
 
 const homeFeatures = [
     { num: 1, title: 'Choisissez votre parcours', desc: 'Identifiez la formation qui correspond à vos ambitions parmi notre large catalogue.' },
@@ -212,11 +213,6 @@ function Accueil() {
                 <Container>
                     <h2 className="section-title mb-5">Visitez nos salles de formation</h2>
 
-                    import Modele3D from '../../components/Modele3D/Modele3D';
-                    // ... (keep imports)
-
-                    // ... inside render ... 
-                    // line 215 approx
                     <div className="virtual-room-wrapper" style={{ height: '600px', position: 'relative' }}>
                         <Modele3D />
                     </div>
