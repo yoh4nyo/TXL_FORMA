@@ -4,6 +4,7 @@ import SAE._2.model.Admin;
 import SAE._2.model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import SAE._2.exception.ResourceNotFoundException;
 
@@ -13,7 +14,13 @@ public class AdminService {
     @Autowired
     private AdminRepository adminRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public Admin saveAdmin(Admin admin) {
+        if (admin.getPassword() != null && !admin.getPassword().isEmpty()) {
+            admin.setPassword(passwordEncoder.encode(admin.getPassword()));
+        }
         return adminRepository.save(admin);
     }
 
@@ -32,7 +39,7 @@ public class AdminService {
         existingAdmin.setIdentifiant(adminDetails.getIdentifiant());
         existingAdmin.setRole(adminDetails.getRole());
         if (adminDetails.getPassword() != null && !adminDetails.getPassword().isEmpty()) {
-            existingAdmin.setPassword(adminDetails.getPassword());
+            existingAdmin.setPassword(passwordEncoder.encode(adminDetails.getPassword()));
         }
         return adminRepository.save(existingAdmin);
     }
