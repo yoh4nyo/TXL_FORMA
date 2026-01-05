@@ -1,8 +1,6 @@
 package SAE._2.Service;
 
-
 import SAE._2.Repository.SessionRepository;
-import SAE._2.Repository.SessioneleveRepository;
 import SAE._2.exception.ResourceNotFoundException;
 import SAE._2.model.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +10,6 @@ import org.springframework.stereotype.Service;
 public class SessionService {
     @Autowired
     private SessionRepository sessionRepository;
-
-    @Autowired
-    private SessioneleveRepository sessioneleveRepository;
 
     public Session saveSession(Session session) {
         if (session.getNbPlaceRestant() == null && session.getNbPlace() != null) {
@@ -45,7 +40,6 @@ public class SessionService {
 
         return sessionRepository.save(existingSession);
     }
-
 
     public void deleteSessionById(Long id) {
         sessionRepository.deleteById(id);

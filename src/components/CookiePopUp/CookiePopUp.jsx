@@ -10,7 +10,6 @@ const CookiePopUp = () => {
     useEffect(() => {
         const consent = localStorage.getItem('txl_cookie_consent');
         if (!consent) {
-            // Show with a small delay for better UX
             const timer = setTimeout(() => setIsVisible(true), 1500);
             return () => clearTimeout(timer);
         }

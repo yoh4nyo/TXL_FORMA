@@ -49,7 +49,7 @@ const AdminDashboard = () => {
     return (
         <div className="admin-dashboard">
             <div className="dashboard-header mb-5">
-                <div className="d-flex align-items-center mb-2">
+                <div className="d-flex align-items-center mb-2 flex-wrap">
                     <div className="dashboard-icon-wrapper me-3 d-flex align-items-center justify-content-center">
                         <i className="bi bi-grid-1x2-fill text-white" style={{ fontSize: '1.5rem' }}></i>
                     </div>

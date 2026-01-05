@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet, NavLink, useNavigate, useLocation, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -12,6 +12,12 @@ const MenuFormateur = () => {
     const { formateurId } = useParams();
     const { logout } = useAuth();
 
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
     const handleLogout = () => {
         logout();
         navigate('/');
@@ -19,17 +25,29 @@ const MenuFormateur = () => {
 
     return (
         <div className="admin-layout">
-            <aside className="admin-sidebar">
+            <button className="mobile-menu-toggle d-lg-none" onClick={toggleMobileMenu}>
+                <i className={`bi ${isMobileMenuOpen ? 'bi-x-lg' : 'bi-list'}`}></i>
+            </button>
+
+            <aside className={`admin-sidebar ${isMobileMenuOpen ? 'show' : ''}`}>
                 <div className="sidebar-brand">
                     <img src={logo} alt="TXL Forma" className="sidebar-logo" />
                 </div>
 
                 <nav className="sidebar-nav">
-                    <NavLink to={`/formateur/${formateurId}/profil`} className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}>
+                    <NavLink
+                        to={`/formateur/${formateurId}/profil`}
+                        className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    >
                         <FontAwesomeIcon icon={faUser} className="sidebar-icon" />
                         <span>Profil</span>
                     </NavLink>
-                    <NavLink to={`/formateur/${formateurId}/formations`} className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}>
+                    <NavLink
+                        to={`/formateur/${formateurId}/formations`}
+                        className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    >
                         <FontAwesomeIcon icon={faBook} className="sidebar-icon" />
                         <span>Formations</span>
                     </NavLink>

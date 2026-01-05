@@ -28,7 +28,6 @@ public class SeanceService {
             Session session = sessionRepository.findById(seance.getSession().getId()).orElse(null);
 
             if (session != null) {
-                // Check if session has started
                 try {
                     java.time.LocalDate dateStart = java.time.LocalDate.parse(session.getDate_start());
                     if (java.time.LocalDate.now().isAfter(dateStart) || java.time.LocalDate.now().equals(dateStart)) {
@@ -36,7 +35,6 @@ public class SeanceService {
                                 + session.getDate_start());
                     }
                 } catch (java.time.format.DateTimeParseException e) {
-                    // Ignore date parse error, let it proceed or log warning
                     System.err.println("Erreur format date session: " + e.getMessage());
                 }
 
@@ -46,7 +44,6 @@ public class SeanceService {
                     intervenant.setNbHeure(intervenant.getNbHeure() + seance.getDuree());
                     intervenantRepository.save(intervenant);
                 }
-                // Ensure the seance is linked to the full session object
                 seance.setSession(session);
             }
         }

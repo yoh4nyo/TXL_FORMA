@@ -3,17 +3,26 @@ package SAE._2.Service;
 import SAE._2.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class StatsService {
 
-    @Autowired private FormationRepository formationRepository;
-    @Autowired private SessionRepository sessionRepository;
-    @Autowired private SeanceRepository seanceRepository;
-    @Autowired private UserRepository userRepository;
-    @Autowired private PaiementRepository paiementRepository;
-    @Autowired private SessioneleveRepository sessioneleveRepository;
+    @Autowired
+    private FormationRepository formationRepository;
+    @Autowired
+    private SessionRepository sessionRepository;
+    @Autowired
+    private SeanceRepository seanceRepository;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private PaiementRepository paiementRepository;
+    @Autowired
+    private SessioneleveRepository sessioneleveRepository;
 
     public Map<String, Object> getGlobalDashboard() {
         Map<String, Object> stats = new HashMap<>();
@@ -24,7 +33,8 @@ public class StatsService {
         stats.put("totalSeances", seanceRepository.countTotalSeances());
         stats.put("totalVentes", sessioneleveRepository.countTotalVentes());
         stats.put("totalCertificats", sessioneleveRepository.countTotalCertificats());
-        stats.put("chiffreAffaireTotal", paiementRepository.sumTotalRevenue() != null ? paiementRepository.sumTotalRevenue() : 0.0);
+        stats.put("chiffreAffaireTotal",
+                paiementRepository.sumTotalRevenue() != null ? paiementRepository.sumTotalRevenue() : 0.0);
 
         return stats;
     }

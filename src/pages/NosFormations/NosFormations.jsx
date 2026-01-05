@@ -189,15 +189,29 @@ function NosFormations() {
     ];
 
     const filteredCourses = useMemo(() => {
+        const domainKeywords = {
+            "Réseaux et télécoms": ["reseau", "telecom", "cisco"],
+            "Administration système": ["system", "admin", "server", "linux", "windows"],
+            "Développement Front": ["front", "web", "html", "css", "javascript", "react", "vue", "angular"],
+            "Développement Back": ["back", "api", "java", "python", "php", "node", "sql", "donnee"],
+            "Bureautique": ["bureau", "office", "excel", "word", "powerpoint"],
+            "Cybersécurité": ["cyber", "securite", "pen", "hacker"],
+            "Conduite de projets": ["projet", "gestion", "agile", "scrum", "manager"]
+        };
+
         return formations.filter(formation => {
             const normalize = (str) => str ? str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim() : '';
-
             const normalizedCategorie = normalize(formation.categorie);
+
             const domainMatch = selectedDomains.includes('all') || selectedDomains.some(domain => {
+                const keywords = domainKeywords[domain];
+                if (keywords) {
+                    return keywords.some(k => normalizedCategorie.includes(k));
+                }
                 const normalizedDomain = normalize(domain);
-                // Check for partial match to be safe (e.g. "Reseaux" matches "Reseaux et telecoms")
                 return normalizedCategorie.includes(normalizedDomain) || normalizedDomain.includes(normalizedCategorie);
             });
+
             const searchMatch = searchTerm === '' || normalize(formation.nom).includes(normalize(searchTerm));
             return domainMatch && searchMatch;
         });

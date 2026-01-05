@@ -29,8 +29,8 @@ function Profil() {
     confirmPassword: ''
   });
 
-  const { isAuthenticated, user, isEleve, isAdmin, isFormateur } = useAuth(); // Assuming useAuth provides these
-  const navigate = useNavigate(); // Make sure to import useNavigate if not already used (it uses useParams currently)
+  const { isAuthenticated, user, isEleve, isAdmin, isFormateur } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {

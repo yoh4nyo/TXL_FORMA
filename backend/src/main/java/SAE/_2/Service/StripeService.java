@@ -27,13 +27,12 @@ public class StripeService {
 
     public PaymentIntent createPaymentIntent(int amount, String currency) throws StripeException {
         PaymentIntentCreateParams params = PaymentIntentCreateParams.builder()
-                .setAmount((long) amount * 100) // Stripe utilise les centimes
+                .setAmount((long) amount * 100)
                 .setCurrency(currency)
                 .setAutomaticPaymentMethods(
                         PaymentIntentCreateParams.AutomaticPaymentMethods.builder()
                                 .setEnabled(true)
-                                .build()
-                )
+                                .build())
                 .build();
 
         return PaymentIntent.create(params);
