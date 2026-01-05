@@ -1,6 +1,7 @@
 package SAE._2.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.persistence.Id;
 
@@ -23,7 +24,8 @@ public class Seance {
         this.duree = duree;
     }
 
-    public Seance() {}
+    public Seance() {
+    }
 
     public Long getId() {
         return id;
@@ -45,9 +47,13 @@ public class Seance {
         this.date = date;
     }
 
-    public int getDuree() {return duree;}
+    public int getDuree() {
+        return duree;
+    }
 
-    public void setDuree(int duree) {this.duree = duree;}
+    public void setDuree(int duree) {
+        this.duree = duree;
+    }
 
     public Session getSession() {
         return session;
@@ -63,5 +69,6 @@ public class Seance {
 
     @ManyToOne
     @JoinColumn(name = "session_id")
+    @JsonIgnoreProperties("seances")
     private Session session;
 }
