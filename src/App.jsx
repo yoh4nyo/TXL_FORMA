@@ -3,6 +3,7 @@ import { AuthProvider } from './context/AuthContext';
 import { AdminRoute, FormateurRoute, PrivateRoute, OwnProfileRoute, OwnFormateurRoute } from './components/ProtectedRoute';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import CookiePopUp from './components/CookiePopUp/CookiePopUp';
 
 import Accueil from './pages/Accueil/Accueil';
 import Connexion from './pages/Connexion/Connexion';
@@ -39,6 +40,7 @@ const App = () => {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <CookiePopUp />
         <Routes>
           {/* Routes Publiques */}
           <Route path="/" element={<><Header /><Accueil /><Footer /></>} />
@@ -56,7 +58,7 @@ const App = () => {
           <Route path="/profil/:eleveId" element={<OwnProfileRoute><><Header /><Profil /><Footer /></></OwnProfileRoute>} />
           <Route path="/profil/:eleveId/session/:sessionId/seances" element={<OwnProfileRoute><><Header /><SessionSeances /><Footer /></></OwnProfileRoute>} />
 
-        {/* Zone Administration */}
+          {/* Zone Administration */}
           <Route path="/admin" element={<AdminRoute><MenuAdmin /></AdminRoute>}>
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<AdminDashboard />} />
