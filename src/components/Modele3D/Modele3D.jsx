@@ -1,8 +1,15 @@
-import React, { useState, Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
-import Experience from './Experience';
-import Interface from './Interface';
-import './Modele3D.css';
+import { useProgress, Html } from '@react-three/drei';
+
+function Loader() {
+    const { active, progress } = useProgress();
+    if (!active) return null;
+    return (
+        <div className="loader-container">
+            <div className="loader-spinner"></div>
+            <p>Chargement... {progress.toFixed(0)}%</p>
+        </div>
+    );
+}
 
 const Modele3D = () => {
     const [cameraIndex, setCameraIndex] = useState(0);
@@ -23,6 +30,7 @@ const Modele3D = () => {
 
     return (
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+            <Loader />
 
             <Interface
                 onSwitchCamera={handleSwitchCamera}
@@ -45,12 +53,6 @@ const Modele3D = () => {
                     />
                 </Suspense>
             </Canvas>
-
-            <div className="loader-overlay" style={{ pointerEvents: 'none' }}>
-                <Suspense fallback={<div className="loader-container"><div className="loader-spinner"></div><p>Chargement de la salle...</p></div>}>
-                    {/* Chargé */}
-                </Suspense>
-            </div>
         </div>
     );
 };

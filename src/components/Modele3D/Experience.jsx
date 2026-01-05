@@ -3,11 +3,10 @@ import { useGLTF, useAnimations, PerspectiveCamera, OrbitControls } from '@react
 import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
-// Configuration des caméras
 const CAMERAS_CONFIG = [
-    { position: [19.79, 1.32, 9.72], target: [-23.0, -10, -50.0] },
-    { position: [-22.74, 1.34, 9.74], target: [20.0, -10, -50.0] },
-    { position: [-19.94, 0.7, -35.0], target: [28.27, -6, 13.88] },
+    { position: [25, 5, 15], target: [-23.0, -5, -50.0] }, // Cam 1: Reculé et un peu plus haut
+    { position: [-30, 5, 15], target: [20.0, -5, -50.0] }, // Cam 2: Reculé
+    { position: [-25, 5, -45.0], target: [28.27, -6, 13.88] }, // Cam 3: Reculé
 ];
 
 const Experience = ({ cameraIndex, animationTrigger }) => {
@@ -22,29 +21,6 @@ const Experience = ({ cameraIndex, animationTrigger }) => {
 
     const [lightsOn, setLightsOn] = useState(true);
     const [lightMaterials, setLightMaterials] = useState([]);
-
-    useEffect(() => {
-        scene.traverse((child) => {
-            if (child.isMesh) {
-                child.castShadow = true;
-                child.receiveShadow = true;
-
-                // Trouver les matériaux "Material.040"
-                if (child.material && child.material.name.includes('Material.040')) {
-                    if (child.material.emissive.getHex() === 0) {
-                        child.material.emissive.set(0xffffff);
-                    }
-                    setLightMaterials(prev => [...prev, child.material]);
-                }
-            }
-        });
-
-        gl.toneMapping = THREE.ACESFilmicToneMapping;
-        gl.toneMappingExposure = 1.5;
-
-        threeScene.background = null;
-
-    }, [scene, gl, threeScene]);
 
     // Gestion des animations déclenchées par l'interface
     useEffect(() => {
@@ -115,19 +91,45 @@ const Experience = ({ cameraIndex, animationTrigger }) => {
         }
     }, [animationTrigger, actions, lightMaterials, gl, threeScene]);
 
-    // Animation Caméra Panorama (Cam 1)
+    useEffect(() => {
+        scene.traverse((child) => {
+            if (child.isMesh) {
+                child.castShadow = true;
+                child.receiveShadow = true;
+
+                // Trouver les matériaux "Material.040"
+                if (child.material && child.material.name.includes('Material.040')) {
+                    if (child.material.emissive.getHex() === 0) {
+                        child.material.emissive.set(0xffffff);
+                    }
+                    setLightMaterials(prev => [...prev, child.material]);
+                }
+            }
+        });
+
+        gl.toneMapping = THREE.ACESFilmicToneMapping;
+        gl.toneMappingExposure = 1.5;
+
+        threeScene.background = null;
+
+    }, [scene, gl, threeScene]);
+
+    // Animation Caméra Panorama (Cam 1, 2, 3)
     useFrame(({ clock }) => {
+        const time = clock.getElapsedTime() * 0.5;
+        const sway = Math.sin(time) * 4;
+
         if (cameraIndex === 0 && camRef1.current) {
-            const time = clock.getElapsedTime() * 0.5;
-            const sway = Math.sin(time) * 4;
             const target = CAMERAS_CONFIG[0].target;
             camRef1.current.lookAt(target[0] + sway, target[1], target[2]);
         }
         if (cameraIndex === 1 && camRef2.current) {
-            camRef2.current.lookAt(...CAMERAS_CONFIG[1].target);
+            const target = CAMERAS_CONFIG[1].target;
+            camRef2.current.lookAt(target[0] + sway, target[1], target[2]);
         }
         if (cameraIndex === 2 && camRef3.current) {
-            camRef3.current.lookAt(...CAMERAS_CONFIG[2].target);
+            const target = CAMERAS_CONFIG[2].target;
+            camRef3.current.lookAt(target[0] + sway, target[1], target[2]);
         }
     });
 
@@ -141,7 +143,7 @@ const Experience = ({ cameraIndex, animationTrigger }) => {
                 makeDefault={cameraIndex === 0}
                 ref={camRef1}
                 position={CAMERAS_CONFIG[0].position}
-                fov={45}
+                fov={60}
                 near={0.1}
                 far={1000}
             />
@@ -149,7 +151,7 @@ const Experience = ({ cameraIndex, animationTrigger }) => {
                 makeDefault={cameraIndex === 1}
                 ref={camRef2}
                 position={CAMERAS_CONFIG[1].position}
-                fov={45}
+                fov={60}
                 near={0.1}
                 far={1000}
             />
@@ -157,14 +159,14 @@ const Experience = ({ cameraIndex, animationTrigger }) => {
                 makeDefault={cameraIndex === 2}
                 ref={camRef3}
                 position={CAMERAS_CONFIG[2].position}
-                fov={45}
+                fov={60}
                 near={0.1}
                 far={1000}
             />
             <PerspectiveCamera
                 makeDefault={cameraIndex === 3}
                 position={[-15, 10, 20]}
-                fov={50}
+                fov={60}
                 near={0.1}
                 far={1000}
             />
