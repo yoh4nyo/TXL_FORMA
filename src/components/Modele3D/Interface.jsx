@@ -18,10 +18,19 @@ const Interface = ({ onSwitchCamera, onToggleAnimation }) => {
                 </svg>
             </button>
 
+
+
             {/* 2. Bouton PC */}
             <button className="icon-btn" onClick={() => onToggleAnimation('Cube')} data-tooltip="PC">
                 <svg viewBox="0 0 24 24">
                     <path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z" />
+                </svg>
+            </button>
+
+            {/* 3. Bouton Vue Libre */}
+            <button className="icon-btn" onClick={() => onSwitchCamera('free')} data-tooltip="Vue Libre">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
                 </svg>
             </button>
 
@@ -41,7 +50,7 @@ const Interface = ({ onSwitchCamera, onToggleAnimation }) => {
                     <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z" />
                 </svg>
             </button>
-        </div>
+        </div >
     );
 };
 

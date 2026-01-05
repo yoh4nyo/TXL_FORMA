@@ -113,59 +113,72 @@ const Experience = ({ cameraIndex, animationTrigger }) => {
                 action.play();
             }
         }
-    }, [animationTrigger, actions, lightMaterials, gl, threeScene, lightsOn]);
+    }
+    }, [animationTrigger, actions, lightMaterials, gl, threeScene]); // lightsOn removed from deps to fix flickering
 
+// Animation Caméra Panorama (Cam 1)
+useFrame(({ clock }) => {
+    if (cameraIndex === 0 && camRef1.current) {
+        const time = clock.getElapsedTime() * 0.5;
+        const sway = Math.sin(time) * 4;
+        const target = CAMERAS_CONFIG[0].target;
+        camRef1.current.lookAt(target[0] + sway, target[1], target[2]);
+    }
+    if (cameraIndex === 1 && camRef2.current) {
+        camRef2.current.lookAt(...CAMERAS_CONFIG[1].target);
+    }
+    if (cameraIndex === 2 && camRef3.current) {
+        camRef3.current.lookAt(...CAMERAS_CONFIG[2].target);
+    }
+});
 
-    // Animation Caméra Panorama (Cam 1)
-    useFrame(({ clock }) => {
-        if (cameraIndex === 0 && camRef1.current) {
-            const time = clock.getElapsedTime() * 0.5;
-            const sway = Math.sin(time) * 4;
-            const target = CAMERAS_CONFIG[0].target;
-            camRef1.current.lookAt(target[0] + sway, target[1], target[2]);
-        }
-        if (cameraIndex === 1 && camRef2.current) {
-            camRef2.current.lookAt(...CAMERAS_CONFIG[1].target);
-        }
-        if (cameraIndex === 2 && camRef3.current) {
-            camRef3.current.lookAt(...CAMERAS_CONFIG[2].target);
-        }
-    });
+return (
+    <>
+        <ambientLight ref={ambientLightRef} intensity={0.5} />
 
-    return (
-        <>
-            <ambientLight ref={ambientLightRef} intensity={0.5} />
+        <primitive object={scene} />
 
-            <primitive object={scene} />
+        <PerspectiveCamera
+            makeDefault={cameraIndex === 0}
+            ref={camRef1}
+            position={CAMERAS_CONFIG[0].position}
+            fov={45}
+            near={0.1}
+            far={1000}
+        />
+        <PerspectiveCamera
+            makeDefault={cameraIndex === 1}
+            ref={camRef2}
+            position={CAMERAS_CONFIG[1].position}
+            fov={45}
+            near={0.1}
+            far={1000}
+        />
+        <PerspectiveCamera
+            makeDefault={cameraIndex === 2}
+            ref={camRef3}
+            position={CAMERAS_CONFIG[2].position}
+            fov={45}
+            near={0.1}
+            far={1000}
+        />
+        <PerspectiveCamera
+            makeDefault={cameraIndex === 3}
+            position={[-15, 10, 20]} // Free view start pos
+            fov={50}
+            near={0.1}
+            far={1000}
+        />
 
-            <PerspectiveCamera
-                makeDefault={cameraIndex === 0}
-                ref={camRef1}
-                position={CAMERAS_CONFIG[0].position}
-                fov={45}
-                near={0.1}
-                far={1000}
-            />
-            <PerspectiveCamera
-                makeDefault={cameraIndex === 1}
-                ref={camRef2}
-                position={CAMERAS_CONFIG[1].position}
-                fov={45}
-                near={0.1}
-                far={1000}
-            />
-            <PerspectiveCamera
-                makeDefault={cameraIndex === 2}
-                ref={camRef3}
-                position={CAMERAS_CONFIG[2].position}
-                fov={45}
-                near={0.1}
-                far={1000}
-            />
-
-            <OrbitControls enabled={false} />
-        </>
-    );
+        <OrbitControls
+            enabled={cameraIndex === 3}
+            enablePan={true}
+            enableZoom={true}
+            enableRotate={true}
+            target={[0, -5, 0]}
+        />
+    </>
+);
 };
 
 export default Experience;

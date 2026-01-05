@@ -438,10 +438,11 @@
 }
 
 .virtual-room-wrapper {
-    background: #1E293B;
+    background: transparent;
     border-radius: 16px;
     overflow: hidden;
-    padding: 3rem;
+    padding: 0;
+    position: relative;
 }
 
 .virtual-room-title {

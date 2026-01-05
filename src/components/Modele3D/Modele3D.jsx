@@ -8,8 +8,13 @@ const Modele3D = () => {
     const [cameraIndex, setCameraIndex] = useState(0);
     const [animationTrigger, setAnimationTrigger] = useState(null);
 
-    const handleSwitchCamera = () => {
-        setCameraIndex((prev) => (prev + 1) % 3);
+    const handleSwitchCamera = (mode) => {
+        if (mode === 'free') {
+            setCameraIndex(3);
+        } else {
+            // Cycle only through 0, 1, 2 (Preserve logic for main button if used without args)
+            setCameraIndex((prev) => (prev === 3 ? 0 : (prev + 1) % 3));
+        }
     };
 
     const handleToggleAnimation = (name) => {

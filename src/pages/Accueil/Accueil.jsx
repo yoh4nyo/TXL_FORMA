@@ -213,7 +213,7 @@ function Accueil() {
                 <Container>
                     <h2 className="section-title mb-5">Visitez nos salles de formation</h2>
 
-                    <div className="virtual-room-wrapper" style={{ height: '600px', position: 'relative' }}>
+                    <div className="virtual-room-wrapper" style={{ height: '85vh', minHeight: '600px', position: 'relative' }}>
                         <Modele3D />
                     </div>
                 </Container>
