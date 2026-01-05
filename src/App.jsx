@@ -13,7 +13,9 @@ import NosFormations from './pages/NosFormations/NosFormations';
 import FormationDetail from './pages/FormationDetails/FormationDetail';
 import Profil from './pages/Profil/Profil';
 import SessionSeances from './pages/Profil/SessionSeances';
-
+import MentionsLegales from './pages/Legal/MentionsLegales';
+import Cookies from './pages/Legal/Cookies';
+import PolitiqueDonnees from './pages/Legal/PolitiqueDonnees';
 
 import MenuAdmin from './components/MenuAdmin/MenuAdmin';
 import AdminDashboard from './pages/Admin/Dashboard/AdminDashboard';
@@ -46,6 +48,9 @@ const App = () => {
           <Route path="/devenir-formateur" element={<><Header /><DevenirFormateur /><Footer /></>} />
           <Route path="/nos-formations" element={<><Header /><NosFormations /><Footer /></>} />
           <Route path="/formation/:formationId" element={<><Header /><FormationDetail /><Footer /></>} />
+          <Route path="/mentions-legales" element={<><Header /><MentionsLegales /><Footer /></>} />
+          <Route path="/cookies" element={<><Header /><Cookies /><Footer /></>} />
+          <Route path="/politique-donnees" element={<><Header /><PolitiqueDonnees /><Footer /></>} />
 
           {/* Espace Eleve */}
           <Route path="/profil/:eleveId" element={<PrivateRoute><><Header /><Profil /><Footer /></></PrivateRoute>} />

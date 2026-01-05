@@ -1,4 +1,5 @@
 import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/txlformatblanc.png';
 import gustaveEiffel from '../../assets/1200px-Logo_Universite_Gustave_Eiffel_2020.svg.png';
 import visaLogo from '../../assets/Visa_Inc._logo.svg.png';
@@ -42,9 +43,9 @@ function Footer() {
                     <Col lg={2} md={4} sm={6} className="footer-col">
                         <h5 className="footer-title">À propos</h5>
                         <ul className="footer-links">
-                            <li><a href="#">Mentions légales</a></li>
-                            <li><a href="#">Cookies</a></li>
-                            <li><a href="#">Politique de protection des données</a></li>
+                            <li><Link to="/mentions-legales">Mentions légales</Link></li>
+                            <li><Link to="/cookies">Cookies</Link></li>
+                            <li><Link to="/politique-donnees">Politique de protection des données</Link></li>
                         </ul>
                     </Col>
 
