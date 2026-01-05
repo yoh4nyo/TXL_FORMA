@@ -12,11 +12,16 @@ import jakarta.annotation.PostConstruct;
 @Service
 public class StripeService {
 
-    @Value("${stripe.api.key:sk_test_YOUR_SECRET_KEY}")
+    @Value("${stripe.api.key:}")
     private String stripeApiKey;
 
     @PostConstruct
     public void init() {
+        if (stripeApiKey == null || stripeApiKey.isEmpty()) {
+            System.err.println("STRIPE WARNING: stripe.api.key is empty!");
+        } else {
+            System.out.println("STRIPE: Key loaded (starts with " + stripeApiKey.substring(0, 7) + "...)");
+        }
         Stripe.apiKey = stripeApiKey;
     }
 
