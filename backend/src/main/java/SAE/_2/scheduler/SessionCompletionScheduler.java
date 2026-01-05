@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class SessionCompletionScheduler {
@@ -37,7 +36,6 @@ public class SessionCompletionScheduler {
             // Efficiency: We could filter this in the query, but for now we iterate.
 
             if (session.getSession_eleves() != null) {
-                boolean changesMade = false;
                 for (Session_eleve sessionEleve : session.getSession_eleves()) {
                     // Only update if not already processed
                     if (!"Admis".equals(sessionEleve.getStatut()) && !"Refusé".equals(sessionEleve.getStatut())) {
@@ -46,7 +44,6 @@ public class SessionCompletionScheduler {
                         sessionEleve.setStatut("Admis");
                         sessionEleve.setDiplome(1); // 1 = Has Diploma ? Assuming boolean int specific
                         sessionEleveRepository.save(sessionEleve);
-                        changesMade = true;
                     }
                 }
             }
