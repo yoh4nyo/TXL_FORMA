@@ -111,7 +111,7 @@ const ModalReservation = ({ show, handleClose, formationTitle, formationPrice, s
         setShowPayment(false);
         setTimeout(() => {
             handleClose();
-            navigate('/profil');
+            navigate(`/profil/${user.id}`);
         }, 2000);
     };
 

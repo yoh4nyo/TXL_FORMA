@@ -1,4 +1,4 @@
-import { Navigate, useLocation } from 'react-router-dom';
+import { Navigate, useLocation, useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 export const PrivateRoute = ({ children }) => {
@@ -10,6 +10,50 @@ export const PrivateRoute = ({ children }) => {
     }
 
     return isAuthenticated ? children : <Navigate to="/connexion" state={{ from: location.pathname }} />;
+};
+
+export const OwnProfileRoute = ({ children }) => {
+    const { isAuthenticated, user, loading } = useAuth();
+    const location = useLocation();
+    const { eleveId } = useParams();
+
+    if (loading) {
+        return <div>Chargement...</div>;
+    }
+
+    if (!isAuthenticated) {
+        return <Navigate to="/connexion" state={{ from: location.pathname }} />;
+    }
+
+    if (user && String(user.id) !== String(eleveId)) {
+        return <Navigate to={`/profil/${user.id}`} />;
+    }
+
+    return children;
+};
+
+export const OwnFormateurRoute = ({ children }) => {
+    const { isAuthenticated, isFormateur, user, loading } = useAuth();
+    const location = useLocation();
+    const { formateurId } = useParams();
+
+    if (loading) {
+        return <div>Chargement...</div>;
+    }
+
+    if (!isAuthenticated) {
+        return <Navigate to="/connexion" state={{ from: location.pathname }} />;
+    }
+
+    if (!isFormateur) {
+        return <Navigate to="/" />;
+    }
+
+    if (user && String(user.id) !== String(formateurId)) {
+        return <Navigate to={`/formateur/${user.id}`} />;
+    }
+
+    return children;
 };
 
 export const AdminRoute = ({ children }) => {

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
-import { AdminRoute, FormateurRoute, PrivateRoute } from './components/ProtectedRoute';
+import { AdminRoute, FormateurRoute, PrivateRoute, OwnProfileRoute, OwnFormateurRoute } from './components/ProtectedRoute';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
@@ -53,8 +53,8 @@ const App = () => {
           <Route path="/politique-donnees" element={<><Header /><PolitiqueDonnees /><Footer /></>} />
 
           {/* Espace Eleve */}
-          <Route path="/profil/:eleveId" element={<PrivateRoute><><Header /><Profil /><Footer /></></PrivateRoute>} />
-          <Route path="/profil/:eleveId/session/:sessionId/seances" element={<PrivateRoute><><Header /><SessionSeances /><Footer /></></PrivateRoute>} />
+          <Route path="/profil/:eleveId" element={<OwnProfileRoute><><Header /><Profil /><Footer /></></OwnProfileRoute>} />
+          <Route path="/profil/:eleveId/session/:sessionId/seances" element={<OwnProfileRoute><><Header /><SessionSeances /><Footer /></></OwnProfileRoute>} />
 
         {/* Zone Administration */}
           <Route path="/admin" element={<AdminRoute><MenuAdmin /></AdminRoute>}>
@@ -71,7 +71,7 @@ const App = () => {
           </Route>
 
           {/* Espace Formateur */}
-          <Route path="/formateur/:formateurId" element={<FormateurRoute><MenuFormateur /></FormateurRoute>}>
+          <Route path="/formateur/:formateurId" element={<OwnFormateurRoute><MenuFormateur /></OwnFormateurRoute>}>
             <Route index element={<Navigate to="formations" replace />} />
             <Route path="profil" element={<FormateurProfil />} />
             <Route path="formations" element={<FormateurFormations />} />
