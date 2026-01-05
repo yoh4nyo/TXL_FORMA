@@ -30,6 +30,7 @@ const Modele3D = () => {
                 gl={{
                     antialias: true,
                     toneMappingExposure: 1.5,
+                    alpha: true
                 }}
             >
                 <Suspense fallback={null}>
@@ -42,7 +43,7 @@ const Modele3D = () => {
 
             <div className="loader-overlay" style={{ pointerEvents: 'none' }}>
                 <Suspense fallback={<div className="loader-container"><div className="loader-spinner"></div><p>Chargement de la salle...</p></div>}>
-                    { }
+                    {/* Chargé */}
                 </Suspense>
             </div>
         </div>

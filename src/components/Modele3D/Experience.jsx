@@ -5,9 +5,9 @@ import * as THREE from 'three';
 
 // Configuration des caméras
 const CAMERAS_CONFIG = [
-    { position: [28.27, 1.89, 13.88], target: [-23.0, -10, -50.0] },
-    { position: [-32.49, 1.91, 13.92], target: [20.0, -10, -50.0] },
-    { position: [-28.49, 1, -50.0], target: [28.27, -6, 13.88] },
+    { position: [19.79, 1.32, 9.72], target: [-23.0, -10, -50.0] },
+    { position: [-22.74, 1.34, 9.74], target: [20.0, -10, -50.0] },
+    { position: [-19.94, 0.7, -35.0], target: [28.27, -6, 13.88] },
 ];
 
 const Experience = ({ cameraIndex, animationTrigger }) => {
@@ -42,7 +42,7 @@ const Experience = ({ cameraIndex, animationTrigger }) => {
         gl.toneMapping = THREE.ACESFilmicToneMapping;
         gl.toneMappingExposure = 1.5;
 
-        threeScene.background = new THREE.Color(0x202020);
+        threeScene.background = null;
 
     }, [scene, gl, threeScene]);
 
@@ -60,6 +60,7 @@ const Experience = ({ cameraIndex, animationTrigger }) => {
             // 1. Jouer Animation GLB
             const actionName = Object.keys(actions).find(key => key.includes('LightONOFF'));
             if (actionName && actions[actionName]) {
+                mixer.stopAllAction(); // Empêche les conflits (flickering)
                 const action = actions[actionName];
                 action.setLoop(THREE.LoopOnce);
                 action.clampWhenFinished = true;
@@ -86,11 +87,11 @@ const Experience = ({ cameraIndex, animationTrigger }) => {
             if (newLightsOn) {
                 gl.toneMappingExposure = 1.5;
                 if (ambientLightRef.current) ambientLightRef.current.intensity = 0.5;
-                threeScene.background = new THREE.Color(0x202020);
+                threeScene.background = null;
             } else {
                 gl.toneMappingExposure = 1.0;
                 if (ambientLightRef.current) ambientLightRef.current.intensity = 0.2;
-                threeScene.background = new THREE.Color(0x101010);
+                threeScene.background = null;
             }
         }
         // CAS STANDARD (ex: Cube)
