@@ -113,7 +113,6 @@
     height: auto;
 }
 
-/* Virtual Section Styles removed to avoid duplicates - see bottom of file */
 
 .virtual-room-image {
     width: 100%;
@@ -504,9 +503,6 @@
 
 .badge-teal-soft {
     background-color: #F0FDFA !important;
-    /* teal-50 */
     color: #0F766E !important;
-    /* teal-700 */
     border: 1px solid #CCFBF1 !important;
-    /* teal-200 */
 }
