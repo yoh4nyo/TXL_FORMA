@@ -43,12 +43,6 @@ public class SeanceeleveService {
         if (seance_eleveDetails.getInscription() != null) {
             existingSeance_eleve.setInscription(seance_eleveDetails.getInscription());
         }
-        if (seance_eleveDetails.getEleve() != null) {
-            existingSeance_eleve.setEleve(seance_eleveDetails.getEleve());
-        }
-        if (seance_eleveDetails.getSeance() != null) {
-            existingSeance_eleve.setSeance(seance_eleveDetails.getSeance());
-        }
         if (seance_eleveDetails.getSignature() != null) {
             existingSeance_eleve.setSignature(seance_eleveDetails.getSignature());
         }
@@ -57,8 +51,8 @@ public class SeanceeleveService {
         }
 
         if ("absent".equals(newStatut) && !"absent".equals(oldStatut)) {
-            if (existingSeance_eleve.getEleve() != null) {
-                Eleve eleve = existingSeance_eleve.getEleve();
+            Eleve eleve = existingSeance_eleve.getEleve();
+            if (eleve != null) {
                 eleve.setNbAbsence(eleve.getNbAbsence() + 1);
                 eleveRepository.save(eleve);
             }

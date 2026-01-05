@@ -117,12 +117,8 @@ function SessionSeances() {
 
     try {
       const payload = {
-        id: seance.seanceEleve.id,
         statut: 'absent',
-        signature: '',
-        inscription: seance.seanceEleve.inscription || null,
-        eleve: { id: seance.seanceEleve.eleve?.id || Number(currentEleveId) },
-        seance: { id: seance.id }
+        signature: ''
       };
 
       await apiClient.put(`/seance_eleve/${seance.seanceEleve.id}`, payload);
@@ -206,12 +202,8 @@ function SessionSeances() {
 
     try {
       const payload = {
-        id: selectedSeance.seanceEleve.id,
         statut: 'present',
-        signature: dataUrl,
-        inscription: selectedSeance.seanceEleve.inscription || null,
-        eleve: { id: selectedSeance.seanceEleve.eleve?.id || Number(currentEleveId) },
-        seance: { id: selectedSeance.id }
+        signature: dataUrl
       };
 
       await apiClient.put(`/seance_eleve/${selectedSeance.seanceEleve.id}`, payload);
