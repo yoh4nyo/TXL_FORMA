@@ -1,10 +1,12 @@
 # Description du dépôt
 
 *   **Le lien du site** : [txl-forma.vercel.app](https://txl-forma.vercel.app)
-*   **Le lien Figma** : [Maquettes & Prototypage](https://www.figma.com/design/brMxnpRyxYbKdUEg7ScYlm/SAE_501?node-id=0-1&t=wwLwyr7fAHJVvndl-1)
+*   **Le lien Figma** : <a href="https://www.figma.com/design/brMxnpRyxYbKdUEg7ScYlm/SAE_501?node-id=0-1&t=wwLwyr7fAHJVvndl-1" target="_blank">Maquettes & Prototypage</a>
 *   **L'API** : [Voir le dossier Backend](backend/)
 *   **La BDD SQL** : MySQL (Configurée dans le backend Spring Boot)
 *   **Les diagrammes** : [Voir les schémas techniques](#schémas-techniques) (MCD, UML, Architecture)
+
+> ⚠️ **ATTENTION : LE MODÈLE 3D SUR LA PAGE D'ACCUEIL PEUT METTRE DU TEMPS À CHARGER. MERCI DE PATIENTER QUELQUES SECONDES.**
 
 ### Identifiants pour tests
 
