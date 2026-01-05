@@ -67,12 +67,17 @@ public class AuthService {
         // Vérifier le mot de passe (supporte les deux cas: hashé avec BCrypt ou en clair pour les anciens comptes)
         boolean passwordMatches = false;
         
-        if (user.getPassword().startsWith("$2a$") || user.getPassword().startsWith("$2b$") || user.getPassword().startsWith("$2y$")) {
+        String storedPassword = user.getPassword();
+        if (storedPassword == null || storedPassword.isEmpty()) {
+            return new LoginResponse(false, "Identifiant ou mot de passe incorrect");
+        }
+        
+        if (storedPassword.startsWith("$2a$") || storedPassword.startsWith("$2b$") || storedPassword.startsWith("$2y$")) {
             // Mot de passe hashé avec BCrypt
-            passwordMatches = passwordEncoder.matches(rawPassword, user.getPassword());
+            passwordMatches = passwordEncoder.matches(rawPassword, storedPassword);
         } else {
             // Mot de passe en clair (anciens comptes) - à migrer
-            passwordMatches = user.getPassword().equals(rawPassword);
+            passwordMatches = storedPassword.equals(rawPassword);
         }
 
         if (passwordMatches) {
