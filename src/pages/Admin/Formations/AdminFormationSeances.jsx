@@ -87,7 +87,7 @@ const AdminFormationSeances = () => {
 
     const handleCreateSeance = async (event) => {
         event.preventDefault();
-        
+
         if (session && createForm.date) {
             if (session.date_start && createForm.date < session.date_start) {
                 setError("La date de la séance doit être après la date de début de la session (" + session.date_start + ").");
@@ -98,7 +98,7 @@ const AdminFormationSeances = () => {
                 return;
             }
         }
-        
+
         try {
             await apiClient.post('/seance', {
                 ...createForm,
@@ -108,14 +108,14 @@ const AdminFormationSeances = () => {
             await fetchSeances();
             handleCloseAdd();
         } catch (err) {
-            setError("La création de la séance a échoué.");
+            setError(err.response?.data?.message || "La création de la séance a échoué.");
         }
     };
 
     const handleUpdateSeance = async (event) => {
         event.preventDefault();
         if (!selectedSeance) return;
-        
+
         if (session && editForm.date) {
             if (session.date_start && editForm.date < session.date_start) {
                 setError("La date de la séance doit être après la date de début de la session (" + session.date_start + ").");
@@ -126,7 +126,7 @@ const AdminFormationSeances = () => {
                 return;
             }
         }
-        
+
         try {
             await apiClient.put(`/seance/${selectedSeance.id}`, {
                 ...editForm,
@@ -136,7 +136,7 @@ const AdminFormationSeances = () => {
             await fetchSeances();
             handleCloseEdit();
         } catch (err) {
-            setError("La mise à jour de la séance a échoué.");
+            setError(err.response?.data?.message || "La mise à jour de la séance a échoué.");
         }
     };
 
@@ -205,11 +205,24 @@ const AdminFormationSeances = () => {
                 </Col>
             </Row>
 
-            {error && (
-                <Alert variant="danger" className="mb-3">
-                    {error}
-                </Alert>
-            )}
+            {/* Error Modal */}
+            <Modal show={!!error} onHide={() => setError(null)} centered>
+                <Modal.Header closeButton className="bg-danger text-white">
+                    <Modal.Title>
+                        <FontAwesomeIcon icon={faArrowLeft} className="me-2" style={{ transform: 'rotate(180deg)' }} />
+                        Erreur
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="text-center p-4">
+                    <h5 className="text-danger fw-bold mb-3">Une erreur est survenue</h5>
+                    <p className="mb-0 fs-5">{error}</p>
+                </Modal.Body>
+                <Modal.Footer className="justify-content-center border-0 pb-4">
+                    <Button variant="danger" onClick={() => setError(null)} className="px-4">
+                        Compris
+                    </Button>
+                </Modal.Footer>
+            </Modal>
 
             {success && (
                 <Alert variant="success" className="mb-3">
