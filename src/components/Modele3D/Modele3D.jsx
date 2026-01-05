@@ -1,3 +1,8 @@
+import React, { useState, Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import Experience from './Experience';
+import Interface from './Interface';
+import './Modele3D.css';
 import { useProgress, Html } from '@react-three/drei';
 
 function Loader() {
@@ -19,7 +24,6 @@ const Modele3D = () => {
         if (mode === 'free') {
             setCameraIndex(3);
         } else {
-            // Cycle only through 0, 1, 2 (Preserve logic for main button if used without args)
             setCameraIndex((prev) => (prev === 3 ? 0 : (prev + 1) % 3));
         }
     };
