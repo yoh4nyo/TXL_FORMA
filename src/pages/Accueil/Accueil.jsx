@@ -177,14 +177,14 @@ function Accueil() {
                                             <Card.Body>
                                                 <h5 className="formation-title mt-2 mb-3" style={{ fontSize: '1.25rem' }}>{formation.nom}</h5>
                                                 <div className="formation-meta mb-3">
-                                                    <Badge bg="light" text="dark" className="me-2 p-2 border">
+                                                    <Badge className="me-2 p-2 badge-teal-soft">
                                                         <i className="bi bi-tag me-1"></i>
                                                         {formation.categorie}
                                                     </Badge>
                                                 </div>
                                                 <div className="d-flex justify-content-between align-items-center mt-3">
                                                     <div className="formation-price fw-bold" style={{ fontSize: '1.5rem', color: '#0E5555' }}>{formation.prix}€</div>
-                                                    <Button variant="outline-primary" className="rounded-pill px-4" onClick={(e) => { e.stopPropagation(); navigate(`/formation/${formation.id}`); }}>
+                                                    <Button variant="light" className="rounded-pill px-4 btn-outline-teal" onClick={(e) => { e.stopPropagation(); navigate(`/formation/${formation.id}`); }}>
                                                         Voir
                                                     </Button>
                                                 </div>

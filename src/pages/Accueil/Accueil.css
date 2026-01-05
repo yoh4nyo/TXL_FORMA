@@ -501,3 +501,24 @@
         grid-template-columns: 1fr;
     }
 }
+
+.btn-outline-teal {
+    color: #0D9488;
+    border-color: #0D9488;
+    background: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-outline-teal:hover {
+    background-color: #0D9488;
+    color: #FFFFFF;
+}
+
+.badge-teal-soft {
+    background-color: #F0FDFA !important;
+    /* teal-50 */
+    color: #0F766E !important;
+    /* teal-700 */
+    border: 1px solid #CCFBF1 !important;
+    /* teal-200 */
+}

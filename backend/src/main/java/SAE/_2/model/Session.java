@@ -103,7 +103,6 @@ public class Session {
     private Set<Seance> seances = new HashSet();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "session", cascade = CascadeType.REMOVE)
-    @JsonIgnore
     private Set<Session_eleve> session_eleves = new HashSet();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "session", cascade = CascadeType.REMOVE)
