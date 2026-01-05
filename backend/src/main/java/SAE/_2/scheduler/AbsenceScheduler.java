@@ -14,12 +14,12 @@ public class AbsenceScheduler {
     @Autowired
     private AbsenceAutoService absenceAutoService;
 
-    // Exécuter toutes les heures (à la minute 0)
-    @Scheduled(cron = "0 0 * * * *")
+    // Exécuter toutes les minutes pour test (Au lieu de toutes les heures)
+    @Scheduled(cron = "0 * * * * *")
     public void marquerAbsentsAutomatiquement() {
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         System.out.println("[" + timestamp + "] Démarrage du job de marquage automatique des absents...");
-        
+
         try {
             int count = absenceAutoService.marquerAbsentsAutomatiquement();
             System.out.println("[" + timestamp + "] Job terminé : " + count + " élève(s) marqué(s) absent(s).");

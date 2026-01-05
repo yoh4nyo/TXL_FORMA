@@ -42,29 +42,37 @@ public class AbsenceAutoService {
                 String horaireStr = seance.getHoraire();
 
                 LocalDateTime seanceDateTime = LocalDateTime.parse(
-                    dateStr + "T" + horaireStr + ":00",
-                    DateTimeFormatter.ISO_LOCAL_DATE_TIME
-                );
+                        dateStr + "T" + horaireStr + ":00",
+                        DateTimeFormatter.ISO_LOCAL_DATE_TIME);
                 LocalDateTime heureLimite = seanceDateTime.plusHours(2);
 
                 if (now.isAfter(heureLimite)) {
                     Iterable<Seance_eleve> participants = seanceeleveRepository.findBySeanceId(seance.getId());
 
                     for (Seance_eleve se : participants) {
-                        if ((se.getStatut() == null || se.getStatut().isEmpty() || se.getStatut().equals("Non renseigné")) 
-                            && (se.getSignature() == null || se.getSignature().isEmpty())) {
-                            
-                            se.setStatut("absent");
-                            se.setSignature("");
-                            seanceeleveRepository.save(se);
+                        boolean hasSignature = se.getSignature() != null && !se.getSignature().isEmpty();
+                        boolean hasStatus = se.getStatut() != null && !se.getStatut().isEmpty()
+                                && !se.getStatut().equals("Non renseigné");
 
-                            if (se.getEleve() != null) {
-                                Eleve eleve = se.getEleve();
-                                eleve.setNbAbsence(eleve.getNbAbsence() + 1);
-                                eleveRepository.save(eleve);
+                        if (!hasStatus) {
+                            if (hasSignature) {
+                                // A signé mais pas de statut -> Présent
+                                se.setStatut("présent");
+                                seanceeleveRepository.save(se);
+                                count++;
+                            } else {
+                                // Pas de signature et pas de statut -> Absent
+                                se.setStatut("absent");
+                                se.setSignature(""); // Ensure empty string instead of null
+                                seanceeleveRepository.save(se);
+
+                                if (se.getEleve() != null) {
+                                    Eleve eleve = se.getEleve();
+                                    eleve.setNbAbsence(eleve.getNbAbsence() + 1);
+                                    eleveRepository.save(eleve);
+                                }
+                                count++;
                             }
-                            
-                            count++;
                         }
                     }
                 }
