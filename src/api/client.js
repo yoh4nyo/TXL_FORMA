@@ -28,7 +28,6 @@ async function request(endpoint, options = {}) {
 
         const error = new Error('Erreur API');
         error.status = response.status;
-        // Mimic axios structure so err.response.data works
         error.response = { data: errorData };
         throw error;
     }
