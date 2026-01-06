@@ -80,8 +80,6 @@ npm install
 ```bash
 npm run dev
 ```
-> Le site sera accessible sur `http://localhost:5173`.
-
 > ⚠️ **Note Importante** : Cette commande lance uniquement le **Frontend**.
 > Pour que le site soit fonctionnel (connexion, données), vous devez également lancer le **Backend Spring Boot** et avoir une base de données **MySQL** configurée.
 
