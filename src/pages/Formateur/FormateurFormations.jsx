@@ -40,36 +40,73 @@ const FormateurFormations = () => {
         setIsLoading(true);
         setError(null);
         try {
+            // 1. Récupérer toutes les formations
             const data = await apiClient.get(`/formation/intervenant/${formateurId}`);
             const formationsArray = Array.isArray(data) ? data : [];
             setFormations(formationsArray);
-            
-            const sessionsData = {};
-            const durationsData = {};
-            for (const formation of formationsArray) {
+
+            // 2. Récupérer les sessions pour chaque formation en PARALLÈLE
+            const sessionsPromises = formationsArray.map(async (formation) => {
                 try {
                     const formationSessions = await apiClient.get(`/session/formation/${formation.id}`);
-                    sessionsData[formation.id] = Array.isArray(formationSessions) ? formationSessions : [];
-                    
-                    let totalDuration = 0;
-                    for (const session of sessionsData[formation.id]) {
-                        try {
-                            const seances = await apiClient.get(`/seance/session/${session.id}`);
-                            const seancesArray = Array.isArray(seances) ? seances : [];
-                            totalDuration += seancesArray.reduce((sum, seance) => sum + (seance.duree || 0), 0);
-                        } catch (err) {
-                            console.error(`Erreur séances session ${session.id}:`, err);
-                        }
-                    }
-                    durationsData[formation.id] = totalDuration;
+                    return {
+                        formationId: formation.id,
+                        sessions: Array.isArray(formationSessions) ? formationSessions : []
+                    };
                 } catch (err) {
-                    sessionsData[formation.id] = [];
-                    durationsData[formation.id] = 0;
+                    console.error(`Erreur sessions pour formation ${formation.id}`, err);
+                    return { formationId: formation.id, sessions: [] };
                 }
-            }
+            });
+
+            const sessionsResults = await Promise.all(sessionsPromises);
+
+            const sessionsData = {};
+            sessionsResults.forEach(result => {
+                sessionsData[result.formationId] = result.sessions;
+            });
             setSessions(sessionsData);
+
+            // 3. Récupérer les durées (séances) pour TOUTES les sessions en PARALLÈLE
+            const allSessions = sessionsResults.flatMap(r => r.sessions);
+
+            const seancesPromises = allSessions.map(async (session) => {
+                try {
+                    const seances = await apiClient.get(`/seance/session/${session.id}`);
+                    const seancesArray = Array.isArray(seances) ? seances : [];
+                    const duration = seancesArray.reduce((sum, seance) => sum + (seance.duree || 0), 0);
+                    return { sessionId: session.id, duration: duration, formationId: session.formation.id };
+                } catch (err) {
+                    return { sessionId: session.id, duration: 0, formationId: session.formation ? session.formation.id : null };
+                }
+            });
+
+            const seancesResults = await Promise.all(seancesPromises);
+
+            // Agréger les durées par formation
+            const durationsData = {};
+            formationsArray.forEach(f => durationsData[f.id] = 0); // Init à 0
+
+            // On doit faire le lien session -> formation. 
+            // Heureusement l'objet session contient souvent "formation": {id: ...} ou on peut le retrouver via notre map précédente
+
+            // Optimisation : On recrée le lien via sessionsData qu'on vient de construire
+            sessionsResults.forEach(formationGroup => {
+                let totalFormationDuration = 0;
+                formationGroup.sessions.forEach(session => {
+                    // Trouver la durée de cette session spécifique dans seancesResults
+                    const sessionResult = seancesResults.find(r => r.sessionId === session.id);
+                    if (sessionResult) {
+                        totalFormationDuration += sessionResult.duration;
+                    }
+                });
+                durationsData[formationGroup.formationId] = totalFormationDuration;
+            });
+
             setSeancesDurations(durationsData);
+
         } catch (err) {
+            console.error("Erreur générale chargement formations:", err);
             setError("Impossible de charger les formations.");
         } finally {
             setIsLoading(false);
@@ -81,7 +118,7 @@ const FormateurFormations = () => {
         if (formationSessions.length === 0) return null;
 
         const now = new Date();
-        
+
         let hasNotStarted = false;
         let hasInProgress = false;
         let allFinished = true;

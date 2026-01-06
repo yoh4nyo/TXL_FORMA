@@ -6,7 +6,8 @@
 *   **La BDD SQL** : MySQL (Configurée dans le backend Spring Boot)
 *   **Les diagrammes** : [Voir les schémas techniques](#schémas-techniques) (MCD, UML, Architecture)
 
-> ⚠️ **ATTENTION : LE MODÈLE 3D SUR LA PAGE D'ACCUEIL PEUT METTRE DU TEMPS À CHARGER. MERCI DE PATIENTER QUELQUES SECONDES.**
+> ~~⚠️ **ATTENTION : LE MODÈLE 3D SUR LA PAGE D'ACCUEIL PEUT METTRE DU TEMPS À CHARGER.**~~
+> **(Mise à jour : Modèle compressé à 8 Mo)**
 
 ### Identifiants pour tests
 
