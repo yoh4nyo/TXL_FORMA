@@ -115,7 +115,12 @@ const FormationDetail = () => {
             return '/assets/back_end.png';
         }
 
-        return '/assets/default.jpg';
+        if (normalized.includes('projet') || normalized.includes('conduite')) {
+            return '/assets/conduite_projet.jpg';
+        }
+
+        // Fallback to a generic existing image if no match
+        return '/assets/formations.png';
     };
 
     if (isLoading) {
