@@ -34,9 +34,10 @@ public class SecurityConfig {
         // Use allowedOriginPatterns instead of allowedOrigins to support wildcards with
         // credentials
         configuration.setAllowedOriginPatterns(java.util.Arrays.asList(
-                "http://localhost:5173",
                 "https://txl-forma.vercel.app",
-                "https://txl-forma-*.vercel.app"));
+                "https://txl-forma-*.vercel.app",
+                "*" // Allow everything for troubleshooting
+        ));
 
         configuration.setAllowedMethods(java.util.Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(java.util.Arrays.asList("*"));
