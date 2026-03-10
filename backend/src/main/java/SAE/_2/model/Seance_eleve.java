@@ -15,7 +15,7 @@ public class Seance_eleve {
     private String statut;
 
     @Lob
-    @Column(columnDefinition = "LONGTEXT")
+    @Column(columnDefinition = "TEXT")
     private String signature;
     private LocalDate inscription = LocalDate.now();
 
