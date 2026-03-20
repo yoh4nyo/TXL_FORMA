@@ -5,10 +5,22 @@ const defaultHeaders = {
 };
 
 async function request(endpoint, options = {}) {
+    const method = (options.method || 'GET').toUpperCase();
+    const isGetRequest = method === 'GET';
+
     const response = await fetch(`${API_BASE_URL}${endpoint}`.replace(/(?<!:)\/\/+/g, '/'), {
         ...options,
+        method,
+        cache: isGetRequest ? 'no-store' : options.cache,
         headers: {
             ...defaultHeaders,
+            ...(isGetRequest
+                ? {
+                    'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate',
+                    Pragma: 'no-cache',
+                    Expires: '0',
+                }
+                : {}),
             ...(options.headers || {}),
         },
     });
