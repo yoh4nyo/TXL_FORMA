@@ -1,59 +1,86 @@
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api';
 
-const defaultHeaders = {
-    'Content-Type': 'application/json',
-};
+const RETRYABLE_STATUS = new Set([408, 429, 500, 502, 503, 504]);
+
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function request(endpoint, options = {}) {
     const method = (options.method || 'GET').toUpperCase();
     const isGetRequest = method === 'GET';
+    const url = `${API_BASE_URL}${endpoint}`.replace(/(?<!:)\/\/+/g, '/');
 
-    const response = await fetch(`${API_BASE_URL}${endpoint}`.replace(/(?<!:)\/\/+/g, '/'), {
-        ...options,
-        method,
-        cache: isGetRequest ? 'no-store' : options.cache,
-        headers: {
-            ...defaultHeaders,
-            ...(isGetRequest
-                ? {
-                    'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate',
-                    Pragma: 'no-cache',
-                    Expires: '0',
-                }
-                : {}),
-            ...(options.headers || {}),
-        },
-    });
+    const headers = {
+        ...(options.headers || {}),
+    };
 
-    if (!response.ok) {
-        let errorData;
-        const contentType = response.headers.get('content-type');
+    if (options.body !== undefined && options.body !== null && !headers['Content-Type']) {
+        headers['Content-Type'] = 'application/json';
+    }
+
+    const maxAttempts = isGetRequest ? 3 : 1;
+    let lastError;
+
+    for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
         try {
-            if (contentType && contentType.includes('application/json')) {
-                errorData = await response.json();
-            } else {
-                errorData = await response.text();
+            const response = await fetch(url, {
+                ...options,
+                method,
+                cache: isGetRequest ? 'no-store' : options.cache,
+                headers,
+            });
+
+            if (!response.ok) {
+                let errorData;
+                const contentType = response.headers.get('content-type');
+                try {
+                    if (contentType && contentType.includes('application/json')) {
+                        errorData = await response.json();
+                    } else {
+                        errorData = await response.text();
+                    }
+                } catch {
+                    errorData = await response.text();
+                }
+
+                const error = new Error('Erreur API');
+                error.status = response.status;
+                error.response = { data: errorData };
+
+                const shouldRetry = isGetRequest && RETRYABLE_STATUS.has(response.status) && attempt < maxAttempts;
+                if (shouldRetry) {
+                    await wait(250 * attempt);
+                    continue;
+                }
+
+                throw error;
             }
-        } catch (e) {
-            errorData = await response.text();
+
+            if (response.status === 204 || response.headers.get('content-length') === '0') {
+                return null;
+            }
+
+            const contentType = response.headers.get('content-type');
+            if (contentType && contentType.includes('application/json')) {
+                return response.json();
+            }
+
+            return null;
+        } catch (error) {
+            const status = error?.status;
+            const isNetworkError = error instanceof TypeError;
+            const shouldRetry = isGetRequest && attempt < maxAttempts && (isNetworkError || RETRYABLE_STATUS.has(status));
+
+            if (shouldRetry) {
+                lastError = error;
+                await wait(250 * attempt);
+                continue;
+            }
+
+            throw error;
         }
-
-        const error = new Error('Erreur API');
-        error.status = response.status;
-        error.response = { data: errorData };
-        throw error;
     }
 
-    if (response.status === 204 || response.headers.get('content-length') === '0') {
-        return null;
-    }
-
-    const contentType = response.headers.get('content-type');
-    if (contentType && contentType.includes('application/json')) {
-        return response.json();
-    }
-
-    return null;
+    throw lastError || new Error('Erreur API');
 }
 
 export const apiClient = {
