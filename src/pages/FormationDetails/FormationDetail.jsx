@@ -5,14 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCheck, faClock, faDesktop, faHeadset, faCertificate, faFileAlt
 } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
 import { apiClient } from '../../api/client';
 import './FormationDetailTemplate.css';
 import ModalReservation from './ModalReservation';
 
 const FormationDetail = () => {
     const { formationId } = useParams();
-    const navigate = useNavigate();
     const [formation, setFormation] = useState(null);
     const [sessions, setSessions] = useState([]);
     const [totalHours, setTotalHours] = useState(0);

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Container, Row, Col, Card, Button, Table, Badge, Modal, Form, Spinner, Alert } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faEye, faPen, faTrash, faUser, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faEye, faUser, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate, useParams } from 'react-router-dom';
 import { apiClient } from '../../api/client';
 import '../Admin/Formations/AdminFormations.css';
@@ -65,13 +65,8 @@ const FormateurFormationSessions = () => {
         }, {});
     }, [seances]);
 
-    const handleShowAdd = () => setShowAddModal(true);
     const handleCloseAdd = () => setShowAddModal(false);
 
-    const handleShowEdit = (session) => {
-        setSelectedSession(session);
-        setShowEditModal(true);
-    };
     const handleCloseEdit = () => {
         setShowEditModal(false);
         setSelectedSession(null);

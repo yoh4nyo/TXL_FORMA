@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import React, { useState, useEffect } from 'react';
 import { Modal, Button, Row, Col, Alert } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt, faMapMarkerAlt, faUsers, faClock, faTimes, faChalkboardTeacher, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt, faUsers, faClock, faTimes, faChalkboardTeacher, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { apiClient } from '../../api/client';
@@ -12,7 +13,7 @@ import './ModalReservation.css';
 
 const stripePromise = loadStripe('pk_test_51SlxYXEaqUE5mOEV9OgW7qNYTU5WrWKRb9zlPyBdtDHvpu1Ld1f8Nvc8r9jKKSfSFSNUpl6h3UMc5ATeS1wuab1N00cLWhRA9I');
 
-const ModalReservation = ({ show, handleClose, formationTitle, formationPrice, sessions, formationId }) => {
+const ModalReservation = ({ show, handleClose, formationTitle, formationPrice, sessions }) => {
     const [selectedSession, setSelectedSession] = useState(null);
     const [error, setError] = useState('');
     const [sessionDetails, setSessionDetails] = useState({});
@@ -28,19 +29,13 @@ const ModalReservation = ({ show, handleClose, formationTitle, formationPrice, s
         }
     }, [show, isAuthenticated]);
 
-    useEffect(() => {
-        if (show && sessions.length > 0) {
-            fetchSessionsDetails();
-        }
-    }, [show, sessions]);
-
-    const fetchSessionsDetails = async () => {
+    async function fetchSessionsDetails() {
         const details = {};
         for (const session of sessions) {
             try {
                 const seances = await apiClient.get(`/seance/session/${session.id}`);
                 const totalHours = Array.isArray(seances) ? seances.reduce((sum, s) => sum + (s.duree || 0), 0) : 0;
-                
+
                 let intervenant = null;
                 if (session.intervenant?.id) {
                     try {
@@ -49,7 +44,7 @@ const ModalReservation = ({ show, handleClose, formationTitle, formationPrice, s
                         console.error('Erreur intervenant:', err);
                     }
                 }
-                
+
                 details[session.id] = {
                     seances: Array.isArray(seances) ? seances : [],
                     totalHours,
@@ -60,7 +55,13 @@ const ModalReservation = ({ show, handleClose, formationTitle, formationPrice, s
             }
         }
         setSessionDetails(details);
-    };
+    }
+
+    useEffect(() => {
+        if (show && sessions.length > 0) {
+            fetchSessionsDetails();
+        }
+    }, [show, sessions]);
 
     const checkActiveSession = async () => {
         if (!isEleve || !user?.id) return false;
@@ -78,6 +79,7 @@ const ModalReservation = ({ show, handleClose, formationTitle, formationPrice, s
                     const dateEnd = new Date(session.date_end);
                     
                     if (now >= dateStart && now <= dateEnd) {
+                        return true;
                     }
                 } catch (err) {
                     console.error('Erreur vérification session:', err);

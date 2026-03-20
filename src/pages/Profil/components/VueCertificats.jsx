@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Card, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAward, faEye } from '@fortawesome/free-solid-svg-icons';
+import { faAward } from '@fortawesome/free-solid-svg-icons';
 import { jsPDF } from 'jspdf';
 
 function VueCertificats({ certificats, utilisateur }) {
@@ -40,7 +40,7 @@ function VueCertificats({ certificats, utilisateur }) {
       const logoWidth = 80;
       const logoHeight = (logoImg.height / logoImg.width) * logoWidth;
       doc.addImage(logoImg, 'PNG', margin + 8, margin - 4, logoWidth, logoHeight);
-    } catch (e) {
+    } catch {
     }
     doc.setTextColor(deep.r, deep.g, deep.b);
     doc.setFontSize(12);
@@ -87,7 +87,7 @@ function VueCertificats({ certificats, utilisateur }) {
         try {
           signatureImg = await loadImage(url);
           if (signatureImg) break;
-        } catch (err) {
+        } catch {
         }
       }
       if (signatureImg) {
@@ -95,7 +95,7 @@ function VueCertificats({ certificats, utilisateur }) {
         const sigHeight = (signatureImg.height / signatureImg.width) * sigWidth;
         doc.addImage(signatureImg, 'PNG', margin + 24, signY + 6, sigWidth, sigHeight);
       }
-    } catch (e) {
+    } catch {
     }
     const sealX = pageWidth - margin - 90;
     const sealY = signY - 10;

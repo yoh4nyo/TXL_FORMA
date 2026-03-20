@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Container, Row, Col, Card, Button, Table, Badge, Modal, Form, Spinner, Alert } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faEye, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faEye } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate, useParams } from 'react-router-dom';
 import { apiClient } from '../../api/client';
 import '../../components/MenuAdmin/MenuAdmin.css';
@@ -12,7 +12,6 @@ const FormateurFormations = () => {
     const { formateurId } = useParams();
     const [showAddModal, setShowAddModal] = useState(false);
     const [showEditModal, setShowEditModal] = useState(false);
-    const [selectedFormation, setSelectedFormation] = useState(null);
     const [formations, setFormations] = useState([]);
     const [sessions, setSessions] = useState({});
     const [seancesDurations, setSeancesDurations] = useState({});
@@ -148,16 +147,10 @@ const FormateurFormations = () => {
 
     const formateurCount = useMemo(() => formations.length, [formations]);
 
-    const handleShowAdd = () => setShowAddModal(true);
     const handleCloseAdd = () => setShowAddModal(false);
 
-    const handleShowEdit = (formation) => {
-        setSelectedFormation(formation);
-        setShowEditModal(true);
-    };
     const handleCloseEdit = () => {
         setShowEditModal(false);
-        setSelectedFormation(null);
     };
 
     return (

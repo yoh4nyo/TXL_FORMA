@@ -38,7 +38,6 @@ const AdminUsers = () => {
     };
 
     const usersCount = useMemo(() => users.length, [users]);
-    const adminCount = useMemo(() => users.filter((u) => u.role === 'ROLE_ADMIN').length, [users]);
 
     const handleShowAdd = () => setShowAddModal(true);
     const handleCloseAdd = () => {

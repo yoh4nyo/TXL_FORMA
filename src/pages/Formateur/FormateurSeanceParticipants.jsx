@@ -9,7 +9,7 @@ import '../Admin/Formations/AdminFormations.css';
 const FormateurSeanceParticipants = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { formateurId, seanceId, sessionId } = useParams();
+    const { seanceId, sessionId } = useParams();
     const [participants, setParticipants] = useState([]);
     const [seance, setSeance] = useState(null);
     const [session, setSession] = useState(null);

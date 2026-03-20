@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Container, Row, Col, Form, Button, Card, Accordion, Badge, Spinner } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faFilter, faClock, faUserGraduate, faStar, faUndo } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faFilter, faClock, faUserGraduate, faUndo } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './NosFormations.css';
 import { apiClient } from '../../api/client';
@@ -16,7 +16,6 @@ function NosFormations() {
     const [formationStats, setFormationStats] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [selectedDomains, setSelectedDomains] = useState(['all']);
-    const [selectedDurations, setSelectedDurations] = useState(['all']);
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
@@ -129,29 +128,8 @@ function NosFormations() {
         }
     };
 
-    const handleDurationChange = (duration) => {
-        setCurrentPage(1);
-        if (duration === 'all') {
-            setSelectedDurations(['all']);
-        } else {
-            let newDurations = selectedDurations.filter(d => d !== 'all');
-            if (newDurations.includes(duration)) {
-                newDurations = newDurations.filter(d => d !== duration);
-            } else {
-                newDurations.push(duration);
-            }
-
-            if (newDurations.length === 0) {
-                setSelectedDurations(['all']);
-            } else {
-                setSelectedDurations(newDurations);
-            }
-        }
-    };
-
     const handleReset = () => {
         setSelectedDomains(['all']);
-        setSelectedDurations(['all']);
         setSearchTerm('');
     };
 

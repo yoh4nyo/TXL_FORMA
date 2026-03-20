@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Container, Button, Spinner, Row, Col, Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faBook, faAward, faCog, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faBook, faAward, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import VueProfil from './components/VueProfil';
@@ -29,7 +29,7 @@ function Profil() {
     confirmPassword: ''
   });
 
-  const { isAuthenticated, user, isEleve, isAdmin, isFormateur } = useAuth();
+  const { user, isAdmin, isFormateur } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {

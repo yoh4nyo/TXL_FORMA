@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Card, Form, Spinner, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faBook, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faBook } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router-dom';
 import { apiClient } from '../../api/client';
 import '../Admin/Dashboard/AdminDashboard.css'; 

@@ -1,8 +1,7 @@
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Button, Card, Badge, Carousel, Form } from 'react-bootstrap';
 import heroImage from '../../assets/hero_photo_accueil.jpg';
-import virtualRoomImage from '../../assets/photo_3d.png';
 import cyberImage from '../../assets/cyber.jpg';
 import devFrontImage from '../../assets/front_end.png';
 import projetImage from '../../assets/conduite_projet.jpg';

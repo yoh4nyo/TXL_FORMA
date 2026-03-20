@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
+import React from 'react';
+import { Row, Col, Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faAward, faCalendarAlt, faPencilAlt, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faCalendarAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 
 function Entete({ user }) {
   const formatDate = (dateString) => {
@@ -31,7 +31,7 @@ function Entete({ user }) {
   );
 }
 
-function Details({ user, isEditing, setIsEditing, formData, handleInputChange, handleSaveChanges, handleCancel, onDeleteAccount }) {
+function Details({ isEditing, setIsEditing, formData, handleInputChange, handleSaveChanges, handleCancel, onDeleteAccount }) {
 
   return (
     <Form>

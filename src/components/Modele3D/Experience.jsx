@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState, useMemo } from 'react';
+/* eslint-disable react-hooks/immutability */
+import React, { useEffect, useRef, useState } from 'react';
 import { useGLTF, useAnimations, PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
@@ -26,7 +27,7 @@ const Experience = ({ cameraIndex, animationTrigger }) => {
     useEffect(() => {
         if (!animationTrigger) return;
 
-        const { name, timestamp } = animationTrigger;
+        const { name } = animationTrigger;
 
         // CAS LUMIÈRES
         if (name === 'LightONOFF') {

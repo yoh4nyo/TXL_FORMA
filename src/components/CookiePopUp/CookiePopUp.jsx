@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCookieBite, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCookieBite } from '@fortawesome/free-solid-svg-icons';
 import './CookiePopUp.css';
 
 const CookiePopUp = () => {
